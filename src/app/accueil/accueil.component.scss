@@ -1,0 +1,23 @@
+.accueil {
+  padding: 2em 3em;
+  display: flex;
+  height: calc(100vh - 15rem);
+  flex-direction: column;
+}
+
+.accroche {
+  flex: auto;
+  align-self: center;
+  max-width: 60rem;
+  color: rgb(220, 220, 220);
+  h1 {
+    font-size: 2rem;
+    line-height: 5rem;
+    border-bottom: 2px solid rgba(94, 83, 61);
+  }
+  p {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    color: rgb(220, 220, 220);
+  }
+}
