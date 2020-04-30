@@ -1,0 +1,17 @@
+<div class="bandeau">
+  <img src="assets/img/gypaete-draw-sd.png" height="80" alt="gypaete">
+  <span class="titre">Le Gypaète</span>
+  <span class="navigation">
+    <button mat-button [routerLink]="['/']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" >Accueil</button>
+    <button mat-button [routerLink]="['/chambres']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" >Les chambres</button>
+    <button mat-button [routerLink]="['/tarifs']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" >Tarifs & prestations</button>
+    <button mat-button [routerLink]="['/reserver']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" >Reserver</button>
+    <button mat-button [routerLink]="['/contact']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" >Contact</button>
+    <button mat-button [matMenuTriggerFor]="langue">Langue</button>
+    <mat-menu #langue="matMenu">
+      <button mat-menu-item>Français</button>
+      <button mat-menu-item>English</button>
+      <button mat-menu-item>Deutsch</button>
+    </mat-menu>
+  </span>
+</div>

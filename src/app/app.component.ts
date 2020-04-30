@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'le-gypaete-front';
+  title = 'Le Gypaete';
+
+  backgroundImage = '/assets/img/village-hd.jpg';
 }
