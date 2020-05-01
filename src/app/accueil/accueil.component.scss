@@ -1,19 +1,22 @@
 .accueil {
-  padding: 2em 3em;
+  margin-left: 10em;
+  margin-right: 10em;
   display: flex;
   height: calc(100vh - 15rem);
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .accroche {
   flex: auto;
   align-self: center;
   max-width: 60rem;
+  min-width: 30rem;
   color: rgb(220, 220, 220);
   h1 {
     font-size: 2rem;
-    line-height: 5rem;
-    border-bottom: 2px solid rgba(94, 83, 61);
+    line-height: 2.5rem;
+    border-bottom: 2px solid rgba(240, 212, 156);
+    padding-bottom: .7em;
   }
   p {
     font-size: 1.5rem;

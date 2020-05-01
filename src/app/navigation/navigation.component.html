@@ -1,7 +1,9 @@
 <div class="bandeau">
-  <img src="assets/img/gypaete-draw-sd.png" height="80" alt="gypaete">
-  <span class="titre">Le Gypaète</span>
-  <span class="navigation">
+  <div class="titre">
+    <img class="image" src="assets/img/gypaete-draw-sd.png" height="70" alt="gypaete">
+    <span class="texte">Châlet Le Gypaète</span>
+  </div>
+  <div class="navigation">
     <button mat-button [routerLink]="['/']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" >Accueil</button>
     <button mat-button [routerLink]="['/chambres']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" >Les chambres</button>
     <button mat-button [routerLink]="['/tarifs']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" >Tarifs & prestations</button>
@@ -13,5 +15,5 @@
       <button mat-menu-item>English</button>
       <button mat-menu-item>Deutsch</button>
     </mat-menu>
-  </span>
+  </div>
 </div>
