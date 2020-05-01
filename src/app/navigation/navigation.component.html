@@ -9,11 +9,11 @@
     <button mat-button [routerLink]="['/tarifs']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" >Tarifs & prestations</button>
     <button mat-button [routerLink]="['/reserver']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" >Reserver</button>
     <button mat-button [routerLink]="['/contact']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" >Contact</button>
-    <button mat-button [matMenuTriggerFor]="langue">Langue</button>
-    <mat-menu #langue="matMenu">
-      <button mat-menu-item>Français</button>
-      <button mat-menu-item>English</button>
-      <button mat-menu-item>Deutsch</button>
+    <button mat-button [matMenuTriggerFor]="langueMenu"><span class="flag-icon flag-icon-{{langue}}"></span></button>
+    <mat-menu #langueMenu="matMenu">
+      <button mat-menu-item class="choix-langue"><span class="flag-icon flag-icon-fr"></span>Français</button>
+      <button mat-menu-item class="choix-langue"><span class="flag-icon flag-icon-gb"></span>English</button>
+      <button mat-menu-item class="choix-langue"><span class="flag-icon flag-icon-de"></span>Deutsch</button>
     </mat-menu>
   </div>
 </div>
