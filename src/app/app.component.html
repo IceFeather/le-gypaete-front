@@ -1,12 +1,5 @@
-<div *ngFor="let item of diaporamaFond.images[saison] | keyvalue">
-  <div class="bg" @diapo *ngIf="diaporamaFond.numero == item.key" [style.background-image]="'url('+item.value+')'"></div>
-</div>
+<app-fond></app-fond>
 <div class="gradiant">
   <app-navigation></app-navigation>
   <router-outlet></router-outlet>
-  <button class="saison" mat-mini-fab (click)="changerSaison($event)">
-    <mat-icon *ngIf="saison == 'été'">ac_unit</mat-icon>
-    <mat-icon *ngIf="saison == 'hiver'">wb_sunny</mat-icon>
-  </button>
 </div>
-

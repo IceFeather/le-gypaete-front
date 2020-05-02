@@ -1,7 +1,12 @@
 <div class="bandeau">
-  <div class="titre">
-    <img class="image" src="assets/img/gypaete-draw-sd.png" alt="gypaete">
-    <span class="texte">Châlet Le Gypaète</span>
+  <div class="brand">
+    <div class="mobile-navigation" *ngIf="isMobile">
+      <button mat-icon-button><mat-icon class="icon">menu</mat-icon></button>
+    </div>
+    <div class="titre">
+      <img class="image" src="assets/img/gypaete-draw-sd.png" alt="gypaete">
+      <span class="texte">Châlet Le Gypaète</span>
+    </div>
   </div>
   <div class="navigation">
     <button mat-button [routerLink]="['/']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" >Accueil</button>

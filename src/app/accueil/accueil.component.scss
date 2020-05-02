@@ -6,6 +6,25 @@
   flex-direction: row;
 }
 
+button.saison {
+  position: absolute;
+  bottom: 1em;
+  left: 1em;
+  background-color: rgba(94, 83, 61, .5);
+}
+
+.fond-controle {
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+  display: flex;
+  flex-direction: row;
+  button {
+    flex: auto;
+    background-color: rgba(94, 83, 61, .5);
+  }
+}
+
 .accroche {
   flex: auto;
   align-self: center;
@@ -22,5 +41,21 @@
     font-size: 1.5rem;
     line-height: 2rem;
     color: rgb(220, 220, 220);
+  }
+}
+
+@media screen and (orientation: portrait) {
+  .accueil {
+    margin-left: 1em;
+    margin-right: 1em;
+    display: flex;
+    height: calc(100vh - 15rem);
+    flex-direction: row;
+  }
+  .accroche {
+    flex: auto;
+    align-self: center;
+    max-width: 100%;
+    min-width: 50%;
   }
 }
