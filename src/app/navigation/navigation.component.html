@@ -1,13 +1,13 @@
 <div class="bandeau">
   <div class="titre">
-    <img class="image" src="assets/img/gypaete-draw-sd.png" height="70" alt="gypaete">
+    <img class="image" src="assets/img/gypaete-draw-sd.png" alt="gypaete">
     <span class="texte">Châlet Le Gypaète</span>
   </div>
   <div class="navigation">
     <button mat-button [routerLink]="['/']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" >Accueil</button>
     <button mat-button [routerLink]="['/chambres']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" >Les chambres</button>
     <button mat-button [routerLink]="['/tarifs']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" >Tarifs & prestations</button>
-    <button mat-button [routerLink]="['/reserver']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" >Reserver</button>
+    <button mat-button [routerLink]="['/reserver']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" >Réserver</button>
     <button mat-button [routerLink]="['/contact']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" >Contact</button>
     <button mat-button [matMenuTriggerFor]="langueMenu"><span class="flag-icon flag-icon-{{langue}}"></span></button>
     <mat-menu #langueMenu="matMenu">

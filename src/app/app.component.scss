@@ -1,8 +1,19 @@
 .bg {
   height: 100%;
+  width: 100%;
   background-size: cover;
-  .gradiant {
-    height: 100%;
-    background: linear-gradient(135deg, rgba(18, 9, 4, .5), rgba(94, 83, 61, .5) 100%);
-  }
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  z-index: -1;
+}
+.gradiant {
+  height: 100%;
+  background: linear-gradient(135deg, rgba(18, 9, 4, .5), rgba(94, 83, 61, .7) 100%);
+}
+button.saison {
+  position: absolute;
+  bottom: 1em;
+  left: 1em;
+  background-color: rgba(94, 83, 61, .5);
 }

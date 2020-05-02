@@ -1,17 +1,36 @@
 import { Component, OnInit } from '@angular/core';
-import { fromEvent, interval, merge, noop, NEVER, Subscription } from 'rxjs';
-import { map, mapTo, scan, startWith, switchMap, tap } from 'rxjs/operators';
-import { resetFakeAsyncZone } from '@angular/core/testing';
+import { interval, Subscription } from 'rxjs';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+  // ...
+} from '@angular/animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  animations: [
+    trigger('diapo', [
+      // ...
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate(500, style({ opacity: 1 }))
+      ]),
+      transition(':leave', [
+        style({ opacity: 1 }),
+        animate(500, style({ opacity: 0 }))
+      ]),
+    ])
+  ]
 })
 export class AppComponent implements OnInit {
   title = 'Le Gypaete';
 
-  saison = 'été';
+  saison = 'hiver';
 
   diaporamaFond = {
     defilement : true,
@@ -27,30 +46,20 @@ export class AppComponent implements OnInit {
         '/assets/img/vallee-hiver-jour-hd.jpg',
       ]
     },
-    image: {
-      numero: 0,
-      path: '',
-      set: () => {
-        this.diaporamaFond.image.path = this.diaporamaFond.images[this.saison][this.diaporamaFond.image.numero];
-        console.log(this.diaporamaFond.image);
-      }
-    },
+    numero: 0,
     reset: () => {
-      this.diaporamaFond.image.numero = 0;
-      this.diaporamaFond.image.set();
+      this.diaporamaFond.numero = 0;
     },
     suivant: () => {
-      if (this.diaporamaFond.image.numero < this.diaporamaFond.images[this.saison].length - 1) {
-        this.diaporamaFond.image.numero++;
-        this.diaporamaFond.image.set();
+      if (this.diaporamaFond.numero < this.diaporamaFond.images[this.saison].length - 1) {
+        this.diaporamaFond.numero++;
       } else {
         this.diaporamaFond.reset();
       }
     },
     precedent: () => {
-      if (this.diaporamaFond.image.numero > 0) {
-        this.diaporamaFond.image.numero--;
-        this.diaporamaFond.image.set();
+      if (this.diaporamaFond.numero > 0) {
+        this.diaporamaFond.numero--;
       } else {
         this.diaporamaFond.reset();
       }
@@ -64,13 +73,13 @@ export class AppComponent implements OnInit {
     this.démarrerDiaporamaFond();
   }
 
-  changerSaison() {
+  changerSaison(event) {
     if (this.saison === 'été') {
       this.saison = 'hiver';
     } else {
       this.saison = 'été';
     }
-    this.diaporamaFond.image.numero = 0;
+    this.diaporamaFond.reset();
   }
 
   démarrerDiaporamaFond() {
@@ -82,7 +91,5 @@ export class AppComponent implements OnInit {
   arrêterDiaporamaFond() {
     this.diaporamaFondSub.unsubscribe();
   }
-
-
 
 }
