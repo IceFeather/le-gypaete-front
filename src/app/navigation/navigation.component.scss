@@ -4,16 +4,12 @@
   align-items: center;
   padding: 1rem 3rem;
   max-width: 100%;
-  // background: rgba(18, 9, 4, 0.2) 100%;
-  // background: linear-gradient(0deg, rgba(18, 9, 4, 0.3), rgba(94, 83, 61, 0.3) 100%);
   box-shadow: 0 0 1em rgba(18, 9, 4, 0.5);
   .brand {
     display: flex;
     width: 100%;
     flex-direction: row;
     .titre {
-      // flex-grow: 1;
-      // flex: auto;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -71,6 +67,21 @@
   .flag-icon {
     margin-right: 1em;
   }
+}
+
+::ng-deep .navigation-menu {
+  background-color: rgba(240, 212, 156);
+  &.mobile {
+    margin-top: 1.5em;
+  }
+  .mat-menu-item.active {
+    background-color: rgba(48, 23, 12, 0.5);
+    color: rgba(240, 212, 156);
+  }
+}
+
+.customize+* .mat-menu-panel {
+  background: red;
 }
 
 @media screen and (orientation: portrait) {
