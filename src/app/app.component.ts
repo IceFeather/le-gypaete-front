@@ -7,7 +7,7 @@ import { DeviceDetectorService } from 'ngx-device-detector';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  title = 'Le Gypaete';
+  title = 'Chalet le Gypaete';
 
   saison = 'hiver';
 
