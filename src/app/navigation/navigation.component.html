@@ -1,0 +1,24 @@
+<div class="bandeau">
+  <div class="brand">
+    <div class="mobile-navigation" *ngIf="isMobile">
+      <button mat-icon-button><mat-icon class="icon">menu</mat-icon></button>
+    </div>
+    <div class="titre">
+      <img class="image" src="assets/img/gypaete-draw-sd.png" alt="gypaete">
+      <span class="texte">Châlet Le Gypaète</span>
+    </div>
+  </div>
+  <div class="navigation">
+    <button mat-button [routerLink]="['/']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" >Accueil</button>
+    <button mat-button [routerLink]="['/chambres']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" >Les chambres</button>
+    <button mat-button [routerLink]="['/tarifs']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" >Tarifs & prestations</button>
+    <button mat-button [routerLink]="['/reserver']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" >Réserver</button>
+    <button mat-button [routerLink]="['/contact']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" >Contact</button>
+    <button mat-button [matMenuTriggerFor]="langueMenu"><span class="flag-icon flag-icon-{{langue}}"></span></button>
+    <mat-menu #langueMenu="matMenu">
+      <button mat-menu-item class="choix-langue"><span class="flag-icon flag-icon-fr"></span>Français</button>
+      <button mat-menu-item class="choix-langue"><span class="flag-icon flag-icon-gb"></span>English</button>
+      <button mat-menu-item class="choix-langue"><span class="flag-icon flag-icon-de"></span>Deutsch</button>
+    </mat-menu>
+  </div>
+</div>

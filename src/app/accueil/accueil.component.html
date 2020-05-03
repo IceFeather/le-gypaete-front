@@ -1,0 +1,23 @@
+<span class="accueil">
+  <span class="accroche" [@flyInOut]="accrocheNumero">
+    <h1>{{accroches[accrocheNumero].titre}}</h1>
+    <p>{{accroches[accrocheNumero].texte}}</p>
+  </span>
+</span>
+
+<button class="saison" mat-mini-fab (click)="changerSaison($event)">
+  <mat-icon *ngIf="saison == 'été'">ac_unit</mat-icon>
+  <mat-icon *ngIf="saison == 'hiver'">wb_sunny</mat-icon>
+</button>
+<div class="fond-controle">
+  <button class="fond-precedent" mat-mini-fab (click)="fondService.precedent()">
+    <mat-icon>navigate_before</mat-icon>
+  </button>
+  <button class="fond-suivant" mat-mini-fab (click)="fondService.suivant()">
+    <mat-icon>navigate_next</mat-icon>
+  </button>
+  <button class="fond-demarrer-arreter" mat-mini-fab (click)="fondService.demarrerArreter()">
+    <span *ngIf="fondService.defilement.getValue(); else fondDemarrer"><mat-icon >pause</mat-icon></span>
+    <ng-template #fondDemarrer><mat-icon>play_arrow</mat-icon></ng-template>
+  </button>
+</div>
