@@ -20,7 +20,7 @@ export class NavigationComponent implements OnInit {
     media: MediaMatcher,
     private deviceService: DeviceDetectorService
   ) {
-    this.mobileQuery = media.matchMedia('(orientation: 600px)');
+    this.mobileQuery = media.matchMedia('(max-width: 1366px)');
     this.mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this.mobileQueryListener);
     this.isMobile = deviceService.isMobile();

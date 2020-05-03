@@ -1,8 +1,8 @@
 .accueil {
-  margin-left: 10em;
-  margin-right: 10em;
+  margin-left: 10rem;
+  margin-right: 10rem;
   display: flex;
-  height: calc(100vh - 15rem);
+  height: 100%;
   flex-direction: row;
 }
 
@@ -15,8 +15,8 @@ button.saison {
 
 .fond-controle {
   position: absolute;
-  bottom: 1em;
-  right: 1em;
+  bottom: 1rem;
+  right: 1rem;
   display: flex;
   flex-direction: row;
   button {
@@ -34,22 +34,33 @@ button.saison {
   h1 {
     font-size: 2rem;
     line-height: 2.5rem;
-    border-bottom: 2px solid rgba(240, 212, 156);
-    padding-bottom: .7em;
+    border-bottom: .2rem solid rgba(240, 212, 156);
+    padding-bottom: .7rem;
   }
   p {
     font-size: 1.5rem;
     line-height: 2rem;
     color: rgb(220, 220, 220);
   }
+  &.mobile {
+    h1 {
+      font-size: 1.5rem;
+      line-height: 1.7rem;
+    }
+    p {
+      font-size: 1rem;
+      line-height: 1.2;
+    }
+  }
 }
 
 @media screen and (orientation: portrait) {
   .accueil {
-    margin-left: 1em;
-    margin-right: 1em;
+    margin-left: 1rem;
+    margin-right: 1rem;
     display: flex;
-    height: calc(100vh - 15rem);
+    // margin-top: 5rem;
+    // height: calc(100vh - 5rem);
     flex-direction: row;
   }
   .accroche {

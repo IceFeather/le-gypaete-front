@@ -1,5 +1,7 @@
 <app-fond></app-fond>
 <div class="gradiant">
   <app-navigation></app-navigation>
-  <router-outlet></router-outlet>
+  <div class="content" [class.mobile]="isMobile">
+    <router-outlet></router-outlet>
+  </div>
 </div>

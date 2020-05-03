@@ -1,22 +1,22 @@
-<div class="bandeau">
-  <div class="brand">
-    <div class="mobile-navigation" *ngIf="isMobile">
-      <button mat-icon-button [matMenuTriggerFor]="mobileNavigationMenu"><mat-icon class="icon">menu</mat-icon></button>
-      <mat-menu #mobileNavigationMenu="matMenu" class="navigation-menu mobile">
-        <button mat-menu-item [routerLink]="['/']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" ><span>Accueil</span></button>
-        <button mat-menu-item [routerLink]="['/chambres']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" ><span>Les chambres</span></button>
-        <button mat-menu-item [routerLink]="['/tarifs']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" ><span>Tarifs & prestations</span></button>
-        <button mat-menu-item [routerLink]="['/reserver']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" ><span>Réserver</span></button>
-        <button mat-menu-item [routerLink]="['/contact']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" ><span>Contact</span></button>
-        <button mat-menu-item [matMenuTriggerFor]="mobileLangueMenu" class="choix-langue"><span class="flag-icon flag-icon-{{langue}}"></span><span>Langue</span></button>
-        <mat-menu #mobileLangueMenu="matMenu" class="navigation-menu">
-          <button mat-menu-item class="choix-langue"><span class="flag-icon flag-icon-fr"></span>Français</button>
-          <button mat-menu-item class="choix-langue"><span class="flag-icon flag-icon-gb"></span>English</button>
-          <button mat-menu-item class="choix-langue"><span class="flag-icon flag-icon-de"></span>Deutsch</button>
-        </mat-menu>
+<div class="bandeau" [class.mobile]="isMobile">
+  <div class="mobile-navigation" *ngIf="isMobile">
+    <button mat-icon-button [matMenuTriggerFor]="mobileNavigationMenu"><mat-icon class="icon">menu</mat-icon></button>
+    <mat-menu #mobileNavigationMenu="matMenu" class="navigation-menu mobile">
+      <button mat-menu-item [routerLink]="['/']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" ><span>Accueil</span></button>
+      <button mat-menu-item [routerLink]="['/chambres']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" ><span>Les chambres</span></button>
+      <button mat-menu-item [routerLink]="['/tarifs']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" ><span>Tarifs & prestations</span></button>
+      <button mat-menu-item [routerLink]="['/reserver']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" ><span>Réserver</span></button>
+      <button mat-menu-item [routerLink]="['/contact']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" ><span>Contact</span></button>
+      <button mat-menu-item [matMenuTriggerFor]="mobileLangueMenu" class="choix-langue"><span class="flag-icon flag-icon-{{langue}}"></span><span>Langue</span></button>
+      <mat-menu #mobileLangueMenu="matMenu" class="navigation-menu">
+        <button mat-menu-item class="choix-langue"><span class="flag-icon flag-icon-fr"></span>Français</button>
+        <button mat-menu-item class="choix-langue"><span class="flag-icon flag-icon-gb"></span>English</button>
+        <button mat-menu-item class="choix-langue"><span class="flag-icon flag-icon-de"></span>Deutsch</button>
       </mat-menu>
-    </div>
-    <div class="titre">
+    </mat-menu>
+  </div>
+  <div class="brand">
+    <div class="titre" [class.mobile]="isMobile">
       <img class="image" src="assets/img/gypaete-draw-sd.png" alt="gypaete">
       <span class="texte">Châlet Le Gypaète</span>
     </div>

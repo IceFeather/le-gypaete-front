@@ -10,6 +10,7 @@ import {
   group,
   // ...
 } from '@angular/animations';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-accueil',
@@ -40,6 +41,8 @@ export class AccueilComponent implements OnInit {
 
   saison = 'hiver';
 
+  isMobile: boolean;
+
   images = {
     été: [
       '/assets/img/village-ete-jour-hd.jpg',
@@ -66,8 +69,12 @@ export class AccueilComponent implements OnInit {
   accrocheInterval = 10000;
   accrocheSub: Subscription;
 
-  constructor(public fondService: FondService) {
+  constructor(
+    public fondService: FondService,
+    private deviceService: DeviceDetectorService,
+  ) {
     fondService.images.next(this.images[this.saison]);
+    this.isMobile = deviceService.isMobile();
   }
 
   ngOnInit(): void {
