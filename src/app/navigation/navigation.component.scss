@@ -4,31 +4,49 @@
   align-items: center;
   padding: 1rem 3rem;
   max-width: 100%;
-  // background: rgba(18, 9, 4, 0.2) 100%;
-  // background: linear-gradient(0deg, rgba(18, 9, 4, 0.3), rgba(94, 83, 61, 0.3) 100%);
+  max-height: 9rem;
+  height: 6rem;
   box-shadow: 0 0 1em rgba(18, 9, 4, 0.5);
   .brand {
     display: flex;
-    width: 100%;
+    flex: auto;
     flex-direction: row;
     .titre {
-      // flex-grow: 1;
-      // flex: auto;
       display: flex;
       flex-direction: column;
       align-items: center;
       .image {
         flex: auto;
-        height: 5em;
+        height: 4rem;
       }
       .texte {
         flex: auto;
         font-size: 2rem;
-        line-height: .9em;
+        line-height: 1.9rem;
         // margin-top: -1em;
         color: #f0d49c;
         text-transform: uppercase;
+        text-align: center;
       }
+      &.mobile {
+        .image {
+          height: 2.5rem !important;
+        }
+        .texte {
+          font-size: 1.2rem !important;
+          line-height: 1rem !important;
+        }
+      }
+    }
+  }
+  &.mobile {
+    padding: .5rem;
+    height: 4rem;
+    .brand {
+      flex: auto;
+      flex-grow: 1;
+      flex-direction: column;
+      align-items: center;
     }
   }
   .mobile-navigation {
@@ -52,16 +70,18 @@
     button {
       flex: auto;
       flex-wrap: wrap;
-      font-size: 1.5em;
-      height: 4em;
-      padding: 0 1em;
+      font-size: 1.2rem;
+      padding: 1.5rem 1.5rem;
+      mat-icon {
+        margin-right: 1rem;
+      }
       &.active {
         // background-color: rgba(94, 83, 61, 0.4);
         background-color: rgba(240, 212, 156, 0.2);
       }
       &:not(:first-child):not(:last-child) {
-        margin-left: 15px;
-        margin-right: 15px;
+        margin-left: 1rem;
+        margin-right: 1rem;
       }
     }
   }
@@ -69,19 +89,37 @@
 
 .choix-langue {
   .flag-icon {
-    margin-right: 1em;
+    margin-right: 1rem;
   }
 }
 
-@media screen and (orientation: portrait) {
+::ng-deep .navigation-menu {
+  background-color: rgba(240, 212, 156);
+  &.mobile {
+    margin-top: .5rem;
+  }
+  .mat-menu-item.active {
+    background-color: rgba(48, 23, 12, 0.5);
+    // color: rgba(240, 212, 156);
+    * {
+      color: rgba(240, 212, 156);
+    }
+  }
+}
+
+.customize+* .mat-menu-panel {
+  background: red;
+}
+
+@media screen and (max-width: 1366px) {
   .bandeau {
-    display: flex;
-    flex-direction: column;
-    padding: 1rem 0rem;
+    // display: flex;
+    // flex-direction: column;
+    // padding: 1rem 0rem;
     .titre {
-      display: flex;
-      flex: auto;
-      flex-direction: column;
+      // display: flex;
+      // flex: auto;
+      // flex-direction: column;
       align-items: center;
       .image {
         flex: auto;
@@ -97,17 +135,17 @@
     }
     .navigation {
       display: flex;
-      flex-direction: column;
-      margin-left: unset;
-      margin-top: 1rem;
-      color: #f0d49c;
+      // flex-direction: column;
+      // margin-left: unset;
+      // margin-top: 1rem;
+      // color: #f0d49c;
       // width: 90%;
       button {
         flex: auto;
         flex-grow: 1;
         flex-wrap: unset;
         font-size: 1.5em;
-        height: 3rem;
+        // height: 3rem;
         &.active {
           // background-color: rgba(94, 83, 61, 0.4);
           background-color: rgba(240, 212, 156, 0.2);

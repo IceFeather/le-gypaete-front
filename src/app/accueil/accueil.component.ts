@@ -10,6 +10,7 @@ import {
   group,
   // ...
 } from '@angular/animations';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-accueil',
@@ -40,6 +41,8 @@ export class AccueilComponent implements OnInit {
 
   saison = 'hiver';
 
+  isMobile: boolean;
+
   images = {
     été: [
       '/assets/img/village-ete-jour-hd.jpg',
@@ -66,8 +69,14 @@ export class AccueilComponent implements OnInit {
   accrocheInterval = 10000;
   accrocheSub: Subscription;
 
-  constructor(public fondService: FondService) {
+  constructor(
+    public fondService: FondService,
+    private breakpointObserver: BreakpointObserver,
+  ) {
     fondService.images.next(this.images[this.saison]);
+    breakpointObserver.observe([
+      Breakpoints.Handset, Breakpoints.Small, Breakpoints.XSmall
+    ]).subscribe( breakpoint => this.isMobile = breakpoint.matches );
   }
 
   ngOnInit(): void {

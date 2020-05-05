@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { MediaMatcher } from '@angular/cdk/layout';
+import { MediaMatcher, BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
@@ -16,15 +16,14 @@ export class NavigationComponent implements OnInit {
   isMobile: boolean;
 
   constructor(
-    changeDetectorRef: ChangeDetectorRef,
-    media: MediaMatcher,
-    private deviceService: DeviceDetectorService
+    private breakpointObserver: BreakpointObserver,
   ) {
-    this.mobileQuery = media.matchMedia('(orientation: 600px)');
-    this.mobileQueryListener = () => changeDetectorRef.detectChanges();
-    this.mobileQuery.addListener(this.mobileQueryListener);
-    this.isMobile = deviceService.isMobile();
-    // this.isMobile = true;
+    breakpointObserver.observe([
+      Breakpoints.Handset,
+      Breakpoints.Medium,
+      Breakpoints.Small,
+      Breakpoints.XSmall
+    ]).subscribe( breakpoint => this.isMobile = breakpoint.matches )
   }
 
   ngOnInit(): void {
