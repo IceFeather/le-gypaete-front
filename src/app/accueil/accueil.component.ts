@@ -10,7 +10,7 @@ import {
   group,
   // ...
 } from '@angular/animations';
-import { DeviceDetectorService } from 'ngx-device-detector';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-accueil',
@@ -71,10 +71,12 @@ export class AccueilComponent implements OnInit {
 
   constructor(
     public fondService: FondService,
-    private deviceService: DeviceDetectorService,
+    private breakpointObserver: BreakpointObserver,
   ) {
     fondService.images.next(this.images[this.saison]);
-    this.isMobile = deviceService.isMobile();
+    breakpointObserver.observe([
+      Breakpoints.Handset, Breakpoints.Small, Breakpoints.XSmall
+    ]).subscribe( breakpoint => this.isMobile = breakpoint.matches );
   }
 
   ngOnInit(): void {

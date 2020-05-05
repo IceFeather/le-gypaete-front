@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+import { LayoutModule } from '@angular/cdk/layout'
 import { DeviceDetectorModule } from 'ngx-device-detector';
 
 import { AppComponent } from './app.component';
@@ -25,6 +26,7 @@ import { FondService } from './fond/fond.service';
     AppRoutingModule,
     BrowserAnimationsModule,
     DeviceDetectorModule.forRoot(),
+    LayoutModule,
     MatButtonModule,
     MatMenuModule,
     MatIconModule,

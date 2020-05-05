@@ -3,7 +3,11 @@
   margin-right: 10rem;
   display: flex;
   height: 100%;
-  flex-direction: row;
+  flex-flow: row wrap;
+  &.mobile {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
 }
 
 button.saison {
@@ -43,6 +47,11 @@ button.saison {
     color: rgb(220, 220, 220);
   }
   &.mobile {
+    flex: auto;
+    align-self: center;
+    justify-self: center;
+    max-width: 100%;
+    min-width: 50%;
     h1 {
       font-size: 1.5rem;
       line-height: 1.7rem;
@@ -51,22 +60,5 @@ button.saison {
       font-size: 1rem;
       line-height: 1.2;
     }
-  }
-}
-
-@media screen and (orientation: portrait) {
-  .accueil {
-    margin-left: 1rem;
-    margin-right: 1rem;
-    display: flex;
-    // margin-top: 5rem;
-    // height: calc(100vh - 5rem);
-    flex-direction: row;
-  }
-  .accroche {
-    flex: auto;
-    align-self: center;
-    max-width: 100%;
-    min-width: 50%;
   }
 }
