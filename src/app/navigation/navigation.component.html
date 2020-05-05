@@ -2,7 +2,7 @@
   <div class="mobile-navigation" *ngIf="isMobile">
     <button mat-icon-button [matMenuTriggerFor]="mobileNavigationMenu"><mat-icon class="icon">menu</mat-icon></button>
     <mat-menu #mobileNavigationMenu="matMenu" class="navigation-menu mobile">
-      <button mat-menu-item [routerLink]="['/']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" ><mat-icon>home</mat-icon><span>Accueil</span></button>
+      <button mat-menu-item [routerLink]="['/accueil']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" ><mat-icon>home</mat-icon><span>Accueil</span></button>
       <button mat-menu-item [routerLink]="['/chambres']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" ><mat-icon>king_bed</mat-icon><span>Les chambres</span></button>
       <button mat-menu-item [routerLink]="['/tarifs']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" ><mat-icon>table_chart</mat-icon><span>Tarifs & prestations</span></button>
       <button mat-menu-item [routerLink]="['/reserver']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" ><mat-icon>insert_invitation</mat-icon><span>Réserver</span></button>
@@ -22,7 +22,7 @@
     </div>
   </div>
   <div class="navigation" *ngIf="!isMobile">
-    <button mat-button [routerLink]="['/']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" >Accueil</button>
+    <button mat-button [routerLink]="['/accueil']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" >Accueil</button>
     <button mat-button [routerLink]="['/chambres']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" >Les chambres</button>
     <button mat-button [routerLink]="['/tarifs']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" >Tarifs & prestations</button>
     <button mat-button [routerLink]="['/reserver']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" >Réserver</button>

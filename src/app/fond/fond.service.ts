@@ -17,10 +17,13 @@ export class FondService {
   constructor() {}
 
   demarrerArreter() {
-    this.defilement.getValue() ? this.arreter() : this.demarrer();
+    this.defilement.value ? this.arreter() : this.demarrer();
   }
 
   demarrer() {
+    if (this.defilementSub || this.defilement.value) {
+      this.arreter();
+    }
     this.defilement.next(true);
     this.defilementSub = interval(this.interval.value).subscribe( () => this.suivant() );
   }
@@ -35,20 +38,20 @@ export class FondService {
   }
 
   fin() {
-    this.numero.next(this.images.getValue().length - 1);
+    this.numero.next(this.images.value.length - 1);
   }
 
   suivant() {
-    if (this.numero.getValue() < this.images.getValue().length - 1) {
-      this.numero.next(this.numero.getValue() + 1);
+    if (this.numero.getValue() < this.images.value.length - 1) {
+      this.numero.next(this.numero.value + 1);
     } else {
       this.debut();
     }
   }
 
   precedent() {
-    if (this.numero.getValue() > 0) {
-      this.numero.next(this.numero.getValue() - 1);
+    if (this.numero.value > 0) {
+      this.numero.next(this.numero.value - 1);
     } else {
       this.fin();
     }
