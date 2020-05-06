@@ -1,7 +1,8 @@
 <span class="accueil" [class.mobile]="isMobile">
-  <span class="accroche" [class.mobile]="isMobile" [@flyInOut]="accrocheNumero">
-    <h1>{{accroches[accrocheNumero].titre}}</h1>
-    <p>{{accroches[accrocheNumero].texte}}</p>
+  <span class="accroche" [class.mobile]="isMobile">
+    <h1 [@flyInOut]="accrocheNumero">{{accroches[accrocheNumero].titre}}</h1>
+    <div class="ligne" [@ligneAccroche]="accrocheNumero"></div>
+    <p [@flyInOut]="accrocheNumero">{{accroches[accrocheNumero].texte}}</p>
   </span>
 </span>
 

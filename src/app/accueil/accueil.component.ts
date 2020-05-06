@@ -18,12 +18,18 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
   styleUrls: ['./accueil.component.scss'],
   animations: [
     trigger('flyInOut', [
-      transition(':increment, void => *', [
+      transition('* => *', [
         style({ transform: 'translateX(50px)', opacity: 0 }),
         animate('0.5s ease', style({
           transform: 'translateX(0)',
           opacity: 1
         })),
+      ])
+    ]),
+    trigger('ligneAccroche', [
+      transition('* => *', [
+        style({ width: '0%' }),
+        animate('3s ease', style({ width: '100%' })),
       ])
     ])
   ]
