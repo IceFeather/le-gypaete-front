@@ -143,7 +143,7 @@ export class MosaiqueComponent implements OnInit {
     });
 
     breakpointObserver.observe([
-      Breakpoints.Tablet, Breakpoints.Medium
+      Breakpoints.TabletLandscape, Breakpoints.Medium
     ]).subscribe( bp => {
       if (bp.matches) this.columns = 2;
     })

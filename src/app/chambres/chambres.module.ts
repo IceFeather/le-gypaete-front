@@ -7,7 +7,6 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { ChambresRoutingModule } from './chambres-routing.module';
 import { MosaiqueComponent } from './mosaique/mosaique.component';
-import { FondModule } from '../fond/fond.module';
 
 
 
@@ -21,7 +20,6 @@ import { FondModule } from '../fond/fond.module';
     MatRippleModule,
     MatIconModule,
     MatButtonModule,
-    FondModule,
   ]
 })
 export class ChambresModule { }

@@ -30,7 +30,7 @@ import { FondModule } from './fond/fond.module';
     MatButtonModule,
     MatMenuModule,
     MatIconModule,
-    FondModule,
+    FondModule.forRoot(),
     ChambresModule,
   ],
   providers: [FondService],

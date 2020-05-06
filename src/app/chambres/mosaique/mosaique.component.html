@@ -1,7 +1,8 @@
 <mat-grid-list [cols]="columns" rowHeight="2:1" [class.mobile]="isMobile">
   <ng-container *ngFor="let chambre of chambres" class="test">
     <mat-grid-tile matRipple class="tuile"
-      [style.background-image]="'url(' + chambre.images[0] + ')'">
+      [style.background-image]="'url(' + chambre.images[0] + ')'"
+      [routerLink]="['../chambre/',chambre.numero]">
       <mat-grid-tile-header>
         <div class="nom">
           <h1>{{chambre.nom}}</h1>
@@ -14,7 +15,7 @@
           </div>
         </div>
       </mat-grid-tile-header>
-      <button mat-button mat-raised-button class="voir">Détails<mat-icon>keyboard_arrow_right</mat-icon></button>
+      <button mat-button mat-raised-button class="voir" [routerLink]="['../chambre/',chambre.numero]">Détails<mat-icon>keyboard_arrow_right</mat-icon></button>
     </mat-grid-tile>
   </ng-container>
 </mat-grid-list>

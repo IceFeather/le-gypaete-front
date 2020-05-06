@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -24,4 +24,11 @@ import { FondService } from './service/fond.service';
   ],
   providers: [FondService],
 })
-export class FondModule { }
+export class FondModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: FondModule,
+      providers: [FondService]
+    }
+  }
+}
