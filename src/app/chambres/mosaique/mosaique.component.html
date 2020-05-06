@@ -1,4 +1,4 @@
-<mat-grid-list [cols]="isMobile ? 1 : 2" rowHeight="2:1" [class.mobile]="isMobile">
+<mat-grid-list [cols]="columns" rowHeight="2:1" [class.mobile]="isMobile">
   <ng-container *ngFor="let chambre of chambres" class="test">
     <mat-grid-tile matRipple class="tuile"
       [style.background-image]="'url(' + chambre.images[0] + ')'">

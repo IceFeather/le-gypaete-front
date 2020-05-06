@@ -3,6 +3,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Chambre } from '../model/chambre';
 import { Lit } from '../model/lit';
 
+
 @Component({
   selector: 'app-mosaique',
   templateUrl: './mosaique.component.html',
@@ -11,6 +12,7 @@ import { Lit } from '../model/lit';
 export class MosaiqueComponent implements OnInit {
 
   isMobile: boolean;
+  columns: number;
 
   chambres: Chambre[] = [
     {
@@ -131,9 +133,27 @@ export class MosaiqueComponent implements OnInit {
   ]
 
   constructor(private breakpointObserver: BreakpointObserver) {
+    // this.columns = this.columnsDefault;
+
     breakpointObserver.observe([
-      Breakpoints.Handset, Breakpoints.Small, Breakpoints.XSmall
-    ]).subscribe( bp => this.isMobile = bp.matches );
+      Breakpoints.Handset, Breakpoints.Small
+    ]).subscribe( bp => {
+      this.isMobile = bp.matches;
+      if (bp.matches) this.columns = 1;
+    });
+
+    breakpointObserver.observe([
+      Breakpoints.Tablet, Breakpoints.Medium
+    ]).subscribe( bp => {
+      if (bp.matches) this.columns = 2;
+    })
+
+    breakpointObserver.observe([
+      Breakpoints.XLarge
+    ]).subscribe( bp => {
+      if (bp.matches) this.columns = 3;
+    })
+
   }
 
   ngOnInit(): void {
