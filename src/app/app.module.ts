@@ -13,6 +13,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { FondComponent } from './fond/fond.component';
 import { FondService } from './fond/fond.service';
+import { ChambresModule } from './chambres/chambres.module';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { FondService } from './fond/fond.service';
     MatButtonModule,
     MatMenuModule,
     MatIconModule,
+    ChambresModule,
   ],
   providers: [FondService],
   bootstrap: [AppComponent]

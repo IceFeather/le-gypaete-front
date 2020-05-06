@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-root',
@@ -14,9 +15,11 @@ export class AppComponent implements OnInit {
   isMobile: boolean;
 
   constructor(
-    private deviceService: DeviceDetectorService
+    private breakpointObserver: BreakpointObserver
   ) {
-    this.isMobile = deviceService.isMobile();
+    breakpointObserver.observe([
+      Breakpoints.Handset, Breakpoints.Medium, Breakpoints.Small, Breakpoints.XSmall
+    ]).subscribe( bp => this.isMobile = bp.matches );
   }
 
   ngOnInit(): void {

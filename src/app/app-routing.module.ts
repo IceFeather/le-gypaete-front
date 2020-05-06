@@ -6,7 +6,7 @@ import { MosaiqueComponent } from './chambres/mosaique/mosaique.component';
 
 const routes: Routes = [
   { path: 'accueil', component: AccueilComponent },
-  { path: 'chambres', component: MosaiqueComponent },
+  { path: 'chambres', loadChildren: () => import('./chambres/chambres.module').then(m => m.ChambresModule) },
   { path: '', redirectTo: 'accueil', pathMatch: 'full' },
   { path: '**', redirectTo: '/404' }
 ];

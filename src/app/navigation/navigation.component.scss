@@ -1,4 +1,6 @@
 .bandeau {
+  position: relative;
+  z-index: 42;
   display: flex;
   flex-direction: row;
   align-items: center;

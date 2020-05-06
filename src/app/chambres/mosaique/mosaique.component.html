@@ -1,1 +1,7 @@
-<p>mosaique works!</p>
+<mat-grid-list [cols]="isMobile ? 1 : 2" rowHeight="2:1">
+  <mat-grid-tile matRipple  class="tuile" [style.background-image]="'url(/assets/img/chambre/chambre-exemple-1.jpg)'">1</mat-grid-tile>
+  <mat-grid-tile matRipple  class="tuile" [style.background-image]="'url(/assets/img/chambre/chambre-exemple-2.jpg)'">2</mat-grid-tile>
+  <mat-grid-tile matRipple  class="tuile" [style.background-image]="'url(/assets/img/chambre/chambre-exemple-3.jpg)'">3</mat-grid-tile>
+  <mat-grid-tile matRipple  class="tuile" [style.background-image]="'url(/assets/img/chambre/chambre-exemple-4.jpg)'">4</mat-grid-tile>
+</mat-grid-list>
+
