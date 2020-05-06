@@ -11,16 +11,15 @@ import { DeviceDetectorModule } from 'ngx-device-detector';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { AccueilComponent } from './accueil/accueil.component';
-import { FondComponent } from './fond/fond.component';
-import { FondService } from './fond/fond.service';
+import { FondService } from './fond/service/fond.service';
 import { ChambresModule } from './chambres/chambres.module';
+import { FondModule } from './fond/fond.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     AccueilComponent,
-    FondComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +30,7 @@ import { ChambresModule } from './chambres/chambres.module';
     MatButtonModule,
     MatMenuModule,
     MatIconModule,
+    FondModule,
     ChambresModule,
   ],
   providers: [FondService],

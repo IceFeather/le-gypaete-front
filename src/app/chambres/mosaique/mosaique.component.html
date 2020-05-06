@@ -1,7 +1,20 @@
-<mat-grid-list [cols]="isMobile ? 1 : 2" rowHeight="2:1">
-  <mat-grid-tile matRipple  class="tuile" [style.background-image]="'url(/assets/img/chambre/chambre-exemple-1.jpg)'"></mat-grid-tile>
-  <mat-grid-tile matRipple  class="tuile" [style.background-image]="'url(/assets/img/chambre/chambre-exemple-2.jpg)'"></mat-grid-tile>
-  <mat-grid-tile matRipple  class="tuile" [style.background-image]="'url(/assets/img/chambre/chambre-exemple-3.jpg)'"></mat-grid-tile>
-  <mat-grid-tile matRipple  class="tuile" [style.background-image]="'url(/assets/img/chambre/chambre-exemple-4.jpg)'"></mat-grid-tile>
-  <mat-grid-tile matRipple  class="tuile" [style.background-image]="'url(/assets/img/chambre/chambre-exemple-5.jpg)'"></mat-grid-tile>
+<mat-grid-list [cols]="isMobile ? 1 : 2" rowHeight="2:1" [class.mobile]="isMobile">
+  <ng-container *ngFor="let chambre of chambres" class="test">
+    <mat-grid-tile matRipple class="tuile"
+      [style.background-image]="'url(' + chambre.images[0] + ')'">
+      <mat-grid-tile-header>
+        <div class="nom">
+          <h1>{{chambre.nom}}</h1>
+          <div class="ligne"></div>
+        </div>
+        <div class="infos">
+          <div class="info">
+            <span>{{chambre.nombrePersonnes}}</span>
+            <mat-icon>person</mat-icon>
+          </div>
+        </div>
+      </mat-grid-tile-header>
+      <button mat-button mat-raised-button class="voir">Détails<mat-icon>keyboard_arrow_right</mat-icon></button>
+    </mat-grid-tile>
+  </ng-container>
 </mat-grid-list>

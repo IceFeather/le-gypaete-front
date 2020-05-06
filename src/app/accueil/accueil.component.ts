@@ -1,5 +1,4 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FondService } from '../fond/fond.service';
 import { Subscription, interval } from 'rxjs';
 import {
   trigger,
@@ -11,6 +10,7 @@ import {
   // ...
 } from '@angular/animations';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { FondService } from '../fond/service/fond.service';
 
 @Component({
   selector: 'app-accueil',
