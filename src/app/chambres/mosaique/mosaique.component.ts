@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Chambre } from '../model/chambre';
 import { Lit } from '../model/lit';
+import { stringify } from 'querystring';
 
 
 @Component({
@@ -26,15 +27,16 @@ export class MosaiqueComponent implements OnInit {
         '/assets/img/chambre/chambre-exemple-5.jpg',
       ],
       nombrePersonnes: 2,
+      pmr: false,
       lits: [{classe: Lit.Classe.KingSize, largeur: 180}],
       terrasse: true,
       balcon: false,
       vues: ['Chaîne des Aravis'],
       salleDEau: {nombre: 1, plus: ["Salle d'eau privative"]},
       wc: {nombre: 1, plus: ["séparé"]},
-      pmr: false,
       tv: true,
-      autres: ['Lecteur DVD']
+      autres: ['Lecteur DVD'],
+      tarifs: null
     },
     {
       numero: 2,
@@ -47,15 +49,16 @@ export class MosaiqueComponent implements OnInit {
         '/assets/img/chambre/chambre-exemple-1.jpg',
       ],
       nombrePersonnes: 2,
+      pmr: true,
       lits: [{classe: Lit.Classe.Simple, largeur: 90}, {classe: Lit.Classe.Simple, largeur: 90}],
       terrasse: true,
       balcon: false,
       vues: ['Chaîne des Aravis'],
       salleDEau: {nombre: 1, plus: ["Salle d'eau privative"]},
       wc: {nombre: 1, plus: ["séparé"]},
-      pmr: true,
       tv: true,
-      autres: ['Lecteur DVD']
+      autres: ['Lecteur DVD'],
+      tarifs: null
     },
     {
       numero: 3,
@@ -68,6 +71,7 @@ export class MosaiqueComponent implements OnInit {
         '/assets/img/chambre/chambre-exemple-2.jpg',
       ],
       nombrePersonnes: 5,
+      pmr: false,
       lits: [
         {classe: Lit.Classe.Double, largeur: 160},
         {classe: Lit.Classe.Simple, largeur: 90},
@@ -78,9 +82,9 @@ export class MosaiqueComponent implements OnInit {
       vues: ['Chaîne des Aravis', 'Roc des Tours'],
       salleDEau: {nombre: 1, plus: ["Salle d'eau privative"]},
       wc: {nombre: 1, plus: ["séparé"]},
-      pmr: true,
       tv: true,
-      autres: ['Lecteur DVD']
+      autres: ['Lecteur DVD'],
+      tarifs: null
     },
     {
       numero: 4,
@@ -93,6 +97,7 @@ export class MosaiqueComponent implements OnInit {
         '/assets/img/chambre/chambre-exemple-3.jpg',
       ],
       nombrePersonnes: 5,
+      pmr: false,
       lits: [
         {classe: Lit.Classe.Double, largeur: 160},
         {classe: Lit.Classe.Simple, largeur: 90},
@@ -103,9 +108,9 @@ export class MosaiqueComponent implements OnInit {
       vues: ['Chaîne des Aravis', 'Roc des Tours'],
       salleDEau: {nombre: 1, plus: ["Salle d'eau privative"]},
       wc: {nombre: 1, plus: ["séparé"]},
-      pmr: true,
       tv: true,
-      autres: ['Lecteur DVD']
+      autres: ['Lecteur DVD'],
+      tarifs: null
     },
     {
       numero: 5,
@@ -118,6 +123,7 @@ export class MosaiqueComponent implements OnInit {
         '/assets/img/chambre/chambre-exemple-4.jpg',
       ],
       nombrePersonnes: 5,
+      pmr: false,
       lits: [
         {classe: Lit.Classe.KingSize, largeur: 180},
       ],
@@ -126,32 +132,52 @@ export class MosaiqueComponent implements OnInit {
       vues: [],
       salleDEau: {nombre: 1, plus: ["Salle d'eau privative", "Double douche"]},
       wc: {nombre: 1, plus: ["séparé"]},
-      pmr: true,
       tv: true,
-      autres: ['Lecteur DVD']
+      autres: ['Lecteur DVD'],
+      tarifs: null
     }
   ]
+
+  debugBP: {bp: string, actif: boolean};
+  debugBPs: [{bp: string, actif: boolean}];
 
   constructor(private breakpointObserver: BreakpointObserver) {
     // this.columns = this.columnsDefault;
 
     breakpointObserver.observe([
-      Breakpoints.Handset, Breakpoints.Small
+      Breakpoints.HandsetPortrait, Breakpoints.XSmall
     ]).subscribe( bp => {
-      this.isMobile = bp.matches;
-      if (bp.matches) this.columns = 1;
+      if (bp.matches) {
+        this.columns = 1;
+        this.isMobile = true;
+      }
     });
 
     breakpointObserver.observe([
-      Breakpoints.TabletLandscape, Breakpoints.Medium
+      Breakpoints.HandsetLandscape
     ]).subscribe( bp => {
-      if (bp.matches) this.columns = 2;
+      if (bp.matches) {
+        this.columns = 2;
+        this.isMobile = true;
+      }
+    });
+
+    breakpointObserver.observe([
+      Breakpoints.Tablet, Breakpoints.Medium, Breakpoints.Large
+    ]).subscribe( bp => {
+      if (bp.matches) {
+        this.columns = 2;
+        this.isMobile = false;
+      }
     })
 
     breakpointObserver.observe([
       Breakpoints.XLarge
     ]).subscribe( bp => {
-      if (bp.matches) this.columns = 3;
+      if (bp.matches) {
+        this.columns = 3;
+        this.isMobile = false;
+      }
     })
 
   }

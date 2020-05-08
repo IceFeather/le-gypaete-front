@@ -4,6 +4,7 @@ import { switchMap } from 'rxjs/operators';
 import { Lit } from '../model/lit';
 import { Chambre } from '../model/chambre';
 import { FondService } from 'src/app/fond/service/fond.service';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-chambre',
@@ -26,15 +27,19 @@ export class ChambreComponent implements OnInit {
         '/assets/img/chambre/chambre-exemple-5.jpg',
       ],
       nombrePersonnes: 2,
+      pmr: false,
       lits: [{classe: Lit.Classe.KingSize, largeur: 180}],
       terrasse: true,
       balcon: false,
       vues: ['Chaîne des Aravis'],
       salleDEau: {nombre: 1, plus: ["Salle d'eau privative"]},
       wc: {nombre: 1, plus: ["séparé"]},
-      pmr: false,
       tv: true,
-      autres: ['Lecteur DVD']
+      autres: ['Lecteur DVD'],
+      tarifs: {
+        nuit: 140,
+        plusnuits: {condition: 2, cout: 130}
+      }
     },
     {
       numero: 2,
@@ -47,15 +52,19 @@ export class ChambreComponent implements OnInit {
         '/assets/img/chambre/chambre-exemple-1.jpg',
       ],
       nombrePersonnes: 2,
+      pmr: true,
       lits: [{classe: Lit.Classe.Simple, largeur: 90}, {classe: Lit.Classe.Simple, largeur: 90}],
       terrasse: true,
       balcon: false,
       vues: ['Chaîne des Aravis'],
       salleDEau: {nombre: 1, plus: ["Salle d'eau privative"]},
       wc: {nombre: 1, plus: ["séparé"]},
-      pmr: true,
       tv: true,
-      autres: ['Lecteur DVD']
+      autres: ['Lecteur DVD'],
+      tarifs: {
+        nuit: 110,
+        plusnuits: {condition: 2, cout: 100}
+      }
     },
     {
       numero: 3,
@@ -68,6 +77,7 @@ export class ChambreComponent implements OnInit {
         '/assets/img/chambre/chambre-exemple-2.jpg',
       ],
       nombrePersonnes: 5,
+      pmr: false,
       lits: [
         {classe: Lit.Classe.Double, largeur: 160},
         {classe: Lit.Classe.Simple, largeur: 90},
@@ -78,9 +88,17 @@ export class ChambreComponent implements OnInit {
       vues: ['Chaîne des Aravis', 'Roc des Tours'],
       salleDEau: {nombre: 1, plus: ["Salle d'eau privative"]},
       wc: {nombre: 1, plus: ["séparé"]},
-      pmr: true,
       tv: true,
-      autres: ['Lecteur DVD']
+      autres: ['Lecteur DVD'],
+      tarifs: {
+        nuit: 135,
+        plusnuits: {condition: 2, cout: 125},
+        pluspersonne: [
+          {condition: 'Enfant de 2 à 5 ans', cout: 15},
+          {condition: 'Enfant de 6 à 12 ans', cout: 25},
+          {condition: 'Plus de 12 ans et adulte', cout: 35},
+        ]
+      }
     },
     {
       numero: 4,
@@ -93,6 +111,7 @@ export class ChambreComponent implements OnInit {
         '/assets/img/chambre/chambre-exemple-3.jpg',
       ],
       nombrePersonnes: 5,
+      pmr: false,
       lits: [
         {classe: Lit.Classe.Double, largeur: 160},
         {classe: Lit.Classe.Simple, largeur: 90},
@@ -103,9 +122,17 @@ export class ChambreComponent implements OnInit {
       vues: ['Chaîne des Aravis', 'Roc des Tours'],
       salleDEau: {nombre: 1, plus: ["Salle d'eau privative"]},
       wc: {nombre: 1, plus: ["séparé"]},
-      pmr: true,
       tv: true,
-      autres: ['Lecteur DVD']
+      autres: ['Lecteur DVD'],
+      tarifs: {
+        nuit: 135,
+        plusnuits: {condition: 2, cout: 125},
+        pluspersonne: [
+          {condition: 'Enfant de 2 à 5 ans', cout: 15},
+          {condition: 'Enfant de 6 à 12 ans', cout: 25},
+          {condition: 'Plus de 12 ans et adulte', cout: 35},
+        ]
+      }
     },
     {
       numero: 5,
@@ -118,6 +145,7 @@ export class ChambreComponent implements OnInit {
         '/assets/img/chambre/chambre-exemple-4.jpg',
       ],
       nombrePersonnes: 5,
+      pmr: false,
       lits: [
         {classe: Lit.Classe.KingSize, largeur: 180},
       ],
@@ -126,18 +154,31 @@ export class ChambreComponent implements OnInit {
       vues: [],
       salleDEau: {nombre: 1, plus: ["Salle d'eau privative", "Double douche"]},
       wc: {nombre: 1, plus: ["séparé"]},
-      pmr: true,
       tv: true,
-      autres: ['Lecteur DVD']
+      autres: ['Lecteur DVD'],
+      tarifs: {
+        nuit: 90,
+        plusnuits: {condition: 2, cout: 80},
+      }
     }
   ]
 
   chambre: Chambre;
+  litClasses = Lit.Classe;
+
+  isMobile: boolean;
 
   constructor(
     private route: ActivatedRoute,
+    private breakpointObserver: BreakpointObserver,
     public fondService: FondService,
-  ) { }
+  ) {
+    breakpointObserver.observe([
+      Breakpoints.Handset, Breakpoints.Small
+    ]).subscribe(
+      bp => this.isMobile = bp.matches
+    );
+  }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(

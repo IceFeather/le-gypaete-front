@@ -5,8 +5,8 @@ export interface Lit {
 
 export namespace Lit {
   export enum Classe {
-    KingSize,
-    Double,
-    Simple,
+    KingSize = 'King Size',
+    Double = 'Double',
+    Simple = 'Simple',
   }
 }

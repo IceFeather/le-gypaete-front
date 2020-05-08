@@ -14,6 +14,7 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { FondService } from './fond/service/fond.service';
 import { ChambresModule } from './chambres/chambres.module';
 import { FondModule } from './fond/fond.module';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { FondModule } from './fond/fond.module';
     MatButtonModule,
     MatMenuModule,
     MatIconModule,
+    MatListModule,
     FondModule.forRoot(),
     ChambresModule,
   ],

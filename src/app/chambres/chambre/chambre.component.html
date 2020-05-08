@@ -1,1 +1,113 @@
-<p>chambre {{chambre.nom}} works!</p>
+<div class="contenu" [class.mobile]="isMobile">
+  <div class="tete">
+    <button mat-fab [routerLink]="['../']" routerLinkActive="router-link-active">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+    <div class="nom">
+      <h1>{{chambre.nom}}</h1>
+      <div class="ligne" style="max-width: 4rem;"></div>
+    </div>
+  </div>
+  <div class="corp">
+    <div class="gauche">
+      <div class="description">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim
+          sit
+          amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a,
+          semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non
+          fermentum
+          diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim.
+          Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent
+          egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum
+          ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris
+          sed
+          pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.
+        </p>
+      </div>
+      <div class="details">
+        <mat-list>
+          <mat-list-item>
+            <mat-icon mat-list-icon>person</mat-icon>
+            <div mat-line>Nombre de personnes : {{chambre.nombrePersonnes}}</div>
+          </mat-list-item>
+          <mat-list-item *ngIf="chambre.pmr">
+            <mat-icon mat-list-icon>accessible</mat-icon>
+            <div mat-line>Personne à mobilité réduite : oui</div>
+          </mat-list-item>
+        </mat-list>
+        <mat-divider></mat-divider>
+        <mat-list class="en-ligne">
+          <mat-list-item *ngFor="let lit of chambre.lits">
+            <mat-icon mat-list-icon *ngIf="lit.classe === litClasses.KingSize">king_bed</mat-icon>
+            <mat-icon mat-list-icon *ngIf="lit.classe === litClasses.KingSize">star</mat-icon>
+            <mat-icon mat-list-icon *ngIf="lit.classe === litClasses.Double">king_bed</mat-icon>
+            <mat-icon mat-list-icon *ngIf="lit.classe === litClasses.Simple">single_bed</mat-icon>
+            <div mat-line>Lit {{lit.classe}}</div>
+            <div mat-line>Largeur : {{lit.largeur}} cm</div>
+          </mat-list-item>
+        </mat-list>
+        <mat-divider></mat-divider>
+        <mat-list>
+          <mat-list-item *ngIf="chambre.salleDEau.nombre > 0">
+            <mat-icon mat-list-icon>bathtub</mat-icon>
+            <div mat-line>Salle d'eau : {{chambre.salleDEau.nombre}}</div>
+            <div mat-line *ngFor="let plus of chambre.salleDEau.plus">{{plus}}</div>
+          </mat-list-item>
+          <mat-list-item *ngIf="chambre.wc.nombre > 0">
+            <mat-icon mat-list-icon>wc</mat-icon>
+            <div mat-line>WC : {{chambre.wc.nombre}}</div>
+            <div mat-line *ngFor="let plus of chambre.wc.plus">{{plus}}</div>
+          </mat-list-item>
+        </mat-list>
+        <mat-divider></mat-divider>
+        <mat-list>
+          <mat-list-item *ngIf="chambre.terrasse">
+            <mat-icon mat-list-icon>deck</mat-icon>
+            <div mat-line>Terrasse</div>
+          </mat-list-item>
+          <mat-list-item *ngIf="chambre.balcon">
+            <mat-icon mat-list-icon>deck</mat-icon>
+            <div mat-line>Balcon</div>
+          </mat-list-item>
+          <mat-list-item *ngIf="chambre.vues.length > 0">
+            <mat-icon mat-list-icon>landscape</mat-icon>
+            <div mat-line>Vue</div>
+            <div mat-line *ngFor="let vue of chambre.vues">{{vue}}</div>
+          </mat-list-item>
+        </mat-list>
+      </div>
+      <div class="tarifs">
+        <div class="nom">
+          <h2>Tarifs</h2>
+          <div class="ligne" style="max-width: 2rem;"></div>
+        </div>
+        <mat-list>
+          <mat-list-item>
+            <mat-icon mat-list-icon>nights_stay</mat-icon>
+            <div mat-line>1 nuit : {{chambre.tarifs.nuit}}€</div>
+          </mat-list-item>
+          <mat-list-item *ngIf="chambre.tarifs.plusnuits">
+            <mat-icon mat-list-icon>nights_stay</mat-icon>
+            <mat-icon mat-list-icon>add</mat-icon>
+            <div mat-line>A partir de {{chambre.tarifs.plusnuits.condition}} nuits : {{chambre.tarifs.plusnuits.cout}}€
+              / nuit</div>
+          </mat-list-item>
+          <ng-container *ngIf="chambre.tarifs.pluspersonne">
+            <mat-divider></mat-divider>
+            <mat-list-item>
+              <mat-icon mat-list-icon>person_add</mat-icon>
+              <div mat-line>Personne supplémentaire :</div>
+              <div mat-line *ngFor="let plus of chambre.tarifs.pluspersonne">{{plus.condition}} : {{plus.cout}}€ / nuit
+              </div>
+            </mat-list-item>
+          </ng-container>
+        </mat-list>
+      </div>
+      <button mat-button class="reserver">Reserver</button>
+    </div>
+    <div class="diaporama">
+      DIAPORAMA
+    </div>
+  </div>
+</div>

@@ -13,6 +13,9 @@
             <span>{{chambre.nombrePersonnes}}</span>
             <mat-icon>person</mat-icon>
           </div>
+          <div class="info" *ngIf="chambre.pmr">
+            <mat-icon>accessible</mat-icon>
+          </div>
         </div>
       </mat-grid-tile-header>
       <button mat-button mat-raised-button class="voir" [routerLink]="['../chambre/',chambre.numero]">Détails<mat-icon>keyboard_arrow_right</mat-icon></button>

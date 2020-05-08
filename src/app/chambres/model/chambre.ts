@@ -1,10 +1,12 @@
 import { Lit } from './lit';
+import { Tarifs } from './tarifs';
 
 export interface Chambre {
   numero: number;
   nom: string;
   images: string[];
   nombrePersonnes: number;
+  pmr: boolean;
   lits: Lit[];
   terrasse: boolean;
   balcon: boolean;
@@ -17,7 +19,7 @@ export interface Chambre {
     nombre: number;
     plus: string[]
   };
-  pmr: boolean;
   tv: boolean;
   autres: string[];
+  tarifs: Tarifs;
 }
