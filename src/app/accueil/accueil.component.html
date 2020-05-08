@@ -11,10 +11,10 @@
   <mat-icon *ngIf="saison == 'hiver'">wb_sunny</mat-icon>
 </button>
 <div class="fond-controle">
-  <button class="fond-precedent" mat-mini-fab (click)="fondService.precedent()">
+  <button class="fond-precedent" mat-mini-fab (click)="fondService.precedent()" (click)="accrochePrecedente()">
     <mat-icon>navigate_before</mat-icon>
   </button>
-  <button class="fond-suivant" mat-mini-fab (click)="fondService.suivant()">
+  <button class="fond-suivant" mat-mini-fab (click)="fondService.suivant()" (click)="accrocheSuivante()">
     <mat-icon>navigate_next</mat-icon>
   </button>
   <button class="fond-demarrer-arreter" mat-mini-fab (click)="fondService.demarrerArreter()">

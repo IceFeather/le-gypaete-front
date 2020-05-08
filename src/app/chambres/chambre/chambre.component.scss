@@ -5,12 +5,11 @@
   .corp {
     display: inline-block;
     width: 100%;
-    & > div {
-      margin-bottom: 2rem;
-    }
     .gauche {
       float: left;
+      max-width: 49%;
       & > div {
+        margin-right: 2rem;
         margin-bottom: 2rem;
       }
     }
@@ -23,9 +22,6 @@
     width: 100%;
     button {
       background-color: rgba(240, 212, 156, 0.2);
-    }
-    .nom {
-      flex: auto;
     }
     &>:first-child {
       margin-right: 1rem;
@@ -49,8 +45,10 @@
     float: right;
     top: 7rem;
     background-color: #00000092;
+    max-width: 50%;
     width: 700px;
     height: 400px;
+    margin-bottom: 2rem;
   }
 
   .details, .tarifs {
@@ -61,17 +59,19 @@
   }
 
   .reserver {
-    float: right;
     font-size: 1.5rem;
     padding: 1rem;
     background-color: rgba(240, 212, 156, 0.2);
   }
 
-  .ligne {
-    background-color: rgba(240, 212, 156);
-    line-height: 0rem;
-    height: .2rem;
-    width: 100%;
+  .titre {
+    margin-bottom: 1rem;
+    .ligne {
+      background-color: rgba(240, 212, 156);
+      line-height: 0rem;
+      height: .2rem;
+      width: 100%;
+    }
   }
 
   .en-ligne {
@@ -95,5 +95,13 @@
         max-width: 100%;
       }
     }
+  }
+}
+
+.mobile {
+  .diaporama {
+    position: inherit;
+    width: 100%;
+    height: 400px;
   }
 }

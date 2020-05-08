@@ -100,4 +100,8 @@ export class AccueilComponent implements OnInit, OnDestroy {
     this.accrocheNumero < this.accroches.length - 1 ? this.accrocheNumero++ : this.accrocheNumero = 0;
   }
 
+  accrochePrecedente() {
+    this.accrocheNumero > 0 ? this.accrocheNumero-- : this.accrocheNumero = this.accroches.length - 1;
+  }
+
 }
