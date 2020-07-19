@@ -122,7 +122,7 @@ export class MosaiqueComponent implements OnInit {
         '/assets/img/chambre/chambre-exemple-3.jpg',
         '/assets/img/chambre/chambre-exemple-4.jpg',
       ],
-      nombrePersonnes: 5,
+      nombrePersonnes: 2,
       pmr: false,
       lits: [
         {classe: Lit.Classe.KingSize, largeur: 180},
