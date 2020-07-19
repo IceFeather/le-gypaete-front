@@ -1,0 +1,5 @@
+<div class="visualiseur" *ngIf="diaporamaService.images.value.length > 0">
+  <div class="images" *ngFor="let item of diaporamaService.images.value | keyvalue">
+    <div class="image" @diapo *ngIf="diaporamaService.numero.value == item.key" [style.background-image]="'url('+item.value+')'"></div>
+  </div>
+</div>

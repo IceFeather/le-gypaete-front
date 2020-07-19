@@ -1,0 +1,17 @@
+.visualiseur {
+  background-color: rgba(0, 0, 0, .7);
+  height: 500px;
+  .images {
+    // height: 400px;
+    // position: absolute;
+    .image {
+      height: 100%;
+      width: 100%;
+      background-size: contain;
+      background-position: center;
+      background-position-y: center;
+      background-repeat: no-repeat;
+      position: absolute;
+    }
+  }
+}

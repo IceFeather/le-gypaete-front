@@ -9,6 +9,7 @@ import { MatListModule } from '@angular/material/list';
 import { ChambresRoutingModule } from './chambres-routing.module';
 import { MosaiqueComponent } from './mosaique/mosaique.component';
 import { ChambreComponent } from './chambre/chambre.component';
+import { DiaporamaModule } from '../diaporama/diaporama.module';
 
 
 
@@ -25,6 +26,7 @@ import { ChambreComponent } from './chambre/chambre.component';
     MatIconModule,
     MatButtonModule,
     MatListModule,
+    DiaporamaModule,
     ChambresRoutingModule,
   ]
 })

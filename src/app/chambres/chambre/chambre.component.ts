@@ -5,6 +5,7 @@ import { Lit } from '../model/lit';
 import { Chambre } from '../model/chambre';
 import { FondService } from 'src/app/fond/service/fond.service';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { DiaporamaService } from 'src/app/diaporama/service/diaporama.service';
 
 @Component({
   selector: 'app-chambre',
@@ -172,6 +173,7 @@ export class ChambreComponent implements OnInit {
     private route: ActivatedRoute,
     private breakpointObserver: BreakpointObserver,
     public fondService: FondService,
+    public diaporamaService: DiaporamaService,
   ) {
     breakpointObserver.observe([
       Breakpoints.Handset, Breakpoints.Small
@@ -191,6 +193,11 @@ export class ChambreComponent implements OnInit {
         console.log(this.fondService.images.value);
         this.fondService.debut();
         console.log('CURR = ' + this.fondService.images.value[this.fondService.numero.value]);
+
+        this.diaporamaService.images.next(this.chambre.images);
+        this.diaporamaService.debut();
+        this.diaporamaService.interval.next(5000);
+        this.diaporamaService.demarrer();
       }
     );
   }
