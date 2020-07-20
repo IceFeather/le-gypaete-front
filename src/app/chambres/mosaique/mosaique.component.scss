@@ -3,6 +3,10 @@
   background-position: center;
   background-size: cover;
   &:hover {
+    .sur {
+      opacity: 0.5;
+      transition: opacity .2s ease-out;
+    }
   }
   cursor: pointer;
   // .infos {
@@ -43,10 +47,21 @@
       }
     }
   }
+  .sur {
+    position: absolute;
+    // top: 100%;
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(240, 212, 156, 0.5);
+    z-index: -1;
+  }
   .voir {
     position: absolute;
     bottom: .5rem;
     right: .5rem;
+    color: white;
+    border-color: rgba(240, 212, 156);
     // background-color: rgba(240, 212, 156, 0.8);
   }
 }
