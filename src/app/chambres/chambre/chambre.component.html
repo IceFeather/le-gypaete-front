@@ -12,7 +12,14 @@
   <div class="corp">
 
     <div class="diaporama">
-      <diaporama-visualiseur></diaporama-visualiseur>
+      <ng-container *ngIf="isMobile;else imagesStack">
+        <diaporama-visualiseur></diaporama-visualiseur>
+      </ng-container>
+      <ng-template  #imagesStack>
+        <div *ngFor="let image of chambre.images">
+          <img [src]="image">
+        </div>
+      </ng-template>
     </div>
 
     <div class="gauche">
@@ -32,6 +39,10 @@
         </p>
       </div>
       <div class="details">
+        <div class="titre">
+          <h2>Détails</h2>
+          <div class="ligne" style="max-width: 2rem;"></div>
+        </div>
         <mat-list>
           <mat-list-item>
             <mat-icon mat-list-icon>person</mat-icon>

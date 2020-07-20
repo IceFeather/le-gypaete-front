@@ -47,6 +47,11 @@
     max-width: 50%;
     width: 700px;
     margin-bottom: 2rem;
+    img {
+      max-width: 100%;
+      margin: 1em;
+      box-shadow: .0em .0em 2em .5em rgba(0, 0, 0, .7);
+    }
   }
 
   .details, .tarifs {
@@ -98,7 +103,8 @@
 
 .mobile {
   .diaporama {
-    position: inherit;
+    position: relative;
+    top: 0;
     width: 100%;
   }
 }

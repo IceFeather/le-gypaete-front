@@ -197,7 +197,7 @@ export class ChambreComponent implements OnInit {
         this.diaporamaService.images.next(this.chambre.images);
         this.diaporamaService.debut();
         this.diaporamaService.interval.next(5000);
-        this.diaporamaService.demarrer();
+        // this.diaporamaService.demarrer();
       }
     );
   }
