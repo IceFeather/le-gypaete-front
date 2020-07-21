@@ -1,9 +1,30 @@
 <span class="accueil" [class.mobile]="isMobile">
-  <span class="accroche" [class.mobile]="isMobile">
-    <h1 [@flyInOut]="accrocheNumero">{{accroches[accrocheNumero].titre}}</h1>
-    <div class="ligne" [@ligneAccroche]="accrocheNumero"></div>
-    <p [@flyInOut]="accrocheNumero">{{accroches[accrocheNumero].texte}}</p>
-  </span>
+  <div class="haut"></div>
+  <div class="milieu">
+    <span class="accroche" [class.mobile]="isMobile">
+      <h1 [@flyInOut]="accroche.numero">{{accroche.accroches[accroche.numero].titre}}</h1>
+      <div class="ligne" [@ligneAccroche]="accroche.numero"></div>
+      <p [@flyInOut]="accroche.numero">{{accroche.accroches[accroche.numero].texte}}</p>
+    </span>
+  </div>
+  <div class="bas">
+    <a mat-stroked-button href="https://www.facebook.com/Chalet-Le-Gypa%C3%A8te-102370268098440/" target="_blank" class="social">
+      <svg class="social-logo" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+        viewBox="0 0 172 172">
+        <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"
+          stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+          font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+          <path d="M0,172v-172h172v172z" fill="none"></path>
+          <g class="social-logo-draw" fill="#ffffff">
+            <path
+              d="M136.16667,21.5h-100.33333c-7.91917,0 -14.33333,6.41417 -14.33333,14.33333v100.33333c0,7.91917 6.41417,14.33333 14.33333,14.33333h54.61717v-49.88717h-16.7915v-19.52917h16.7915v-14.36917c0,-16.65533 10.18383,-25.7355 25.0475,-25.7355c5.0095,-0.01433 10.01183,0.24367 14.99267,0.7525v17.415h-10.234c-8.09833,0 -9.675,3.827 -9.675,9.47433v12.43417h19.35l-2.5155,19.52917h-16.94917v49.91583h25.69967c7.91917,0 14.33333,-6.41417 14.33333,-14.33333v-100.33333c0,-7.91917 -6.41417,-14.33333 -14.33333,-14.33333z">
+            </path>
+          </g>
+        </g>
+      </svg>
+      <span>Facebook</span>
+    </a>
+  </div>
 </span>
 
 <button class="saison" mat-mini-fab (click)="changerSaison($event)">
@@ -11,14 +32,18 @@
   <mat-icon *ngIf="saison == 'hiver'">wb_sunny</mat-icon>
 </button>
 <div class="fond-controle">
-  <button class="fond-precedent" mat-mini-fab (click)="fondService.precedent()" (click)="accrochePrecedente()">
+  <button class="fond-precedent" mat-mini-fab (click)="fondService.precedent()" (click)="accroche.precedente()">
     <mat-icon>navigate_before</mat-icon>
   </button>
-  <button class="fond-suivant" mat-mini-fab (click)="fondService.suivant()" (click)="accrocheSuivante()">
+  <button class="fond-suivant" mat-mini-fab (click)="fondService.suivant()" (click)="accroche.suivante()">
     <mat-icon>navigate_next</mat-icon>
   </button>
-  <button class="fond-demarrer-arreter" mat-mini-fab (click)="fondService.demarrerArreter()">
-    <span *ngIf="fondService.defilement.getValue(); else fondDemarrer"><mat-icon >pause</mat-icon></span>
-    <ng-template #fondDemarrer><mat-icon>play_arrow</mat-icon></ng-template>
+  <button class="fond-demarrer-arreter" mat-mini-fab (click)="fondService.demarrerArreter()" (click)="accroche.demarrerArreter()">
+    <span *ngIf="fondService.defilement.getValue(); else fondDemarrer">
+      <mat-icon>pause</mat-icon>
+    </span>
+    <ng-template #fondDemarrer>
+      <mat-icon>play_arrow</mat-icon>
+    </ng-template>
   </button>
 </div>

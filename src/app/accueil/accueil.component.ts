@@ -52,19 +52,39 @@ export class AccueilComponent implements OnInit, OnDestroy {
     ]
   }
 
-  accroches = [
-    {
-      titre: "Le Gypaète vous ouvre ses portes toute l'année",
-      texte: "avec la particularité d'avoir la possibilité de louer la totalité du chalet ou à la nuitée suivant les périodes"
+  accroche = {
+    accroches: [
+      {
+        titre: "Le Gypaète vous ouvre ses portes toute l'année",
+        texte: "avec la particularité d'avoir la possibilité de louer la totalité du chalet ou à la nuitée suivant les périodes"
+      },
+      {
+        titre: "Profitez du confort du chalet et de ses prestations",
+        texte: "de la tranquillité des lieux, de la vue sur la Chaine des Aravis, pour une pause assurée."
+      }
+    ],
+    numero: 0,
+    interval: 10000,
+    defilement: true,
+    subscription: Subscription,
+    demarrer: function(): void {
+      this.subscription = interval(this.interval).subscribe( () => this.suivante() );
+      this.defilement = true;
     },
-    {
-      titre: "Profitez du confort du chalet et de ses prestations",
-      texte: "de la tranquillité des lieux, de la vue sur la Chaine des Aravis, pour une pause assurée."
+    arreter: function(): void {
+      this.subscription.unsubscribe();
+      this.defilement = false;
     },
-  ]
-  accrocheNumero = 0;
-  accrocheInterval = 10000;
-  accrocheSub: Subscription;
+    demarrerArreter: function(): void {
+      !this.defilement ? this.demarrer() : this.arreter();
+    },
+    suivante: function(): void {
+      this.numero < this.accroches.length - 1 ? this.numero++ : this.numero = 0;
+    },
+    precedente: function(): void {
+      this.numero > 0 ? this.numero-- : this.numero = this.accroches.length - 1;
+    }
+  }
 
   constructor(
     public fondService: FondService,
@@ -78,11 +98,12 @@ export class AccueilComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.fondService.demarrer();
-    this.accrocheSub = interval(this.accrocheInterval).subscribe( () => this.accrocheSuivante() );
+    this.accroche.demarrer();
   }
 
   ngOnDestroy(): void {
     this.fondService.arreter();
+    this.accroche.arreter();
   }
 
   changerSaison(event) {
@@ -94,14 +115,6 @@ export class AccueilComponent implements OnInit, OnDestroy {
       this.saison = 'été';
       this.fondService.images.next(this.images.été);
     }
-  }
-
-  accrocheSuivante() {
-    this.accrocheNumero < this.accroches.length - 1 ? this.accrocheNumero++ : this.accrocheNumero = 0;
-  }
-
-  accrochePrecedente() {
-    this.accrocheNumero > 0 ? this.accrocheNumero-- : this.accrocheNumero = this.accroches.length - 1;
   }
 
 }

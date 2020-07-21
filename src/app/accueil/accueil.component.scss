@@ -1,12 +1,31 @@
 .accueil {
   margin-left: 10rem;
   margin-right: 10rem;
+  padding-bottom: 10rem;
   display: flex;
-  height: 100%;
-  flex-flow: row wrap;
+  height: calc(100% - 2rem);
+  padding-bottom: 2rem;
+  flex-flow: column wrap;
   &.mobile {
     margin-left: 1rem;
     margin-right: 1rem;
+  }
+  .haut {
+    flex: 1;
+    align-self: flex-start;
+  }
+  .milieu {
+    flex: 3;
+    // align-self: center;
+    display: flex;
+    flex-flow: row wrap;
+  }
+  .bas {
+    flex: 1;
+    align-self: center;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
   }
 }
 
@@ -76,5 +95,21 @@ button.saison {
       font-size: 1rem;
       line-height: 1.2;
     }
+  }
+}
+
+.social {
+  flex: auto;
+  color: rgb(220, 220, 220);
+  border-color: rgba(240, 212, 156);
+  &:hover {
+    color: rgba(240, 212, 156);
+    .social-logo-draw {
+      fill: rgba(240, 212, 156);
+    }
+  }
+  .social-logo {
+    // line-height: 4em;
+    height: 3rem;
   }
 }
