@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { FondService } from '../fond/fond.service';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription, interval } from 'rxjs';
 import {
   trigger,
@@ -11,6 +10,7 @@ import {
   // ...
 } from '@angular/animations';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { FondService } from '../fond/service/fond.service';
 
 @Component({
   selector: 'app-accueil',
@@ -18,26 +18,23 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
   styleUrls: ['./accueil.component.scss'],
   animations: [
     trigger('flyInOut', [
-      state('in', style({
-        width: 120,
-        transform: 'translateX(0)', opacity: 1
-      })),
-      transition(':increment, * => 0, void => *', [
+      transition('* => *', [
         style({ transform: 'translateX(50px)', opacity: 0 }),
-        group([
-          animate('0.5s ease', style({
-            transform: 'translateX(0)',
-            width: 120
-          })),
-          animate('0.3s ease', style({
-            opacity: 1
-          }))
-        ])
+        animate('0.5s ease', style({
+          transform: 'translateX(0)',
+          opacity: 1
+        })),
+      ])
+    ]),
+    trigger('ligneAccroche', [
+      transition('* => *', [
+        style({ width: '0%' }),
+        animate('3s ease', style({ width: '100%' })),
       ])
     ])
   ]
 })
-export class AccueilComponent implements OnInit {
+export class AccueilComponent implements OnInit, OnDestroy {
 
   saison = 'hiver';
 
@@ -84,6 +81,10 @@ export class AccueilComponent implements OnInit {
     this.accrocheSub = interval(this.accrocheInterval).subscribe( () => this.accrocheSuivante() );
   }
 
+  ngOnDestroy(): void {
+    this.fondService.arreter();
+  }
+
   changerSaison(event) {
     this.fondService.debut();
     if (this.saison === 'été') {
@@ -97,6 +98,10 @@ export class AccueilComponent implements OnInit {
 
   accrocheSuivante() {
     this.accrocheNumero < this.accroches.length - 1 ? this.accrocheNumero++ : this.accrocheNumero = 0;
+  }
+
+  accrochePrecedente() {
+    this.accrocheNumero > 0 ? this.accrocheNumero-- : this.accrocheNumero = this.accroches.length - 1;
   }
 
 }

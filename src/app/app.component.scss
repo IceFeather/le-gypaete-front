@@ -13,13 +13,9 @@
 }
 
 .content {
-  margin-top: 1rem;
-  padding: 0 2rem;
-  height: calc(100vh - 9rem);
+  height: calc(100vh - 8rem);
   overflow: auto;
   &.mobile {
-    margin-top: .5rem;
-    padding: 0 .5rem;
-    height: calc(100vh - 10rem);
+    height: calc(100vh - 5rem);
   }
 }

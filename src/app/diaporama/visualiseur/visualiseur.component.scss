@@ -1,0 +1,26 @@
+.visualiseur {
+  background-color: rgba(0, 0, 0, .7);
+  box-shadow: .0em .0em 2em .5em rgba(0, 0, 0, .7);
+  height: 500px;
+  .images {
+    // height: 400px;
+    // position: absolute;
+    .image {
+      height: 100%;
+      width: 100%;
+      background-size: contain;
+      background-position: center;
+      background-position-y: center;
+      background-repeat: no-repeat;
+      position: absolute;
+    }
+  }
+  .precedent {
+    height: 100%;
+    float: left;
+  }
+  .suivant {
+    height: 100%;
+    float: right;
+  }
+}

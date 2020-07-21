@@ -1,7 +1,8 @@
 <span class="accueil" [class.mobile]="isMobile">
-  <span class="accroche" [class.mobile]="isMobile" [@flyInOut]="accrocheNumero">
-    <h1>{{accroches[accrocheNumero].titre}}</h1>
-    <p>{{accroches[accrocheNumero].texte}}</p>
+  <span class="accroche" [class.mobile]="isMobile">
+    <h1 [@flyInOut]="accrocheNumero">{{accroches[accrocheNumero].titre}}</h1>
+    <div class="ligne" [@ligneAccroche]="accrocheNumero"></div>
+    <p [@flyInOut]="accrocheNumero">{{accroches[accrocheNumero].texte}}</p>
   </span>
 </span>
 
@@ -10,10 +11,10 @@
   <mat-icon *ngIf="saison == 'hiver'">wb_sunny</mat-icon>
 </button>
 <div class="fond-controle">
-  <button class="fond-precedent" mat-mini-fab (click)="fondService.precedent()">
+  <button class="fond-precedent" mat-mini-fab (click)="fondService.precedent()" (click)="accrochePrecedente()">
     <mat-icon>navigate_before</mat-icon>
   </button>
-  <button class="fond-suivant" mat-mini-fab (click)="fondService.suivant()">
+  <button class="fond-suivant" mat-mini-fab (click)="fondService.suivant()" (click)="accrocheSuivante()">
     <mat-icon>navigate_next</mat-icon>
   </button>
   <button class="fond-demarrer-arreter" mat-mini-fab (click)="fondService.demarrerArreter()">

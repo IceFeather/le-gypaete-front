@@ -9,7 +9,7 @@ import {
   transition,
   // ...
 } from '@angular/animations';
-import { FondService } from './fond.service';
+import { FondService } from '../service/fond.service';
 
 @Component({
   selector: 'app-fond',

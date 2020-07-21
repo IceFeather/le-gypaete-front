@@ -1,0 +1,25 @@
+<mat-grid-list [cols]="columns" rowHeight="2:1" [class.mobile]="isMobile">
+  <ng-container *ngFor="let chambre of chambres" class="test">
+    <mat-grid-tile matRipple class="tuile"
+      [style.background-image]="'url(' + chambre.images[0] + ')'"
+      [routerLink]="['../chambre/',chambre.numero]">
+      <mat-grid-tile-header>
+        <div class="nom">
+          <h1>{{chambre.nom}}</h1>
+          <div class="ligne"></div>
+        </div>
+        <div class="infos">
+          <div class="info">
+            <span>{{chambre.nombrePersonnes}}</span>
+            <mat-icon>person</mat-icon>
+          </div>
+          <div class="info" *ngIf="chambre.pmr">
+            <mat-icon>accessible</mat-icon>
+          </div>
+        </div>
+      </mat-grid-tile-header>
+      <div class="sur"></div>
+      <button mat-button mat-stroked-button color="white" class="voir" [routerLink]="['../chambre/',chambre.numero]">Détails<mat-icon>keyboard_arrow_right</mat-icon></button>
+    </mat-grid-tile>
+  </ng-container>
+</mat-grid-list>

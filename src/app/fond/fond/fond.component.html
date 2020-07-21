@@ -1,0 +1,5 @@
+<div *ngIf="fondService.images.value.length > 0">
+  <div *ngFor="let item of fondService.images.value | keyvalue">
+    <div class="bg" @diapo *ngIf="fondService.numero.value == item.key" [style.background-image]="'url('+item.value+')'"></div>
+  </div>
+</div>
