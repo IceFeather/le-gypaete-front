@@ -56,10 +56,10 @@
         <mat-divider></mat-divider>
         <mat-list class="en-ligne">
           <mat-list-item *ngFor="let lit of chambre.lits">
-            <mat-icon mat-list-icon *ngIf="lit.classe === litClasses.KingSize">king_bed</mat-icon>
-            <mat-icon mat-list-icon *ngIf="lit.classe === litClasses.KingSize">star</mat-icon>
-            <mat-icon mat-list-icon *ngIf="lit.classe === litClasses.Double">king_bed</mat-icon>
-            <mat-icon mat-list-icon *ngIf="lit.classe === litClasses.Simple">single_bed</mat-icon>
+            <mat-icon mat-list-icon *ngIf="lit.classe === 'King Size'">king_bed</mat-icon>
+            <mat-icon mat-list-icon *ngIf="lit.classe === 'King Size'">star</mat-icon>
+            <mat-icon mat-list-icon *ngIf="lit.classe === 'Double'">king_bed</mat-icon>
+            <mat-icon mat-list-icon *ngIf="lit.classe === 'Simple'">single_bed</mat-icon>
             <div mat-line>Lit {{lit.classe}}</div>
             <div mat-line>Largeur : {{lit.largeur}} cm</div>
           </mat-list-item>
@@ -91,6 +91,17 @@
             <mat-icon mat-list-icon>landscape</mat-icon>
             <div mat-line>Vue</div>
             <div mat-line *ngFor="let vue of chambre.vues">{{vue}}</div>
+          </mat-list-item>
+        </mat-list>
+        <mat-divider></mat-divider>
+        <mat-list>
+          <mat-list-item *ngIf="chambre.tv">
+            <mat-icon mat-list-icon>tv</mat-icon>
+            <div mat-line>TV</div>
+          </mat-list-item>
+          <mat-list-item *ngIf="chambre.wifi">
+            <mat-icon mat-list-icon>wifi</mat-icon>
+            <div mat-line>WiFi</div>
           </mat-list-item>
         </mat-list>
       </div>

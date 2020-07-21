@@ -28,15 +28,19 @@ export class MosaiqueComponent implements OnInit {
       ],
       nombrePersonnes: 2,
       pmr: false,
-      lits: [{classe: Lit.Classe.KingSize, largeur: 180}],
+      lits: [{classe: 'King Size', largeur: 180}],
       terrasse: true,
       balcon: false,
       vues: ['Chaîne des Aravis'],
       salleDEau: {nombre: 1, plus: ["Salle d'eau privative"]},
       wc: {nombre: 1, plus: ["séparé"]},
       tv: true,
+      wifi: true,
       autres: ['Lecteur DVD'],
-      tarifs: null
+      tarifs: {
+        nuit: 140,
+        plusnuits: {condition: 2, cout: 130}
+      }
     },
     {
       numero: 2,
@@ -50,15 +54,19 @@ export class MosaiqueComponent implements OnInit {
       ],
       nombrePersonnes: 2,
       pmr: true,
-      lits: [{classe: Lit.Classe.Simple, largeur: 90}, {classe: Lit.Classe.Simple, largeur: 90}],
+      lits: [{classe: 'Simple', largeur: 90}, {classe: 'Simple', largeur: 90}],
       terrasse: true,
       balcon: false,
       vues: ['Chaîne des Aravis'],
       salleDEau: {nombre: 1, plus: ["Salle d'eau privative"]},
       wc: {nombre: 1, plus: ["séparé"]},
       tv: true,
+      wifi: true,
       autres: ['Lecteur DVD'],
-      tarifs: null
+      tarifs: {
+        nuit: 110,
+        plusnuits: {condition: 2, cout: 100}
+      }
     },
     {
       numero: 3,
@@ -73,18 +81,27 @@ export class MosaiqueComponent implements OnInit {
       nombrePersonnes: 5,
       pmr: false,
       lits: [
-        {classe: Lit.Classe.Double, largeur: 160},
-        {classe: Lit.Classe.Simple, largeur: 90},
-        {classe: Lit.Classe.Simple, largeur: 90},
-        {classe: Lit.Classe.Simple, largeur: 90}],
+        {classe: 'Double', largeur: 160},
+        {classe: 'Simple', largeur: 90},
+        {classe: 'Simple', largeur: 90},
+        {classe: 'Simple', largeur: 90}],
       terrasse: false,
       balcon: true,
       vues: ['Chaîne des Aravis', 'Roc des Tours'],
       salleDEau: {nombre: 1, plus: ["Salle d'eau privative"]},
       wc: {nombre: 1, plus: ["séparé"]},
       tv: true,
+      wifi: true,
       autres: ['Lecteur DVD'],
-      tarifs: null
+      tarifs: {
+        nuit: 135,
+        plusnuits: {condition: 2, cout: 125},
+        pluspersonne: [
+          {condition: 'Enfant de 2 à 5 ans', cout: 15},
+          {condition: 'Enfant de 6 à 12 ans', cout: 25},
+          {condition: 'Plus de 12 ans et adulte', cout: 35},
+        ]
+      }
     },
     {
       numero: 4,
@@ -99,18 +116,27 @@ export class MosaiqueComponent implements OnInit {
       nombrePersonnes: 5,
       pmr: false,
       lits: [
-        {classe: Lit.Classe.Double, largeur: 160},
-        {classe: Lit.Classe.Simple, largeur: 90},
-        {classe: Lit.Classe.Simple, largeur: 90},
-        {classe: Lit.Classe.Simple, largeur: 90}],
+        {classe: 'Double', largeur: 160},
+        {classe: 'Simple', largeur: 90},
+        {classe: 'Simple', largeur: 90},
+        {classe: 'Simple', largeur: 90}],
       terrasse: false,
       balcon: true,
       vues: ['Chaîne des Aravis', 'Roc des Tours'],
       salleDEau: {nombre: 1, plus: ["Salle d'eau privative"]},
       wc: {nombre: 1, plus: ["séparé"]},
       tv: true,
+      wifi: true,
       autres: ['Lecteur DVD'],
-      tarifs: null
+      tarifs: {
+        nuit: 135,
+        plusnuits: {condition: 2, cout: 125},
+        pluspersonne: [
+          {condition: 'Enfant de 2 à 5 ans', cout: 15},
+          {condition: 'Enfant de 6 à 12 ans', cout: 25},
+          {condition: 'Plus de 12 ans et adulte', cout: 35},
+        ]
+      }
     },
     {
       numero: 5,
@@ -122,10 +148,10 @@ export class MosaiqueComponent implements OnInit {
         '/assets/img/chambre/chambre-exemple-3.jpg',
         '/assets/img/chambre/chambre-exemple-4.jpg',
       ],
-      nombrePersonnes: 2,
+      nombrePersonnes: 5,
       pmr: false,
       lits: [
-        {classe: Lit.Classe.KingSize, largeur: 180},
+        {classe: 'King Size', largeur: 180},
       ],
       terrasse: false,
       balcon: true,
@@ -133,8 +159,12 @@ export class MosaiqueComponent implements OnInit {
       salleDEau: {nombre: 1, plus: ["Salle d'eau privative", "Double douche"]},
       wc: {nombre: 1, plus: ["séparé"]},
       tv: true,
+      wifi: true,
       autres: ['Lecteur DVD'],
-      tarifs: null
+      tarifs: {
+        nuit: 90,
+        plusnuits: {condition: 2, cout: 80},
+      }
     }
   ]
 

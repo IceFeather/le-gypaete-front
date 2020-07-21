@@ -1,12 +1,4 @@
 export interface Lit {
-  classe: Lit.Classe;
+  classe: 'King Size' | 'Double' | 'Simple';
   largeur: number;
-}
-
-export namespace Lit {
-  export enum Classe {
-    KingSize = 'King Size',
-    Double = 'Double',
-    Simple = 'Simple',
-  }
 }

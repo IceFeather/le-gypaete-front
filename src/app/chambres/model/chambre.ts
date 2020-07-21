@@ -20,6 +20,7 @@ export interface Chambre {
     plus: string[]
   };
   tv: boolean;
+  wifi: boolean;
   autres: string[];
   tarifs: Tarifs;
 }

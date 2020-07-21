@@ -29,13 +29,14 @@ export class ChambreComponent implements OnInit {
       ],
       nombrePersonnes: 2,
       pmr: false,
-      lits: [{classe: Lit.Classe.KingSize, largeur: 180}],
+      lits: [{classe: 'King Size', largeur: 180}],
       terrasse: true,
       balcon: false,
       vues: ['Chaîne des Aravis'],
       salleDEau: {nombre: 1, plus: ["Salle d'eau privative"]},
       wc: {nombre: 1, plus: ["séparé"]},
       tv: true,
+      wifi: true,
       autres: ['Lecteur DVD'],
       tarifs: {
         nuit: 140,
@@ -54,13 +55,14 @@ export class ChambreComponent implements OnInit {
       ],
       nombrePersonnes: 2,
       pmr: true,
-      lits: [{classe: Lit.Classe.Simple, largeur: 90}, {classe: Lit.Classe.Simple, largeur: 90}],
+      lits: [{classe: 'Simple', largeur: 90}, {classe: 'Simple', largeur: 90}],
       terrasse: true,
       balcon: false,
       vues: ['Chaîne des Aravis'],
       salleDEau: {nombre: 1, plus: ["Salle d'eau privative"]},
       wc: {nombre: 1, plus: ["séparé"]},
       tv: true,
+      wifi: true,
       autres: ['Lecteur DVD'],
       tarifs: {
         nuit: 110,
@@ -80,16 +82,17 @@ export class ChambreComponent implements OnInit {
       nombrePersonnes: 5,
       pmr: false,
       lits: [
-        {classe: Lit.Classe.Double, largeur: 160},
-        {classe: Lit.Classe.Simple, largeur: 90},
-        {classe: Lit.Classe.Simple, largeur: 90},
-        {classe: Lit.Classe.Simple, largeur: 90}],
+        {classe: 'Double', largeur: 160},
+        {classe: 'Simple', largeur: 90},
+        {classe: 'Simple', largeur: 90},
+        {classe: 'Simple', largeur: 90}],
       terrasse: false,
       balcon: true,
       vues: ['Chaîne des Aravis', 'Roc des Tours'],
       salleDEau: {nombre: 1, plus: ["Salle d'eau privative"]},
       wc: {nombre: 1, plus: ["séparé"]},
       tv: true,
+      wifi: true,
       autres: ['Lecteur DVD'],
       tarifs: {
         nuit: 135,
@@ -114,16 +117,17 @@ export class ChambreComponent implements OnInit {
       nombrePersonnes: 5,
       pmr: false,
       lits: [
-        {classe: Lit.Classe.Double, largeur: 160},
-        {classe: Lit.Classe.Simple, largeur: 90},
-        {classe: Lit.Classe.Simple, largeur: 90},
-        {classe: Lit.Classe.Simple, largeur: 90}],
+        {classe: 'Double', largeur: 160},
+        {classe: 'Simple', largeur: 90},
+        {classe: 'Simple', largeur: 90},
+        {classe: 'Simple', largeur: 90}],
       terrasse: false,
       balcon: true,
       vues: ['Chaîne des Aravis', 'Roc des Tours'],
       salleDEau: {nombre: 1, plus: ["Salle d'eau privative"]},
       wc: {nombre: 1, plus: ["séparé"]},
       tv: true,
+      wifi: true,
       autres: ['Lecteur DVD'],
       tarifs: {
         nuit: 135,
@@ -148,7 +152,7 @@ export class ChambreComponent implements OnInit {
       nombrePersonnes: 5,
       pmr: false,
       lits: [
-        {classe: Lit.Classe.KingSize, largeur: 180},
+        {classe: 'King Size', largeur: 180},
       ],
       terrasse: false,
       balcon: true,
@@ -156,6 +160,7 @@ export class ChambreComponent implements OnInit {
       salleDEau: {nombre: 1, plus: ["Salle d'eau privative", "Double douche"]},
       wc: {nombre: 1, plus: ["séparé"]},
       tv: true,
+      wifi: true,
       autres: ['Lecteur DVD'],
       tarifs: {
         nuit: 90,
@@ -165,7 +170,6 @@ export class ChambreComponent implements OnInit {
   ]
 
   chambre: Chambre;
-  litClasses = Lit.Classe;
 
   isMobile: boolean;
 
