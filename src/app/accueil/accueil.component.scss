@@ -1,32 +1,98 @@
-.accueil {
+.contenu {
   margin-left: 10rem;
   margin-right: 10rem;
-  padding-bottom: 10rem;
+  padding-top: 2rem;
+  padding-bottom: 5rem;
   display: flex;
-  height: calc(100% - 2rem);
-  padding-bottom: 2rem;
-  flex-flow: column wrap;
+  span {
+    margin: 0 1rem 0 1rem;
+    flex: 1;
+    &:first-child {
+      margin: 0 1rem 0 0;
+    }
+    &:last-child {
+      margin: 0 0 0 1rem;
+    }
+  }
   &.mobile {
     margin-left: 1rem;
     margin-right: 1rem;
+    flex-wrap: wrap;
+    flex-direction: column;
+    span {
+      margin: 1rem 0 1rem 0;
+      &:first-child {
+        margin: 0 0 1rem 0;
+      }
+      &:last-child {
+        margin: 1rem 0 0 0;
+      }
+    }
   }
+}
+
+#accueil {
+  display: flex;
+  height: calc(100vh - 10rem);
+  flex-flow: column wrap;
   .haut {
     flex: 1;
     align-self: flex-start;
   }
   .milieu {
-    flex: 3;
+    flex: 2;
     // align-self: center;
     display: flex;
     flex-flow: row wrap;
   }
   .bas {
-    flex: 1;
+    flex: 2;
     align-self: center;
     display: flex;
     flex-flow: row wrap;
     align-items: center;
   }
+}
+
+h1 {
+  font-size: 2rem;
+  line-height: 2.5rem;
+  // border-bottom: .2rem solid rgba(240, 212, 156);
+  // padding-bottom: .7rem;
+  color: rgb(220, 220, 220);
+  .mobile & {
+    font-size: 1.5rem;
+    line-height: 1.7rem;
+  }
+}
+.ligne {
+  background-color: rgba(240, 212, 156);
+  line-height: 0rem;
+  height: .2rem;
+  max-width: 10rem;
+  width: 100%;
+  align-self: start;
+  .mobile & {
+    max-width: 5rem;
+    width: 100%;
+  }
+}
+p {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  color: rgb(220, 220, 220);
+  .mobile & {
+    font-size: 1rem;
+    line-height: 1.2;
+  }
+}
+
+img {
+  width: auto;
+  max-width: 100%;
+  box-shadow: .0em .0em 2em .5em rgba(0, 0, 0, .7);
+
 }
 
 button.saison {
@@ -52,49 +118,11 @@ button.saison {
   flex: auto;
   align-self: center;
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: column wrap;
   align-items: flex-start;
   max-width: 60rem;
-  min-width: 30rem;
-  color: rgb(220, 220, 220);
-  h1 {
-    font-size: 2rem;
-    line-height: 2.5rem;
-    // border-bottom: .2rem solid rgba(240, 212, 156);
-    // padding-bottom: .7rem;
-  }
-  .ligne {
-    background-color: rgba(240, 212, 156);
-    line-height: 0rem;
-    height: .2rem;
-    max-width: 10rem;
-    width: 100%;
-    align-self: start;
-  }
-  p {
-    margin-top: 1rem;
-    font-size: 1.5rem;
-    line-height: 2rem;
-    color: rgb(220, 220, 220);
-  }
-  &.mobile {
-    flex: auto;
-    align-self: center;
-    justify-self: center;
-    max-width: 100%;
-    min-width: 50%;
-    h1 {
-      font-size: 1.5rem;
-      line-height: 1.7rem;
-    }
-    .ligne {
-      max-width: 5rem;
-      width: 100%;
-    }
-    p {
-      font-size: 1rem;
-      line-height: 1.2;
-    }
+  .mobile & {
+    max-width: calc(100vw - 4rem);
   }
 }
 
@@ -107,6 +135,9 @@ button.saison {
     .social-logo-draw {
       fill: rgba(240, 212, 156);
     }
+  }
+  mat-icon {
+    margin-right: 1em;
   }
   .social-logo {
     // line-height: 4em;

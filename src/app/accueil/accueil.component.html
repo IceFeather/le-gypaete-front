@@ -1,4 +1,4 @@
-<span class="accueil" [class.mobile]="isMobile">
+<section id="accueil" class="contenu" [class.mobile]="isMobile">
   <div class="haut"></div>
   <div class="milieu">
     <span class="accroche" [class.mobile]="isMobile">
@@ -25,7 +25,30 @@
       <span>Facebook</span>
     </a>
   </div>
-</span>
+</section>
+<section id="gypaete-barbu" class="contenu" [class.mobile]="isMobile">
+  <span id="texte">
+    <h1>Le chalet le Gypaète</h1>
+    <div class="ligne"></div>
+    <p>en référence au Gypaète Barbu, dont la réintroduction sur le territoire Haut-Savoyard débute en 1987, avec une première nidiﬁcation réussie en 1997 sur le Bargy.</p>
+  </span>
+  <span id="image">
+    <img src="../../assets/img/gypaete-barbu.jpg" alt="Gypaète Barbu">
+  </span>
+</section>
+<section id="le-grand-bornand" class="contenu" [class.mobile]="isMobile">
+  <span id="image">
+    <img src="../../assets/img/village-hiver-nuit-hd.jpg" alt="Le Grand Bornand en Hiver">
+  </span>
+  <span id="texte">
+    <h1>Situé au Grand Bornand</h1>
+    <div class="ligne"></div>
+    <p>Station touristique et village de charme, le Grand-Bornand vit toute l'année dans son écrin des Alpes, dominé par la chaine des Avaris</p>
+    <a mat-stroked-button href="https://www.legrandbornand.com/" target="_blank" class="social">
+      <mat-icon>image</mat-icon>Découvrir le Grand-Bornand
+    </a>
+  </span>
+</section>
 
 <button class="saison" mat-mini-fab (click)="changerSaison($event)">
   <mat-icon *ngIf="saison == 'été'">ac_unit</mat-icon>

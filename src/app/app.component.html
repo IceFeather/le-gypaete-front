@@ -1,7 +1,15 @@
 <app-fond></app-fond>
 <div class="gradiant">
   <app-navigation></app-navigation>
-  <div class="content" [class.mobile]="isMobile">
-    <router-outlet></router-outlet>
+  <div class="content" [class.mobile]="isMobile" (scroll)="scroll($event)">
+    <section id="page">
+      <router-outlet></router-outlet>
+    </section>
+    <section id="bas-de-page">
+
+    </section>
+  </div>
+  <div *ngIf="top" class="indice-vers-le-bas" @afficherMasquer>
+    <mat-icon>arrow_drop_down</mat-icon>
   </div>
 </div>

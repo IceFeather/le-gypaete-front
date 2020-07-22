@@ -18,4 +18,50 @@
   &.mobile {
     height: calc(100vh - 5rem);
   }
+  section {
+    flex: auto;
+    width: 100%;
+  }
+}
+
+#page {
+  align-self: flex-start;
+  flex-shrink: 0;
+  min-height: calc(100vh - 18rem);
+}
+
+#bas-de-page {
+  background-color: rgba(18, 9, 4, .8);
+  box-shadow: 0 0 1em rgba(18, 9, 4, 0.5);
+  margin-top: 3rem;
+  height: 10rem;
+  align-self: flex-end;
+}
+
+.indice-vers-le-bas {
+  display: block;
+  position: fixed;
+  bottom: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #f0d49c;
+  opacity: 0.7;
+  mat-icon {
+    animation: hautBas 2s infinite;
+    font-size: 8rem;
+    height: 5rem;
+    width: 8rem;
+  }
+}
+
+@keyframes hautBas {
+  0% {
+    transform: translateY(1rem);
+  }
+  50% {
+    transform: translateY(0rem);
+  }
+  100% {
+    transform: translateY(1rem);
+  }
 }
