@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Subscription, interval } from 'rxjs';
 import {
   trigger,
@@ -86,9 +87,14 @@ export class AccueilComponent implements OnInit, OnDestroy {
     }
   }
 
+  lat: number = 51.678418;
+  lng: number = 7.809007;
+
+
   constructor(
     public fondService: FondService,
     private breakpointObserver: BreakpointObserver,
+    public sanitizer: DomSanitizer,
   ) {
     fondService.images.next(this.images[this.saison]);
     breakpointObserver.observe([
