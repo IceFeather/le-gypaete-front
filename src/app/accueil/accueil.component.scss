@@ -4,15 +4,19 @@
   padding-top: 2rem;
   padding-bottom: 5rem;
   display: flex;
+  flex-flow: row;
+  &.inverse {
+    flex-flow: row-reverse;
+  }
   & > span, & > div {
     margin: 0 1rem 0 1rem;
     flex: 1;
-    &:first-child {
-      margin: 0 1rem 0 0;
-    }
-    &:last-child {
-      margin: 0 0 0 1rem;
-    }
+    // &:first-child {
+    //   margin: 0 1rem 0 0;
+    // }
+    // &:last-child {
+    //   margin: 0 0 0 1rem;
+    // }
   }
   &.mobile {
     margin-left: 1rem;
@@ -21,12 +25,12 @@
     flex-direction: column;
     & > span, & > div {
       margin: 1rem 0 1rem 0;
-      &:first-child {
-        margin: 0 0 1rem 0;
-      }
-      &:last-child {
-        margin: 1rem 0 0 0;
-      }
+      // &:first-child {
+      //   margin: 0 0 1rem 0;
+      // }
+      // &:last-child {
+      //   margin: 1rem 0 0 0;
+      // }
     }
   }
 }
