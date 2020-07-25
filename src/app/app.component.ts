@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +21,9 @@ import { trigger, transition, style, animate } from '@angular/animations';
     ])
   ]
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
+  @ViewChild('contenu') contenu!: ElementRef;
+
   title = 'Chalet le Gypaete';
 
   saison = 'hiver';
@@ -30,14 +33,23 @@ export class AppComponent implements OnInit {
   bottom: boolean = false;
 
   constructor(
-    private breakpointObserver: BreakpointObserver
+    private breakpointObserver: BreakpointObserver,
+    private router: Router
   ) {
     breakpointObserver.observe([
       Breakpoints.Handset, Breakpoints.Medium, Breakpoints.Small, Breakpoints.XSmall
     ]).subscribe( bp => this.isMobile = bp.matches );
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
+  }
+
+  ngAfterViewInit() {
+    this.router.events.subscribe((evt) => {
+      if (evt instanceof NavigationEnd) {
+        this.contenu.nativeElement.scrollTo(0,0);
+      }
+    });
   }
 
   changerSaison(event) {

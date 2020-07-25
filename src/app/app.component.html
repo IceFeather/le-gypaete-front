@@ -1,7 +1,7 @@
 <app-fond></app-fond>
 <div class="gradiant">
   <app-navigation></app-navigation>
-  <div class="content" [class.mobile]="isMobile" (scroll)="scroll($event)">
+  <div #contenu class="content" [class.mobile]="isMobile" (scroll)="scroll($event)">
     <section id="page">
       <router-outlet></router-outlet>
     </section>
