@@ -15,12 +15,14 @@ import { FondService } from './fond/service/fond.service';
 import { ChambresModule } from './chambres/chambres.module';
 import { FondModule } from './fond/fond.module';
 import { MatListModule } from '@angular/material/list';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     AccueilComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,

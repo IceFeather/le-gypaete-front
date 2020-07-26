@@ -5,11 +5,11 @@
     <section id="page">
       <router-outlet></router-outlet>
     </section>
-    <section id="bas-de-page">
-
+    <section #basDePage id="bas-de-page">
+      <button mat-button (click)="logTopBottom()">LOG</button>
     </section>
   </div>
-  <div *ngIf="top" class="indice-vers-le-bas" @afficherMasquer>
+  <div *ngIf="top && !bottom" class="indice-vers-le-bas" @afficherMasquer>
     <mat-icon>arrow_drop_down</mat-icon>
   </div>
 </div>

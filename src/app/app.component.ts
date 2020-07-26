@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, AfterContentInit, AfterViewChecked, AfterContentChecked } from '@angular/core';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { trigger, transition, style, animate } from '@angular/animations';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd, Scroll } from '@angular/router';
+import { BrowserTransferStateModule } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -23,18 +24,21 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class AppComponent implements OnInit, AfterViewInit {
   @ViewChild('contenu') contenu!: ElementRef;
+  @ViewChild('basDePage') basDePage!: ElementRef;
 
   title = 'Chalet le Gypaete';
 
   saison = 'hiver';
 
   isMobile: boolean;
-  top: boolean = true;
-  bottom: boolean = false;
+  top: boolean;
+  bottom: boolean;
+
+  intersectionObserver: IntersectionObserver;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
-    private router: Router
+    private router: Router,
   ) {
     breakpointObserver.observe([
       Breakpoints.Handset, Breakpoints.Medium, Breakpoints.Small, Breakpoints.XSmall
@@ -42,14 +46,29 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+    this.intersectionObserver = new IntersectionObserver((entries, observer) => {
+      if (entries[0].isIntersecting) {
+        this.bottom = true;
+        observer.unobserve(entries[0].target);
+      }
+    }, {threshold: [0]});
   }
 
   ngAfterViewInit() {
+    console.log('AFTER VIEW INIT')
     this.router.events.subscribe((evt) => {
       if (evt instanceof NavigationEnd) {
         this.contenu.nativeElement.scrollTo(0,0);
+        this.top = true;
+        this.bottom = false;
+        this.intersectionObserver.observe(this.basDePage.nativeElement);
       }
     });
+  }
+
+  logTopBottom() {
+    console.log(this.top);
+    console.log(this.bottom);
   }
 
   changerSaison(event) {
@@ -58,20 +77,34 @@ export class AppComponent implements OnInit, AfterViewInit {
     } else {
       this.saison = 'été';
     }
-    // this.diaporamaFond.reset();
   }
 
   scroll(event: any) {
-    if (event.target.scrollTop === 0) {
+    this.checkTopAndBottom(event.target.scrollTop, event.target.scrollHeight, event.target.offsetHeight);
+  }
+
+  checkTopAndBottom(scrollTop: number, scrollHeight: number, offsetHeight: number) {
+    this.checkTop(scrollTop);
+    this.checkBottom(scrollTop, scrollHeight, offsetHeight);
+  }
+
+
+  checkTop(scrollTop: number) {
+    if (scrollTop === 0) {
       this.top = true;
     } else {
       this.top = false;
     }
-    if (event.target.offsetHeight + event.target.scrollTop >= event.target.scrollHeight) {
+    // console.log('top : ' + this.top);
+  }
+
+  checkBottom(scrollTop: number, scrollHeight: number, offsetHeight: number) {
+    if (offsetHeight + scrollTop >= scrollHeight) {
       this.bottom = true;
     } else {
       this.bottom = false;
     }
+    this.intersectionObserver.observe(this.basDePage.nativeElement);
   }
 
 }
