@@ -1,11 +1,12 @@
-<div class="contenu" [class.mobile]="isMobile">
+<div class="page" [class.mobile]="isMobile">
   <div class="tete">
-    <button mat-fab [routerLink]="['../']" routerLinkActive="router-link-active">
+    <button mat-fab class="transparent-2" [routerLink]="['../']" routerLinkActive="router-link-active">
       <mat-icon>keyboard_arrow_left</mat-icon>
     </button>
-    <div class="titre">
-      <h1>{{chambre.nom}}</h1>
-      <div class="ligne" style="max-width: 4rem;"></div>
+    <div>
+      <h1>{{chambre.nom}}
+        <div class="ligne" [style.max-width.rem]="5"></div>
+      </h1>
     </div>
   </div>
 
@@ -41,7 +42,7 @@
       <div class="details">
         <div class="titre">
           <h2>Détails</h2>
-          <div class="ligne" style="max-width: 2rem;"></div>
+          <div class="ligne" [style.max-width.rem]="2"></div>
         </div>
         <mat-list>
           <mat-list-item>
@@ -108,7 +109,7 @@
       <div class="tarifs">
         <div class="titre">
           <h2>Tarifs</h2>
-          <div class="ligne" style="max-width: 2rem;"></div>
+          <div class="ligne" [style.max-width.rem]="2"></div>
         </div>
         <mat-list>
           <div mat-subheader>Base chambre double (2 personnes)</div>
@@ -133,7 +134,7 @@
           </ng-container>
         </mat-list>
       </div>
-      <button mat-button class="reserver">Reserver</button>
+      <button mat-stroked-button class="bordure reserver">Reserver</button>
     </div>
 
   </div>

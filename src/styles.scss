@@ -19,7 +19,9 @@ $le-gypaete-front-accent: mat-palette($mat-pink, A200, A100, A400);
 $le-gypaete-front-warn: mat-palette($mat-red);
 
 // Create the theme object (a Sass map containing all of the palettes).
-$le-gypaete-front-theme: mat-light-theme($le-gypaete-front-primary, $le-gypaete-front-accent, $le-gypaete-front-warn);
+$le-gypaete-front-theme: mat-light-theme(
+  $le-gypaete-front-primary, $le-gypaete-front-accent, $le-gypaete-front-warn
+);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -30,3 +32,123 @@ $le-gypaete-front-theme: mat-light-theme($le-gypaete-front-primary, $le-gypaete-
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+h1 {
+  font-size: 2rem !important;
+  line-height: 2.5rem !important;
+  // border-bottom: .2rem solid rgba(240, 212, 156);
+  // padding-bottom: .7rem;
+  // margin: 1em 0 1em 0 !important;
+  .ligne {
+    max-width: 5rem;
+  }
+  .mobile & {
+    font-size: 1.5rem !important;
+    line-height: 1.7rem !important;
+  }
+}
+h2 {
+  font-size: 1.5rem !important;
+  line-height: 2rem !important;
+  // border-bottom: .2rem solid rgba(240, 212, 156);
+  // padding-bottom: .7rem;
+  .ligne {
+    max-width: 3rem;
+  }
+  .mobile & {
+    font-size: 1.3rem !important;
+    line-height: 1.5rem !important;
+  }
+}
+
+h1, h2 {
+  color: rgb(220, 220, 220) !important;
+  .ligne {
+    margin-top: .5rem;
+  }
+}
+
+.ligne {
+  background-color: rgba(240, 212, 156);
+  line-height: 0rem;
+  height: .2rem;
+  max-width: 5rem;
+  width: 100%;
+  align-self: start;
+}
+p {
+  margin-top: 1rem !important;
+  font-size: 1.5rem !important;
+  line-height: 2rem !important;
+  color: rgb(220, 220, 220) !important;
+  .mobile & {
+    font-size: 1rem !important;
+    line-height: 1.2 !important;
+  }
+}
+
+button, a {
+  &.transparent-1 {
+    background-color: rgba(94, 83, 61, .5) !important;
+  }
+  &.transparent-2 {
+    background-color: rgba(240, 212, 156, 0.2) !important
+  }
+  &.bordure {
+    color: rgb(220, 220, 220);
+    border-color: rgba(240, 212, 156) !important;
+  }
+  &.avec-icone {
+    mat-icon {
+      margin-right: 1em;
+    }
+  }
+}
+
+.contenu {
+  padding-top: 2rem;
+  padding-bottom: 5rem;
+  display: flex;
+  flex-flow: row;
+  &.inverse {
+    flex-flow: row-reverse;
+  }
+  & > span, & > div {
+    margin: 0 1rem 0 1rem;
+    flex: 1;
+  }
+  &.mobile {
+    flex-wrap: wrap;
+    flex-direction: column;
+    & > span, & > div {
+      margin: 1rem 0 1rem 0;
+    }
+  }
+}
+
+.image {
+  * {
+    box-shadow: .0em .0em 2em .5em rgba(0, 0, 0, .7);
+  }
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+}
+
+
+mat-list {
+  &.en-ligne {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    mat-list-item {
+      flex: 1;
+    }
+  }
+}
+
+mat-divider {
+  border-top-color: #ffffff92 !important;
+}

@@ -1,4 +1,4 @@
-.contenu {
+.page {
   padding: 1rem 5rem;
   color: white;
 
@@ -20,9 +20,6 @@
     flex-direction: row;
     height: 6rem;
     width: 100%;
-    button {
-      background-color: rgba(240, 212, 156, 0.2);
-    }
     &>:first-child {
       margin-right: 1rem;
     }
@@ -64,7 +61,7 @@
   .reserver {
     font-size: 1.5rem;
     padding: 1rem;
-    background-color: rgba(240, 212, 156, 0.2);
+    // background-color: rgba(240, 212, 156, 0.2);
   }
 
   .titre {
@@ -75,19 +72,6 @@
       height: .2rem;
       width: 100%;
     }
-  }
-
-  .en-ligne {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: flex-start;
-    mat-list-item {
-      flex: 1;
-    }
-  }
-
-  mat-divider {
-    border-color: #ffffff92;
   }
 
 

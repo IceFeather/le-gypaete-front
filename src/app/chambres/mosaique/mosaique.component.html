@@ -5,8 +5,9 @@
       [routerLink]="['../chambre/',chambre.numero]">
       <mat-grid-tile-header>
         <div class="nom">
-          <h1>{{chambre.nom}}</h1>
-          <div class="ligne"></div>
+          <h2 [style.margin-bottom]="0" [style.margin-top.em]=".5">{{chambre.nom}}
+            <div class="ligne"></div>
+          </h2>
         </div>
         <div class="infos">
           <div class="info">
@@ -19,7 +20,7 @@
         </div>
       </mat-grid-tile-header>
       <div class="sur"></div>
-      <button mat-button mat-stroked-button color="white" class="voir" [routerLink]="['../chambre/',chambre.numero]">Détails<mat-icon>keyboard_arrow_right</mat-icon></button>
+      <button mat-button mat-stroked-button color="white" class="voir bordure" [routerLink]="['../chambre/',chambre.numero]">Détails<mat-icon>keyboard_arrow_right</mat-icon></button>
     </mat-grid-tile>
   </ng-container>
 </mat-grid-list>
