@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-contact',
@@ -7,7 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  constructor() { }
+  isMobile: boolean;
+
+  constructor(private breakpointObserver: BreakpointObserver) {
+    breakpointObserver.observe([
+      Breakpoints.Handset,
+      Breakpoints.Medium,
+      Breakpoints.Small,
+      Breakpoints.XSmall
+    ]).subscribe( breakpoint => this.isMobile = breakpoint.matches )
+   }
 
   ngOnInit(): void {
   }

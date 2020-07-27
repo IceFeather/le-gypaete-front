@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { MediaMatcher, BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-navigation',
@@ -24,8 +25,13 @@ export class NavigationComponent implements OnInit {
     {nom: {fr: "Contacter", en: "Contact", de:"Contact"}, icone: "contact_phone", lien: ['/contacter']},
   ]
 
+  langues = [
+
+  ]
+
   constructor(
     private breakpointObserver: BreakpointObserver,
+    public translateService: TranslateService,
   ) {
     breakpointObserver.observe([
       Breakpoints.Handset,

@@ -39,7 +39,7 @@ h1 {
   // border-bottom: .2rem solid rgba(240, 212, 156);
   // padding-bottom: .7rem;
   // margin: 1em 0 1em 0 !important;
-  .ligne {
+  hr, .ligne {
     max-width: 5rem;
   }
   .mobile & {
@@ -52,7 +52,7 @@ h2 {
   line-height: 2rem !important;
   // border-bottom: .2rem solid rgba(240, 212, 156);
   // padding-bottom: .7rem;
-  .ligne {
+  hr, .ligne {
     max-width: 3rem;
   }
   .mobile & {
@@ -63,12 +63,15 @@ h2 {
 
 h1, h2 {
   color: rgb(220, 220, 220) !important;
-  .ligne {
+  hr, .ligne {
     margin-top: .5rem;
+    border: none;
+    margin-left: 0;
+    display: block;
   }
 }
 
-.ligne {
+hr, .ligne {
   background-color: rgba(240, 212, 156);
   line-height: 0rem;
   height: .2rem;
@@ -88,6 +91,10 @@ p {
 }
 
 button, a {
+  color: rgb(220, 220, 220);
+  &.transparent {
+    background-color: rgba(94, 83, 61, .8) !important;
+  }
   &.transparent-1 {
     background-color: rgba(94, 83, 61, .5) !important;
   }
@@ -97,6 +104,7 @@ button, a {
   &.bordure {
     color: rgb(220, 220, 220);
     border-color: rgba(240, 212, 156) !important;
+    background-color: unset !important;
   }
   &.avec-icone {
     mat-icon {
@@ -106,8 +114,7 @@ button, a {
 }
 
 .contenu {
-  padding-top: 2rem;
-  padding-bottom: 5rem;
+  padding-bottom: 1rem;
   display: flex;
   flex-flow: row;
   &.inverse {

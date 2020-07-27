@@ -27,9 +27,9 @@
 #page {
   align-self: flex-start;
   flex-shrink: 0;
-  min-height: calc(100vh - 22rem);
+  min-height: calc(100vh - 21rem);
   .mobile & {
-    min-height: calc(100vh - 19rem);
+    min-height: calc(100vh - 18rem);
   }
 }
 

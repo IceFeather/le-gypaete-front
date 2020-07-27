@@ -16,6 +16,9 @@ import { ChambresModule } from './chambres/chambres.module';
 import { FondModule } from './fond/fond.module';
 import { MatListModule } from '@angular/material/list';
 import { ContactComponent } from './contact/contact.component';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 @NgModule({
   declarations: [
@@ -36,8 +39,20 @@ import { ContactComponent } from './contact/contact.component';
     MatListModule,
     FondModule.forRoot(),
     ChambresModule,
+    HttpClientModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        })
   ],
   providers: [FondService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}

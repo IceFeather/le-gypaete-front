@@ -4,6 +4,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { Router, NavigationEnd, Scroll } from '@angular/router';
 import { BrowserTransferStateModule } from '@angular/platform-browser';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -39,7 +40,10 @@ export class AppComponent implements OnInit, AfterViewInit {
   constructor(
     private breakpointObserver: BreakpointObserver,
     private router: Router,
+    private translateService: TranslateService,
   ) {
+    translateService.setDefaultLang('fr');
+    translateService.use(translateService.getBrowserLang());
     breakpointObserver.observe([
       Breakpoints.Handset, Breakpoints.Medium, Breakpoints.Small, Breakpoints.XSmall
     ]).subscribe( bp => this.isMobile = bp.matches );

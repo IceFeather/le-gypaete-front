@@ -1,1 +1,43 @@
-<p>contact works!</p>
+<div id="contact" class="contenu page" [class.mobile]="isMobile">
+  <span class="texte" [style.flex]="1">
+    <section id="adresse" class="contenu">
+    <div class="bouton">
+      <button mat-fab class="transparent-2"><mat-icon>mail</mat-icon></button>
+    </div>
+    <div>
+      <p>
+        880 Route de la Culaz,<br>
+        77450 Le Grand-Bornand,<br>
+        France
+      </p>
+    </div>
+    </section>
+    <section id="telephone" class="contenu">
+      <div class="bouton">
+        <a href="tel:+33 6 32 21 84 02" mat-fab class="transparent-2"><mat-icon>phone</mat-icon></a>
+      </div>
+      <div>
+        <p>+33 6 32 21 84 02</p>
+      </div>
+    </section>
+    <section id="email" class="contenu">
+      <div class="bouton">
+        <a href="mailto:akacha2@wanadoo.fr" mat-fab class="transparent-2"><mat-icon>alternate_email</mat-icon></a>
+      </div>
+      <div>
+        <p>akacha2@wanadoo.fr</p>
+      </div>
+    </section>
+    <section id="facebook" class="contenu">
+      <div class="bouton">
+        <a href="https://www.facebook.com/Chalet-Le-Gypa%C3%A8te-102370268098440/" mat-fab class="transparent-2"><img [style.height.rem]="1.5" src="../../assets/icons/facebook-2.svg"></a>
+      </div>
+      <div>
+        <p>Facebook</p>
+      </div>
+    </section>
+  </span>
+  <span class="image" [style.flex]="2">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d709955.1789534858!2d5.866811247217143!3d45.96601797911014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478bf6c4ac66a88f%3A0xe84d9e4b0cc192d4!2s880%20Route%20de%20la%20Culaz%2C%2074450%20Le%20Grand-Bornand!5e0!3m2!1sfr!2sfr!4v1595863704648!5m2!1sfr!2sfr" width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+  </span>
+</div>
