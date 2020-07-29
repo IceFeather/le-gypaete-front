@@ -39,7 +39,7 @@ h1 {
   // border-bottom: .2rem solid rgba(240, 212, 156);
   // padding-bottom: .7rem;
   // margin: 1em 0 1em 0 !important;
-  hr, .ligne {
+  hr, .trait {
     max-width: 5rem;
   }
   .mobile & {
@@ -52,7 +52,7 @@ h2 {
   line-height: 2rem !important;
   // border-bottom: .2rem solid rgba(240, 212, 156);
   // padding-bottom: .7rem;
-  hr, .ligne {
+  hr, .trait {
     max-width: 3rem;
   }
   .mobile & {
@@ -63,7 +63,7 @@ h2 {
 
 h1, h2 {
   color: rgb(220, 220, 220) !important;
-  hr, .ligne {
+  hr, .trait {
     margin-top: .5rem;
     border: none;
     margin-left: 0;
@@ -71,7 +71,7 @@ h1, h2 {
   }
 }
 
-hr, .ligne {
+hr, .trait {
   background-color: rgba(240, 212, 156);
   line-height: 0rem;
   height: .2rem;
@@ -99,7 +99,7 @@ button, a {
     background-color: rgba(94, 83, 61, .5) !important;
   }
   &.transparent-2 {
-    background-color: rgba(240, 212, 156, 0.2) !important
+    background-color: rgba(240, 212, 156, 0.2) !important;
   }
   &.bordure {
     color: rgb(220, 220, 220);
@@ -155,6 +155,7 @@ mat-list {
     }
   }
 }
+
 
 mat-divider {
   border-top-color: #ffffff92 !important;

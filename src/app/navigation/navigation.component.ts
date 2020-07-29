@@ -17,6 +17,15 @@ export class NavigationComponent implements OnInit {
   isMobile: boolean;
 
   routes = [
+    {nom: "accueil", icone: "home", lien: ['/accueil']},
+    {nom: "le chalet", icone: "house", lien: ['/chalet']},
+    {nom: "les chambres", icone: "king_bed", lien: ['/chambres']},
+    {nom: "tarifs & prestations", icone: "table_chart", lien: ['/tarifs']},
+    {nom: "réserver", icone: "book_online", lien: ['/reserver']},
+    {nom: "contacter", icone: "contact_phone", lien: ['/contacter']},
+  ]
+
+  routes2 = [
     {nom: {fr: "Accueil", en: "Home", de:"Home"}, icone: "home", lien: ['/accueil']},
     {nom: {fr: "Le chalet", en: "The chalet", de:"The chalet"}, icone: "house", lien: ['/chalet']},
     {nom: {fr: "Les chambres", en: "The rooms", de:"The rooms"}, icone: "king_bed", lien: ['/chambres']},

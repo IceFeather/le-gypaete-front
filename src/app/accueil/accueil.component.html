@@ -4,7 +4,7 @@
     <span class="accroche" [class.mobile]="isMobile">
       <h1 [@flyInOut]="accroche.numero">{{accroche.accroches[accroche.numero].titre}}
       </h1>
-      <div class="ligne" [style.max-width.rem]="10" [@ligneAccroche]="accroche.numero"></div>
+      <div class="trait" [style.max-width.rem]="10" [@ligneAccroche]="accroche.numero"></div>
       <p [@flyInOut]="accroche.numero">{{accroche.accroches[accroche.numero].texte}}</p>
     </span>
   </div>
@@ -31,9 +31,9 @@
 <section id="localisation" class="contenu" [class.mobile]="isMobile">
   <span class="texte">
     <h1>Au coeur des Alpes
-      <div class="ligne"></div>
+      <div class="trait"></div>
     </h1>
-    <p>Situé à 1H heure de Genève et 2h30 de Lyon, le chalet vous offre un endroit de détente sur son alpage avec un vue sur la vallée du Grand-Bornand et la chaine des Avaris</p>
+    <p>Situé à 1H heure de Genève et 2h30 de Lyon, le chalet vous offre un endroit de détente sur son alpage avec vue sur la vallée du Grand-Bornand et la chaine des Avaris</p>
     <a mat-stroked-button href="https://www.google.com/maps/dir//45.9657242,6.4348856/@45.965724,6.434886,15z" target="_blank" class="bordure avec-icone">
       <mat-icon>directions</mat-icon>S'y rendre
     </a>
@@ -46,7 +46,7 @@
 <section id="le-grand-bornand" class="contenu inverse" [class.mobile]="isMobile">
   <span class="texte">
     <h1>Le Grand-Bornand
-      <div class="ligne"></div>
+      <div class="trait"></div>
     </h1>
     <p>Station touristique et village de charme, le Grand-Bornand vit toute l'année dans son écrin des Alpes, dominé par la chaine des Avaris</p>
     <p>Profitez de sa station de ski alpin en hiver, de son centre aquatique ou de ses itinéraires de randonnée et de VTT en été</p>
@@ -62,7 +62,7 @@
 <section id="gypaete-barbu" class="contenu" [class.mobile]="isMobile">
   <span class="texte">
     <h1>Le Gypaète Barbu
-      <div class="ligne"></div>
+      <div class="trait"></div>
     </h1>
     <p>Avec de la chance ou un bon oeil, vous pourrez apercevoir dans le ciel le Gypaète Barbu, espèce protégée dont la réintroduction sur le territoire Haut-Savoyard débute en 1987, avec une première nidiﬁcation réussie en 1997 sur la chaîne du Bargy, à 20 minutes du Grand-Bornand.</p>
   </span>
