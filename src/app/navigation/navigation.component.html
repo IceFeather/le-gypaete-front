@@ -2,16 +2,14 @@
   <div class="mobile-navigation" *ngIf="isMobile">
     <button mat-icon-button [matMenuTriggerFor]="mobileNavigationMenu"><mat-icon class="icon">menu</mat-icon></button>
     <mat-menu #mobileNavigationMenu="matMenu" class="navigation-menu mobile">
-      <button mat-menu-item [routerLink]="['/accueil']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" ><mat-icon>home</mat-icon><span>Accueil</span></button>
-      <button mat-menu-item [routerLink]="['/chambres']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" ><mat-icon>king_bed</mat-icon><span>Les chambres</span></button>
-      <button mat-menu-item [routerLink]="['/tarifs']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" ><mat-icon>table_chart</mat-icon><span>Tarifs & prestations</span></button>
-      <button mat-menu-item [routerLink]="['/reserver']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" ><mat-icon>insert_invitation</mat-icon><span>Réserver</span></button>
-      <button mat-menu-item [routerLink]="['/contact']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" ><mat-icon>contact_phone</mat-icon><span>Contact</span></button>
-      <button mat-menu-item [matMenuTriggerFor]="mobileLangueMenu" class="choix-langue"><mat-icon class="flag-icon flag-icon-{{langue}}"></mat-icon><span>Langue</span></button>
+      <ng-container *ngFor="let route of routes">
+        <button mat-menu-item [routerLink]="route.lien" routerLinkActive="router-link-active" [routerLinkActive]="'active'" ><mat-icon>{{route.icone}}</mat-icon>{{route.nom | translate | titlecase}}</button>
+      </ng-container>
+      <button mat-menu-item [matMenuTriggerFor]="mobileLangueMenu" class="choix-langue"><mat-icon class="flag-icon" [class]="'flag-icon-'+(translateService.currentLang === 'en' ? 'gb' : translateService.currentLang)"></mat-icon><span>Langue</span></button>
       <mat-menu #mobileLangueMenu="matMenu" class="navigation-menu">
-        <button mat-menu-item class="choix-langue"><span class="flag-icon flag-icon-fr"></span>Français</button>
-        <button mat-menu-item class="choix-langue"><span class="flag-icon flag-icon-gb"></span>English</button>
-        <button mat-menu-item class="choix-langue"><span class="flag-icon flag-icon-de"></span>Deutsch</button>
+        <button mat-menu-item class="choix-langue" (click)="translateService.use('fr')"><span class="flag-icon flag-icon-fr"></span>Français</button>
+        <button mat-menu-item class="choix-langue" (click)="translateService.use('en')"><span class="flag-icon flag-icon-gb"></span>English</button>
+        <button mat-menu-item class="choix-langue" (click)="translateService.use('de')"><span class="flag-icon flag-icon-de"></span>Deutsch</button>
       </mat-menu>
     </mat-menu>
   </div>
@@ -22,16 +20,14 @@
     </div>
   </div>
   <div class="navigation" *ngIf="!isMobile">
-    <button mat-button [routerLink]="['/accueil']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" >Accueil</button>
-    <button mat-button [routerLink]="['/chambres']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" >Les chambres</button>
-    <button mat-button [routerLink]="['/tarifs']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" >Tarifs & prestations</button>
-    <button mat-button [routerLink]="['/reserver']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" >Réserver</button>
-    <button mat-button [routerLink]="['/contact']" routerLinkActive="router-link-active" [routerLinkActive]="'active'" >Contact</button>
-    <button mat-button [matMenuTriggerFor]="langueMenu"><span class="flag-icon flag-icon-{{langue}}"></span></button>
+    <ng-container *ngFor="let route of routes">
+      <button mat-button [routerLink]="route.lien" routerLinkActive="router-link-active" [routerLinkActive]="'active'" >{{route.nom | translate | titlecase}}</button>
+    </ng-container>
+    <button mat-button [matMenuTriggerFor]="langueMenu"><span class="flag-icon" [class]="'flag-icon-'+(translateService.currentLang === 'en' ? 'gb' : translateService.currentLang)"></span></button>
     <mat-menu #langueMenu="matMenu" class="navigation-menu">
-      <button mat-menu-item class="choix-langue"><span class="flag-icon flag-icon-fr"></span>Français</button>
-      <button mat-menu-item class="choix-langue"><span class="flag-icon flag-icon-gb"></span>English</button>
-      <button mat-menu-item class="choix-langue"><span class="flag-icon flag-icon-de"></span>Deutsch</button>
+      <button mat-menu-item class="choix-langue" (click)="translateService.use('fr')"><span class="flag-icon flag-icon-fr"></span>Français</button>
+      <button mat-menu-item class="choix-langue" (click)="translateService.use('en')"><span class="flag-icon flag-icon-gb"></span>English</button>
+      <button mat-menu-item class="choix-langue" (click)="translateService.use('de')"><span class="flag-icon flag-icon-de"></span>Deutsch</button>
     </mat-menu>
   </div>
 </div>

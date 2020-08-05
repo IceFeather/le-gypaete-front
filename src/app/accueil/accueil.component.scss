@@ -1,12 +1,35 @@
-.accueil {
-  margin-left: 10rem;
-  margin-right: 10rem;
-  display: flex;
-  height: 100%;
-  flex-flow: row wrap;
+.contenu {
+  padding-top: 2rem;
+  padding-bottom: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1366px;
   &.mobile {
     margin-left: 1rem;
     margin-right: 1rem;
+  }
+}
+
+#accueil {
+  display: flex;
+  height: calc(100vh - 10rem);
+  flex-flow: column wrap;
+  .haut {
+    flex: 1;
+    align-self: flex-start;
+  }
+  .milieu {
+    flex: 2;
+    // align-self: center;
+    display: flex;
+    flex-flow: row wrap;
+  }
+  .bas {
+    flex: 2;
+    align-self: center;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
   }
 }
 
@@ -33,48 +56,29 @@ button.saison {
   flex: auto;
   align-self: center;
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: column wrap;
   align-items: flex-start;
   max-width: 60rem;
-  min-width: 30rem;
+  .mobile & {
+    max-width: calc(100vw - 4rem);
+  }
+}
+
+.social {
+  flex: auto;
   color: rgb(220, 220, 220);
-  h1 {
-    font-size: 2rem;
-    line-height: 2.5rem;
-    // border-bottom: .2rem solid rgba(240, 212, 156);
-    // padding-bottom: .7rem;
-  }
-  .ligne {
-    background-color: rgba(240, 212, 156);
-    line-height: 0rem;
-    height: .2rem;
-    max-width: 10rem;
-    width: 100%;
-    align-self: start;
-  }
-  p {
-    margin-top: 1rem;
-    font-size: 1.5rem;
-    line-height: 2rem;
-    color: rgb(220, 220, 220);
-  }
-  &.mobile {
-    flex: auto;
-    align-self: center;
-    justify-self: center;
-    max-width: 100%;
-    min-width: 50%;
-    h1 {
-      font-size: 1.5rem;
-      line-height: 1.7rem;
+  border-color: rgba(240, 212, 156);
+  &:hover {
+    color: rgba(240, 212, 156);
+    .social-logo-draw {
+      fill: rgba(240, 212, 156);
     }
-    .ligne {
-      max-width: 5rem;
-      width: 100%;
-    }
-    p {
-      font-size: 1rem;
-      line-height: 1.2;
-    }
+  }
+  mat-icon {
+    margin-right: 1em;
+  }
+  .social-logo {
+    // line-height: 4em;
+    height: 3rem;
   }
 }

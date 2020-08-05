@@ -1,24 +1,93 @@
-<span class="accueil" [class.mobile]="isMobile">
-  <span class="accroche" [class.mobile]="isMobile">
-    <h1 [@flyInOut]="accrocheNumero">{{accroches[accrocheNumero].titre}}</h1>
-    <div class="ligne" [@ligneAccroche]="accrocheNumero"></div>
-    <p [@flyInOut]="accrocheNumero">{{accroches[accrocheNumero].texte}}</p>
+<section id="accueil" class="contenu" [class.mobile]="isMobile">
+  <div class="haut"></div>
+  <div class="milieu">
+    <span class="accroche" [class.mobile]="isMobile">
+      <h1 [@flyInOut]="accroche.numero">{{accroche.accroches[accroche.numero].titre}}
+      </h1>
+      <div class="trait" [style.max-width.rem]="10" [@ligneAccroche]="accroche.numero"></div>
+      <p [@flyInOut]="accroche.numero">{{accroche.accroches[accroche.numero].texte}}</p>
+    </span>
+  </div>
+  <div class="bas">
+    <a mat-stroked-button href="https://www.facebook.com/Chalet-Le-Gypa%C3%A8te-102370268098440/" target="_blank" class="bordure avec-icone social">
+      <svg class="social-logo" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+        viewBox="0 0 172 172">
+        <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"
+          stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+          font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+          <path d="M0,172v-172h172v172z" fill="none"></path>
+          <g class="social-logo-draw" fill="#ffffff">
+            <path
+              d="M136.16667,21.5h-100.33333c-7.91917,0 -14.33333,6.41417 -14.33333,14.33333v100.33333c0,7.91917 6.41417,14.33333 14.33333,14.33333h54.61717v-49.88717h-16.7915v-19.52917h16.7915v-14.36917c0,-16.65533 10.18383,-25.7355 25.0475,-25.7355c5.0095,-0.01433 10.01183,0.24367 14.99267,0.7525v17.415h-10.234c-8.09833,0 -9.675,3.827 -9.675,9.47433v12.43417h19.35l-2.5155,19.52917h-16.94917v49.91583h25.69967c7.91917,0 14.33333,-6.41417 14.33333,-14.33333v-100.33333c0,-7.91917 -6.41417,-14.33333 -14.33333,-14.33333z">
+            </path>
+          </g>
+        </g>
+      </svg>
+      <span>Facebook</span>
+    </a>
+  </div>
+</section>
+
+<section id="localisation" class="contenu" [class.mobile]="isMobile">
+  <span class="texte">
+    <h1>Au coeur des Alpes
+      <div class="trait"></div>
+    </h1>
+    <p>Situé à 1H heure de Genève et 2h30 de Lyon, le chalet vous offre un endroit de détente sur son alpage avec vue sur la vallée du Grand-Bornand et la chaine des Avaris</p>
+    <a mat-stroked-button href="https://www.google.com/maps/dir//45.9657242,6.4348856/@45.965724,6.434886,15z" target="_blank" class="bordure avec-icone">
+      <mat-icon>directions</mat-icon>S'y rendre
+    </a>
   </span>
-</span>
+  <span class="image">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d709955.1789534858!2d5.866811247217143!3d45.96601797911014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478bf6c4ac66a88f%3A0xe84d9e4b0cc192d4!2s880%20Route%20de%20la%20Culaz%2C%2074450%20Le%20Grand-Bornand!5e0!3m2!1sfr!2sfr!4v1595863704648!5m2!1sfr!2sfr" width="100%" [height]="isMobile ? 300 : 400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+  </span>
+</section>
+
+<section id="le-grand-bornand" class="contenu inverse" [class.mobile]="isMobile">
+  <span class="texte">
+    <h1>Le Grand-Bornand
+      <div class="trait"></div>
+    </h1>
+    <p>Station touristique et village de charme, le Grand-Bornand vit toute l'année dans son écrin des Alpes, dominé par la chaine des Avaris</p>
+    <p>Profitez de sa station de ski alpin en hiver, de son centre aquatique ou de ses itinéraires de randonnée et de VTT en été</p>
+    <a mat-stroked-button href="https://www.legrandbornand.com/" target="_blank" class="bordure avec-icone">
+      <mat-icon>image</mat-icon>Découvrir le Grand-Bornand
+    </a>
+  </span>
+  <span class="image">
+    <img src="../../assets/img/village-hiver-nuit-hd.jpg" alt="Le Grand Bornand en Hiver">
+  </span>
+</section>
+
+<section id="gypaete-barbu" class="contenu" [class.mobile]="isMobile">
+  <span class="texte">
+    <h1>Le Gypaète Barbu
+      <div class="trait"></div>
+    </h1>
+    <p>Avec de la chance ou un bon oeil, vous pourrez apercevoir dans le ciel le Gypaète Barbu, espèce protégée dont la réintroduction sur le territoire Haut-Savoyard débute en 1987, avec une première nidiﬁcation réussie en 1997 sur la chaîne du Bargy, à 20 minutes du Grand-Bornand.</p>
+  </span>
+  <span class="image">
+    <img src="../../assets/img/gypaete-barbu.jpg" alt="Gypaète Barbu">
+  </span>
+</section>
 
 <button class="saison" mat-mini-fab (click)="changerSaison($event)">
   <mat-icon *ngIf="saison == 'été'">ac_unit</mat-icon>
   <mat-icon *ngIf="saison == 'hiver'">wb_sunny</mat-icon>
 </button>
 <div class="fond-controle">
-  <button class="fond-precedent" mat-mini-fab (click)="fondService.precedent()" (click)="accrochePrecedente()">
+  <button class="fond-precedent" mat-mini-fab (click)="fondService.precedent()" (click)="accroche.precedente()">
     <mat-icon>navigate_before</mat-icon>
   </button>
-  <button class="fond-suivant" mat-mini-fab (click)="fondService.suivant()" (click)="accrocheSuivante()">
+  <button class="fond-suivant" mat-mini-fab (click)="fondService.suivant()" (click)="accroche.suivante()">
     <mat-icon>navigate_next</mat-icon>
   </button>
-  <button class="fond-demarrer-arreter" mat-mini-fab (click)="fondService.demarrerArreter()">
-    <span *ngIf="fondService.defilement.getValue(); else fondDemarrer"><mat-icon >pause</mat-icon></span>
-    <ng-template #fondDemarrer><mat-icon>play_arrow</mat-icon></ng-template>
+  <button class="fond-demarrer-arreter" mat-mini-fab (click)="fondService.demarrerArreter()" (click)="accroche.demarrerArreter()">
+    <span *ngIf="fondService.defilement.getValue(); else fondDemarrer">
+      <mat-icon>pause</mat-icon>
+    </span>
+    <ng-template #fondDemarrer>
+      <mat-icon>play_arrow</mat-icon>
+    </ng-template>
   </button>
 </div>
