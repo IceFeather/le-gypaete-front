@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { Subscription, interval } from 'rxjs';
+import { Subscription, interval, BehaviorSubject } from 'rxjs';
 import {
   trigger,
   state,
@@ -37,7 +37,15 @@ import { FondService } from '../fond/service/fond.service';
 })
 export class AccueilComponent implements OnInit, OnDestroy {
 
-  saison = 'hiver';
+  _saison: 'hiver' | 'été' = 'hiver';
+  saison$ = new BehaviorSubject(this._saison);
+  set saison(s) {
+    this._saison = s;
+    this.saison$.next(s);
+  }
+  get saison() {
+    return this._saison;
+  }
 
   isMobile: boolean;
 
@@ -96,7 +104,9 @@ export class AccueilComponent implements OnInit, OnDestroy {
     private breakpointObserver: BreakpointObserver,
     public sanitizer: DomSanitizer,
   ) {
-    fondService.images.next(this.images[this.saison]);
+    this.saison$.subscribe((s) => {
+      fondService.images = this.images[s]
+    });
     breakpointObserver.observe([
       Breakpoints.Handset, Breakpoints.Small, Breakpoints.XSmall
     ]).subscribe( breakpoint => this.isMobile = breakpoint.matches );
@@ -114,13 +124,7 @@ export class AccueilComponent implements OnInit, OnDestroy {
 
   changerSaison(event) {
     this.fondService.debut();
-    if (this.saison === 'été') {
-      this.saison = 'hiver';
-      this.fondService.images.next(this.images.hiver);
-    } else {
-      this.saison = 'été';
-      this.fondService.images.next(this.images.été);
-    }
+    this.saison === 'été' ? this.saison = 'hiver' : this.saison = 'été';
   }
 
 }

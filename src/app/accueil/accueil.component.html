@@ -83,7 +83,7 @@
     <mat-icon>navigate_next</mat-icon>
   </button>
   <button class="fond-demarrer-arreter" mat-mini-fab (click)="fondService.demarrerArreter()" (click)="accroche.demarrerArreter()">
-    <span *ngIf="fondService.defilement.getValue(); else fondDemarrer">
+    <span *ngIf="fondService.defilement; else fondDemarrer">
       <mat-icon>pause</mat-icon>
     </span>
     <ng-template #fondDemarrer>

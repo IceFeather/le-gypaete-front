@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { Lit } from '../model/lit';
 import { Chambre } from '../model/chambre';
 import { FondService } from 'src/app/fond/service/fond.service';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { DiaporamaService } from 'src/app/diaporama/service/diaporama.service';
+import { MosaiqueComponent } from '../mosaique/mosaique.component';
 
 @Component({
   selector: 'app-chambre',
@@ -175,6 +176,7 @@ export class ChambreComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private breakpointObserver: BreakpointObserver,
     public fondService: FondService,
     public diaporamaService: DiaporamaService,
@@ -190,18 +192,16 @@ export class ChambreComponent implements OnInit {
     this.route.paramMap.subscribe(
       params => {
         this.chambre = this.chambres[Number(params.get('numero'))-1];
-        console.log('BEFORE');
-        console.log(this.fondService.images.value);
-        this.fondService.images.next(this.chambre.images);
-        console.log('AFTER');
-        console.log(this.fondService.images.value);
+        if (this.chambre == null) {
+          this.router.navigate(['../'], { relativeTo: this.route });
+        }
+        this.fondService.images = this.chambre.images;
         this.fondService.debut();
-        console.log('CURR = ' + this.fondService.images.value[this.fondService.numero.value]);
 
-        this.diaporamaService.images.next(this.chambre.images);
+        this.diaporamaService.images = this.chambre.images;
+        this.diaporamaService.interval = 5000;
         this.diaporamaService.debut();
-        this.diaporamaService.interval.next(5000);
-        // this.diaporamaService.demarrer();
+        this.diaporamaService.demarrer();
       }
     );
   }
