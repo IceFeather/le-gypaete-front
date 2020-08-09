@@ -146,6 +146,9 @@ img {
 
 
 mat-list {
+  * {
+    color: white;
+  }
   &.en-ligne {
     display: flex;
     flex-flow: row wrap;

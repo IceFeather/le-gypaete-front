@@ -6,6 +6,7 @@ export interface Chambre {
   nom: string;
   images: string[];
   nombrePersonnes: number;
+  description: string;
   pmr: boolean;
   lits: Lit[];
   terrasse: boolean;

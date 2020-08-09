@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { Lit } from '../model/lit';
@@ -14,7 +14,7 @@ import { CHAMBRES } from '../mock-chambres';
   templateUrl: './chambre.component.html',
   styleUrls: ['./chambre.component.scss']
 })
-export class ChambreComponent implements OnInit {
+export class ChambreComponent implements OnInit, OnDestroy {
 
   numero = 0;
 
@@ -51,9 +51,13 @@ export class ChambreComponent implements OnInit {
         this.diaporamaService.images = this.chambre.images;
         this.diaporamaService.interval = 5000;
         this.diaporamaService.debut();
-        this.diaporamaService.demarrer();
       }
     );
+  }
+
+  ngOnDestroy(): void {
+    this.diaporamaService.arreter();
+    this.fondService.arreter();
   }
 
 }

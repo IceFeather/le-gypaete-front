@@ -20,6 +20,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { ChaletComponent } from './chalet/chalet.component';
+import { DiaporamaModule } from './diaporama/diaporama.module';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { ChaletComponent } from './chalet/chalet.component';
     MatIconModule,
     MatListModule,
     FondModule.forRoot(),
+    DiaporamaModule,
     ChambresModule,
     HttpClientModule,
         TranslateModule.forRoot({

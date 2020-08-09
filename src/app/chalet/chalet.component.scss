@@ -1,0 +1,70 @@
+.page {
+  padding: 1rem 5rem;
+  color: white;
+
+  section {
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .corp {
+    display: inline-block;
+    width: 100%;
+    .gauche {
+      float: left;
+      max-width: 49%;
+      & > div {
+        margin-right: 2rem;
+        margin-bottom: 2rem;
+      }
+    }
+  }
+
+  .description {
+    max-width: 40rem;
+    font-size: 1.2rem;
+  }
+
+  .diaporama {
+    position: sticky;
+    float: right;
+    top: 7rem;
+    max-width: 50%;
+    width: 700px;
+    margin-bottom: 2rem;
+    .image {
+      margin: 1em;
+    }
+  }
+
+  .details, .tarifs {
+    max-width: 30rem;
+    * {
+      color: white;
+    }
+  }
+
+  .reserver {
+    font-size: 1.5rem;
+    padding: 1rem;
+    // background-color: rgba(240, 212, 156, 0.2);
+  }
+
+  &.mobile {
+    padding: .5rem;
+    .corp {
+      div {
+        max-width: 100%;
+      }
+    }
+  }
+
+}
+
+.mobile {
+  .diaporama {
+    position: relative;
+    top: 0;
+    width: 100%;
+  }
+}

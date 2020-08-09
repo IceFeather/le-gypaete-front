@@ -12,6 +12,7 @@ export const CHAMBRES: Chambre[] = [
       '/assets/img/chambre/chambre-exemple-5.jpg',
     ],
     nombrePersonnes: 2,
+    description: "Description de la chambre, c'est une belle chambre...",
     pmr: false,
     lits: [{classe: 'King Size', largeur: 180}],
     terrasse: true,
@@ -38,6 +39,7 @@ export const CHAMBRES: Chambre[] = [
       '/assets/img/chambre/chambre-exemple-1.jpg',
     ],
     nombrePersonnes: 2,
+    description: "Description de la chambre, c'est une belle chambre...",
     pmr: true,
     lits: [{classe: 'Simple', largeur: 90}, {classe: 'Simple', largeur: 90}],
     terrasse: true,
@@ -64,6 +66,7 @@ export const CHAMBRES: Chambre[] = [
       '/assets/img/chambre/chambre-exemple-2.jpg',
     ],
     nombrePersonnes: 5,
+    description: "Description de la chambre, c'est une belle chambre...",
     pmr: false,
     lits: [
       {classe: 'Double', largeur: 160},
@@ -99,6 +102,7 @@ export const CHAMBRES: Chambre[] = [
       '/assets/img/chambre/chambre-exemple-3.jpg',
     ],
     nombrePersonnes: 5,
+    description: "Description de la chambre, c'est une belle chambre...",
     pmr: false,
     lits: [
       {classe: 'Double', largeur: 160},
@@ -134,6 +138,7 @@ export const CHAMBRES: Chambre[] = [
       '/assets/img/chambre/chambre-exemple-4.jpg',
     ],
     nombrePersonnes: 5,
+    description: "Description de la chambre, c'est une belle chambre...",
     pmr: false,
     lits: [
       {classe: 'King Size', largeur: 180},

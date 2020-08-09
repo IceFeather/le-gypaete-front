@@ -1,0 +1,44 @@
+<div id="page" class="page" [class.mobile]="isMobile">
+  <div class="corp">
+
+    <div class="tete">
+      <h1>Le Chalet<hr></h1>
+    </div>
+
+    <div class="diaporama">
+      <ng-container *ngIf="isMobile;else imagesStack">
+        <diaporama-visualiseur></diaporama-visualiseur>
+      </ng-container>
+      <ng-template #imagesStack>
+        <div *ngFor="let image of chalet.images" class="image">
+          <img [src]="image">
+        </div>
+      </ng-template>
+    </div>
+
+    <div class="gauche">
+      <div class="description">
+        <section>
+          <p>
+            {{chalet.description}}
+          </p>
+        </section>
+        <section>
+          <h2>Prestations
+            <hr>
+          </h2>
+          <mat-list>
+            <ng-container *ngFor="let prestation of chalet.prestations">
+              <mat-list-item>
+                <div mat-line *ngFor="let prestationItem of prestation">
+                  {{prestationItem}}
+                </div>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+            </ng-container>
+          </mat-list>
+        </section>
+      </div>
+
+    </div>
+  </div>
