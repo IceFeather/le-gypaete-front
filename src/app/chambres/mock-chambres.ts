@@ -4,13 +4,7 @@ export const CHAMBRES: Chambre[] = [
   {
     numero: 1,
     nom: 'Suite Le Chamois',
-    images: [
-      '/assets/img/chambre/chambre-exemple-1.jpg',
-      '/assets/img/chambre/chambre-exemple-2.jpg',
-      '/assets/img/chambre/chambre-exemple-3.jpg',
-      '/assets/img/chambre/chambre-exemple-4.jpg',
-      '/assets/img/chambre/chambre-exemple-5.jpg',
-    ],
+    images: [],
     nombrePersonnes: 2,
     description: "Description de la chambre, c'est une belle chambre...",
     pmr: false,
@@ -31,13 +25,7 @@ export const CHAMBRES: Chambre[] = [
   {
     numero: 2,
     nom: 'La Belette',
-    images: [
-      '/assets/img/chambre/chambre-exemple-2.jpg',
-      '/assets/img/chambre/chambre-exemple-3.jpg',
-      '/assets/img/chambre/chambre-exemple-4.jpg',
-      '/assets/img/chambre/chambre-exemple-5.jpg',
-      '/assets/img/chambre/chambre-exemple-1.jpg',
-    ],
+    images: [],
     nombrePersonnes: 2,
     description: "Description de la chambre, c'est une belle chambre...",
     pmr: true,
@@ -58,13 +46,7 @@ export const CHAMBRES: Chambre[] = [
   {
     numero: 3,
     nom: 'Le Renard',
-    images: [
-      '/assets/img/chambre/chambre-exemple-3.jpg',
-      '/assets/img/chambre/chambre-exemple-4.jpg',
-      '/assets/img/chambre/chambre-exemple-5.jpg',
-      '/assets/img/chambre/chambre-exemple-1.jpg',
-      '/assets/img/chambre/chambre-exemple-2.jpg',
-    ],
+    images: [],
     nombrePersonnes: 5,
     description: "Description de la chambre, c'est une belle chambre...",
     pmr: false,
@@ -94,13 +76,7 @@ export const CHAMBRES: Chambre[] = [
   {
     numero: 4,
     nom: 'Le Bouquetin',
-    images: [
-      '/assets/img/chambre/chambre-exemple-4.jpg',
-      '/assets/img/chambre/chambre-exemple-5.jpg',
-      '/assets/img/chambre/chambre-exemple-1.jpg',
-      '/assets/img/chambre/chambre-exemple-2.jpg',
-      '/assets/img/chambre/chambre-exemple-3.jpg',
-    ],
+    images: [],
     nombrePersonnes: 5,
     description: "Description de la chambre, c'est une belle chambre...",
     pmr: false,
@@ -130,13 +106,7 @@ export const CHAMBRES: Chambre[] = [
   {
     numero: 5,
     nom: 'Le Loup',
-    images: [
-      '/assets/img/chambre/chambre-exemple-5.jpg',
-      '/assets/img/chambre/chambre-exemple-1.jpg',
-      '/assets/img/chambre/chambre-exemple-2.jpg',
-      '/assets/img/chambre/chambre-exemple-3.jpg',
-      '/assets/img/chambre/chambre-exemple-4.jpg',
-    ],
+    images: [],
     nombrePersonnes: 5,
     description: "Description de la chambre, c'est une belle chambre...",
     pmr: false,

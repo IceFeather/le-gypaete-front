@@ -33,7 +33,7 @@
     <h1>Au coeur des Alpes
       <div class="trait"></div>
     </h1>
-    <p>Situé à 1H heure de Genève et 2h30 de Lyon, le chalet vous offre un endroit de détente sur son alpage avec vue sur la vallée du Grand-Bornand et la chaine des Avaris</p>
+    <p>Situé sur la commune du Grand-Bornand, à 1H heure de Genève et 2h30 de Lyon</p>
     <a mat-stroked-button href="https://www.google.com/maps/dir//45.9657242,6.4348856/@45.965724,6.434886,15z" target="_blank" class="bordure avec-icone">
       <mat-icon>directions</mat-icon>S'y rendre
     </a>
@@ -43,7 +43,26 @@
   </span>
 </section>
 
-<section id="le-grand-bornand" class="contenu inverse" [class.mobile]="isMobile">
+<section id="chalet" class="contenu inverse" [class.mobile]="isMobile">
+  <span class="texte">
+    <h1>Le chalet
+      <div class="trait"></div>
+    </h1>
+    <p>Le chalet vous offre un endroit de détente sur son alpage avec vue sur la vallée du Grand-Bornand et la chaine des Avaris.</p>
+    <p>Composé de 5 chambres confortables avec de nombreuses comoditées, vous avez la possibilitée de réserver les chambres à la nuitée ou le chalet complet.</p>
+    <a mat-stroked-button routerLink="/chalet" class="bordure avec-icone">
+      <mat-icon>house</mat-icon>Voir le chalet
+    </a>
+    <a mat-stroked-button routerLink="/chambres" [style.margin-left.em]="1" class="bordure avec-icone">
+      <mat-icon>king_bed</mat-icon>Voir les chambres
+    </a>
+  </span>
+  <span class="image">
+    <img src="/assets/img/chalet/chalet-1.jpg" alt="Le chalet">
+  </span>
+</section>
+
+<section id="le-grand-bornand" class="contenu" [class.mobile]="isMobile">
   <span class="texte">
     <h1>Le Grand-Bornand
       <div class="trait"></div>
@@ -55,11 +74,11 @@
     </a>
   </span>
   <span class="image">
-    <img src="../../assets/img/village-hiver-nuit-hd.jpg" alt="Le Grand Bornand en Hiver">
+    <img src="/assets/img/village-hiver-nuit-hd.jpg" alt="Le Grand Bornand en Hiver">
   </span>
 </section>
 
-<section id="gypaete-barbu" class="contenu" [class.mobile]="isMobile">
+<section id="gypaete-barbu" class="contenu inverse" [class.mobile]="isMobile">
   <span class="texte">
     <h1>Le Gypaète Barbu
       <div class="trait"></div>
