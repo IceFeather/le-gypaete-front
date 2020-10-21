@@ -8,6 +8,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { DiaporamaService } from 'src/app/diaporama/service/diaporama.service';
 import { MosaiqueComponent } from '../mosaique/mosaique.component';
 import { CHAMBRES } from '../mock-chambres';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-chambre',
@@ -30,6 +31,7 @@ export class ChambreComponent implements OnInit, OnDestroy {
     private breakpointObserver: BreakpointObserver,
     public fondService: FondService,
     public diaporamaService: DiaporamaService,
+    public translateService: TranslateService
   ) {
     breakpointObserver.observe([
       Breakpoints.Handset, Breakpoints.Small

@@ -10,6 +10,8 @@ import { ChambresRoutingModule } from './chambres-routing.module';
 import { MosaiqueComponent } from './mosaique/mosaique.component';
 import { ChambreComponent } from './chambre/chambre.component';
 import { DiaporamaModule } from '../diaporama/diaporama.module';
+import { TranslateModule } from '@ngx-translate/core';
+import { LanguesModule } from '../langues/langues.module';
 
 
 
@@ -28,6 +30,8 @@ import { DiaporamaModule } from '../diaporama/diaporama.module';
     MatListModule,
     DiaporamaModule,
     ChambresRoutingModule,
+    TranslateModule,
+    LanguesModule,
   ]
 })
 export class ChambresModule { }

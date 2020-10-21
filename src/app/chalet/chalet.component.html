@@ -20,7 +20,7 @@
       <div class="description">
         <section>
           <p>
-            {{chalet.description}}
+            {{chalet.description | translateSelf:translateService.currentLang:translateService.defaultLang}}
           </p>
         </section>
         <section>
@@ -30,7 +30,7 @@
           <mat-list>
             <ng-container *ngFor="let prestation of chalet.prestations">
               <mat-list-item>
-                <div mat-line *ngFor="let prestationItem of prestation">
+                <div mat-line *ngFor="let prestationItem of (prestation | translateSelf:translateService.currentLang:translateService.defaultLang)">
                   {{prestationItem}}
                 </div>
               </mat-list-item>

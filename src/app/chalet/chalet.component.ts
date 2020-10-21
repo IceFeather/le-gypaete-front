@@ -4,6 +4,7 @@ import { Chalet } from './model/chalet';
 import { CHALET } from './mock-chalet';
 import { DiaporamaService } from '../diaporama/service/diaporama.service';
 import { FondService } from '../fond/service/fond.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-chalet',
@@ -20,6 +21,7 @@ export class ChaletComponent implements OnInit, OnDestroy {
       private breakpointObserver: BreakpointObserver,
       private diaporamaService: DiaporamaService,
       private fondService: FondService,
+      public translateService: TranslateService,
     ) {
     breakpointObserver.observe([
       Breakpoints.Handset,

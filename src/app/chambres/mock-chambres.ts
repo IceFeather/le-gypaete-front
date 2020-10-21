@@ -5,50 +5,67 @@ export const CHAMBRES: Chambre[] = [
     numero: 1,
     nom: 'Suite Le Chamois',
     images: [],
-    nombrePersonnes: 2,
-    description: "Description de la chambre, c'est une belle chambre...",
+    nombrePersonnesMax: 2,
+    description: {
+      fr: "Description de la chambre, c'est une belle chambre...",
+      en: "Description of the room, that's a nice room..."
+    },
     pmr: false,
     lits: [{classe: 'King Size', largeur: 180}],
     terrasse: true,
     balcon: false,
-    vues: ['Chaîne des Aravis'],
-    salleDEau: {nombre: 1, plus: ["Salle d'eau privative"]},
-    wc: {nombre: 1, plus: ["séparé"]},
+    vues: [{fr: 'Chaîne des Aravis'}],
+    salleDEau: {nombre: 1, plus: [{fr: "Salle d'eau privative", en: "Private bathroom"}]},
+    wc: {nombre: 1, plus: [{fr: 'WC séparé', en: 'separate WC'}]},
     tv: true,
     wifi: true,
-    autres: ['Lecteur DVD'],
+    autres: [{fr: 'Lecteur DVD', en: 'DVD player'}],
     tarifs: {
       nuit: 140,
-      plusnuits: {condition: 2, cout: 130}
+      nombrePersonnesbase: 2,
+      plusNuits: {minimum: 2, cout: 130},
+      plusAnimal: [
+        {condition: {fr: 'Chien ou chat', en: 'Dog or cat'}, cout: 8},
+      ]
     }
   },
   {
     numero: 2,
     nom: 'La Belette',
     images: [],
-    nombrePersonnes: 2,
-    description: "Description de la chambre, c'est une belle chambre...",
+    nombrePersonnesMax: 2,
+    description: {
+      fr: "Description de la chambre, c'est une belle chambre...",
+      en: "Description of the room, that's a nice room..."
+    },
     pmr: true,
     lits: [{classe: 'Simple', largeur: 90}, {classe: 'Simple', largeur: 90}],
     terrasse: true,
     balcon: false,
-    vues: ['Chaîne des Aravis'],
-    salleDEau: {nombre: 1, plus: ["Salle d'eau privative"]},
-    wc: {nombre: 1, plus: ["séparé"]},
+    vues: [{fr: 'Chaîne des Aravis'}],
+    salleDEau: {nombre: 1, plus: [{fr: "Salle d'eau privative", en: "Private bathroom"}]},
+    wc: {nombre: 1, plus: [{fr: "séparé", en: 'separate WC'}]},
     tv: true,
     wifi: true,
-    autres: ['Lecteur DVD'],
+    autres: [{fr: 'Lecteur DVD', en: 'DVD player'}],
     tarifs: {
       nuit: 110,
-      plusnuits: {condition: 2, cout: 100}
+      nombrePersonnesbase: 2,
+      plusNuits: {minimum: 2, cout: 100},
+      plusAnimal: [
+        {condition: {fr: 'Chien ou chat', en: 'Dog or cat'}, cout: 8},
+      ]
     }
   },
   {
     numero: 3,
     nom: 'Le Renard',
     images: [],
-    nombrePersonnes: 5,
-    description: "Description de la chambre, c'est une belle chambre...",
+    nombrePersonnesMax: 5,
+    description: {
+      fr: "Description de la chambre, c'est une belle chambre...",
+      en: "Description of the room, that's a nice room..."
+    },
     pmr: false,
     lits: [
       {classe: 'Double', largeur: 160},
@@ -57,19 +74,23 @@ export const CHAMBRES: Chambre[] = [
       {classe: 'Simple', largeur: 90}],
     terrasse: false,
     balcon: true,
-    vues: ['Chaîne des Aravis', 'Roc des Tours'],
-    salleDEau: {nombre: 1, plus: ["Salle d'eau privative"]},
-    wc: {nombre: 1, plus: ["séparé"]},
+    vues: [{fr: 'Chaîne des Aravis'}, {fr: 'Roc des Tours'}],
+    salleDEau: {nombre: 1, plus: [{fr: "Salle d'eau privative", en: "Private bathroom"}]},
+    wc: {nombre: 1, plus: [{fr: "séparé", en: 'separate WC'}]},
     tv: true,
     wifi: true,
-    autres: ['Lecteur DVD'],
+    autres: [{fr: 'Lecteur DVD', en: 'DVD player'}],
     tarifs: {
       nuit: 135,
-      plusnuits: {condition: 2, cout: 125},
-      pluspersonne: [
-        {condition: 'Enfant de 2 à 5 ans', cout: 15},
-        {condition: 'Enfant de 6 à 12 ans', cout: 25},
-        {condition: 'Plus de 12 ans et adulte', cout: 35},
+      nombrePersonnesbase: 2,
+      plusNuits: {minimum: 2, cout: 125},
+      plusPersonne: [
+        {condition: {fr: 'Enfant de 2 à 5 ans', en: 'Child from 2 to 5 years old'}, cout: 15},
+        {condition: {fr: 'Enfant de 6 à 12 ans', en: 'Child from 6 to 12 years old'}, cout: 25},
+        {condition: {fr: 'Plus de 12 ans et adulte', en: 'More than 12 years old and adult'}, cout: 35},
+      ],
+      plusAnimal: [
+        {condition: {fr: 'Chien ou chat', en: 'Dog or cat'}, cout: 8},
       ]
     }
   },
@@ -77,8 +98,11 @@ export const CHAMBRES: Chambre[] = [
     numero: 4,
     nom: 'Le Bouquetin',
     images: [],
-    nombrePersonnes: 5,
-    description: "Description de la chambre, c'est une belle chambre...",
+    nombrePersonnesMax: 5,
+    description: {
+      fr: "Description de la chambre, c'est une belle chambre...",
+      en: "Description of the room, that's a nice room..."
+    },
     pmr: false,
     lits: [
       {classe: 'Double', largeur: 160},
@@ -87,19 +111,23 @@ export const CHAMBRES: Chambre[] = [
       {classe: 'Simple', largeur: 90}],
     terrasse: false,
     balcon: true,
-    vues: ['Chaîne des Aravis', 'Roc des Tours'],
-    salleDEau: {nombre: 1, plus: ["Salle d'eau privative"]},
-    wc: {nombre: 1, plus: ["séparé"]},
+    vues: [{fr: 'Chaîne des Aravis'}, {fr: 'Roc des Tours'}],
+    salleDEau: {nombre: 1, plus: [{fr: "Salle d'eau privative", en: "Private bathroom"}]},
+    wc: {nombre: 1, plus: [{fr: "séparé", en: 'separate WC'}]},
     tv: true,
     wifi: true,
-    autres: ['Lecteur DVD'],
+    autres: [{fr: 'Lecteur DVD', en: 'DVD player'}],
     tarifs: {
       nuit: 135,
-      plusnuits: {condition: 2, cout: 125},
-      pluspersonne: [
-        {condition: 'Enfant de 2 à 5 ans', cout: 15},
-        {condition: 'Enfant de 6 à 12 ans', cout: 25},
-        {condition: 'Plus de 12 ans et adulte', cout: 35},
+      nombrePersonnesbase: 2,
+      plusNuits: {minimum: 2, cout: 125},
+      plusPersonne: [
+        {condition: {fr: 'Enfant de 2 à 5 ans', en: 'Child from 2 to 5 years old'}, cout: 15},
+        {condition: {fr: 'Enfant de 6 à 12 ans', en: 'Child from 6 to 12 years old'}, cout: 25},
+        {condition: {fr: 'Plus de 12 ans et adulte', en: 'More than 12 years old and adult'}, cout: 35},
+      ],
+      plusAnimal: [
+        {condition: {fr: 'Chien ou chat', en: 'Dog or cat'}, cout: 8},
       ]
     }
   },
@@ -107,8 +135,11 @@ export const CHAMBRES: Chambre[] = [
     numero: 5,
     nom: 'Le Loup',
     images: [],
-    nombrePersonnes: 5,
-    description: "Description de la chambre, c'est une belle chambre...",
+    nombrePersonnesMax: 2,
+    description: {
+      fr: "Description de la chambre, c'est une belle chambre...",
+      en: "Description of the room, that's a nice room..."
+    },
     pmr: false,
     lits: [
       {classe: 'King Size', largeur: 180},
@@ -116,14 +147,18 @@ export const CHAMBRES: Chambre[] = [
     terrasse: false,
     balcon: true,
     vues: [],
-    salleDEau: {nombre: 1, plus: ["Salle d'eau privative", "Double douche"]},
-    wc: {nombre: 1, plus: ["séparé"]},
+    salleDEau: {nombre: 1, plus: [{fr: "Salle d'eau privative", en: "Private bathroom"}, {fr: "Double douche", en: "Double shower"}]},
+    wc: {nombre: 1, plus: [{fr: "séparé", en: 'separate WC'}]},
     tv: true,
     wifi: true,
-    autres: ['Lecteur DVD'],
+    autres: [{fr: 'Lecteur DVD'}],
     tarifs: {
       nuit: 90,
-      plusnuits: {condition: 2, cout: 80},
+      nombrePersonnesbase: 2,
+      plusNuits: {minimum: 2, cout: 80},
+      plusAnimal: [
+        {condition: {fr: 'Chien ou chat', en: 'Dog or cat'}, cout: 8},
+      ]
     }
   }
 ]

@@ -1,3 +1,4 @@
+import { Langue } from 'src/app/langues/langue.type';
 import { Lit } from './lit';
 import { Tarifs } from './tarifs';
 
@@ -5,23 +6,30 @@ export interface Chambre {
   numero: number;
   nom: string;
   images: string[];
-  nombrePersonnes: number;
-  description: string;
+  nombrePersonnesMax: number;
+  description: {[K in Langue]?: string};
   pmr: boolean;
   lits: Lit[];
   terrasse: boolean;
   balcon: boolean;
-  vues: string[];
+  vues: {[K in Langue]?: string}[];
   salleDEau: {
     nombre: number;
-    plus: string[]
+    plus: {[K in Langue]?: string}[]
   };
   wc: {
     nombre: number;
-    plus: string[]
+    plus: {[K in Langue]?: string}[]
   };
   tv: boolean;
   wifi: boolean;
-  autres: string[];
-  tarifs: Tarifs;
+  autres: {[K in Langue]?: string}[];
+  tarifs: {
+    nuit: number;
+    nombrePersonnesbase: number;
+    plusNuits?: {minimum: number, cout: number};
+    plusPersonne?: {condition: {[K in Langue]?: string}, cout: number}[];
+    plusAnimal?: {condition: {[K in Langue]?: string}, cout: number}[];
+    prestationPayante?: {condition: {[K in Langue]?: string}, cout: number}[];
+  }
 }

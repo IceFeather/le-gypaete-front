@@ -1,5 +1,7 @@
+import { Langue } from '../../langues/langue.type';
+
 export interface Chalet {
-  description: string;
+  description: {[K in Langue]?: string};
   images: string[];
-  prestations: [string, string?][];
+  prestations: {[K in Langue]?: [string, string?]}[];
 }

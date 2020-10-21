@@ -21,6 +21,7 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { ChaletComponent } from './chalet/chalet.component';
 import { DiaporamaModule } from './diaporama/diaporama.module';
+import { LanguesModule } from './langues/langues.module';
 
 @NgModule({
   declarations: [
@@ -43,14 +44,18 @@ import { DiaporamaModule } from './diaporama/diaporama.module';
     FondModule.forRoot(),
     DiaporamaModule,
     ChambresModule,
+    LanguesModule,
     HttpClientModule,
-        TranslateModule.forRoot({
-            loader: {
-                provide: TranslateLoader,
-                useFactory: HttpLoaderFactory,
-                deps: [HttpClient]
-            }
-        })
+    TranslateModule.forRoot({
+        loader: {
+            provide: TranslateLoader,
+            useFactory: HttpLoaderFactory,
+            deps: [HttpClient]
+        }
+    })
+  ],
+  exports: [
+    TranslateModule,
   ],
   providers: [FondService],
   bootstrap: [AppComponent]
