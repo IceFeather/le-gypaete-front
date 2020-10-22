@@ -1,8 +1,3 @@
 {
-  "accueil" : "accueil",
-  "le chalet" : "le chalet",
-  "les chambres" : "les chambres",
-  "tarifs & prestations" : "tarifs & prestations",
-  "réserver" : "réserver",
-  "contacter" : "contacter"
+  "base_(x)_personnes": "base {{x}} personnes"
 }

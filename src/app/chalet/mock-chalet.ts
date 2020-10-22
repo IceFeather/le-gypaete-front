@@ -1,6 +1,7 @@
 import { Chalet } from './model/chalet';
 
 export const CHALET: Chalet = {
+  nom: "Le Gypaête",
   description: {
     fr: "Le Chalet comprend 5 chambres de diﬀérentes capacités, toutes avec salle d’eau privative et wc séparés, équipées avec télévision et lecteur DVD ",
     en: "The chalet has 5 rooms of different capacity, all with private bathroom and separate wc, equiped with TV and DVD player"
@@ -52,4 +53,22 @@ export const CHALET: Chalet = {
       en: ["Option : Groceries done"]
     }
   ],
+  tarifs: {
+    nombrePersonnesBase: 15,
+    periode: {
+      dateDebutSejour: new Date(2020, 12, 20),
+      dateFinSejour: new Date(2020, 12, 29),
+      cout: 3000
+    },
+    plusAnimal: [
+      {condition: {fr: 'Chien ou chat', en: 'Dog or cat'}, cout: 8},
+    ],
+    prestationPayante: [
+      {condition: {fr: 'Ménage quotidien', en: 'Room service'}, cout: 50, parNuit: true},
+      {condition: {fr: 'Petit Dejeuner', en: 'Breakfast'}, cout: 13, parNuit: true, parPersonne: true}
+    ]
+  },
+  conditionReservation: {
+    arrhes: 30
+  }
 }

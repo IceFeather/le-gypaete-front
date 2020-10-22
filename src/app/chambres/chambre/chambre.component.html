@@ -26,22 +26,22 @@
     <div class="gauche">
       <div class="description">
         <p>
-          {{chambre.description[translateService.currentLang] ? chambre.description[translateService.currentLang] : chambre.description[translateService.defaultLang]}}
+          {{chambre.description | translateSelf:translateService.currentLang:translateService.defaultLang}}
         </p>
       </div>
       <div class="details">
         <div class="titre">
-          <h2>Détails</h2>
+          <h2>{{'détails' | translate | titlecase}}</h2>
           <div class="trait" [style.max-width.rem]="2"></div>
         </div>
         <mat-list>
           <mat-list-item>
             <mat-icon mat-list-icon>person</mat-icon>
-            <div mat-line>Nombre de personnes : {{chambre.nombrePersonnesMax}}</div>
+            <div mat-line>{{'nombre de personnes maximum' | translate}} : {{chambre.nombrePersonnesMax}}</div>
           </mat-list-item>
           <mat-list-item *ngIf="chambre.pmr">
             <mat-icon mat-list-icon>accessible</mat-icon>
-            <div mat-line>Personne à mobilité réduite : oui</div>
+            <div mat-line>{{'accessible aux personnes à mobilité réduite' | translate}} : {{'oui' | translate}}</div>
           </mat-list-item>
         </mat-list>
         <mat-divider></mat-divider>
@@ -51,15 +51,15 @@
             <mat-icon mat-list-icon *ngIf="lit.classe === 'King Size'">star</mat-icon>
             <mat-icon mat-list-icon *ngIf="lit.classe === 'Double'">king_bed</mat-icon>
             <mat-icon mat-list-icon *ngIf="lit.classe === 'Simple'">single_bed</mat-icon>
-            <div mat-line>Lit {{lit.classe}}</div>
-            <div mat-line>Largeur : {{lit.largeur}} cm</div>
+            <div mat-line>{{'lit' | translate | titlecase}} {{lit.classe}}</div>
+            <div mat-line>{{'largeur' | translate | titlecase}} : {{lit.largeur}} cm</div>
           </mat-list-item>
         </mat-list>
         <mat-divider></mat-divider>
         <mat-list>
           <mat-list-item *ngIf="chambre.salleDEau.nombre > 0">
             <mat-icon mat-list-icon>bathtub</mat-icon>
-            <div mat-line>Salle d'eau : {{chambre.salleDEau.nombre}}</div>
+            <div mat-line>{{"salle d'eau" | translate}} : {{chambre.salleDEau.nombre}}</div>
             <div mat-line *ngFor="let plus of chambre.salleDEau.plus">{{plus | translateSelf:translateService.currentLang:translateService.defaultLang}}</div>
           </mat-list-item>
           <mat-list-item *ngIf="chambre.wc.nombre > 0">
@@ -72,15 +72,15 @@
         <mat-list>
           <mat-list-item *ngIf="chambre.terrasse">
             <mat-icon mat-list-icon>deck</mat-icon>
-            <div mat-line>Terrasse</div>
+            <div mat-line>{{'terrasse' | translate | titlecase}}</div>
           </mat-list-item>
           <mat-list-item *ngIf="chambre.balcon">
             <mat-icon mat-list-icon>deck</mat-icon>
-            <div mat-line>Balcon</div>
+            <div mat-line>{{'balcon' | translate | titlecase}}</div>
           </mat-list-item>
           <mat-list-item *ngIf="chambre.vues.length > 0">
             <mat-icon mat-list-icon>landscape</mat-icon>
-            <div mat-line>Vue</div>
+            <div mat-line>{{'vue' | translate | titlecase}}</div>
             <div mat-line *ngFor="let vue of chambre.vues">{{vue | translateSelf:translateService.currentLang:translateService.defaultLang}}</div>
           </mat-list-item>
         </mat-list>
@@ -98,32 +98,36 @@
       </div>
       <div class="tarifs">
         <div class="titre">
-          <h2>Tarifs</h2>
+          <h2>{{'tarifs' | translate | titlecase}}</h2>
           <div class="trait" [style.max-width.rem]="2"></div>
         </div>
         <mat-list>
-          <div mat-subheader>Base {{chambre.tarifs.nombrePersonnesbase}} personnes</div>
+          <div mat-subheader>{{'base' | translate }} {{chambre.tarifs.nombrePersonnesbase}} {{(chambre.tarifs.nombrePersonnesbase > 1 ? 'personnes': 'personne') | translate}}</div>
           <mat-list-item>
             <mat-icon mat-list-icon>nights_stay</mat-icon>
-            <div mat-line>1 nuit : {{chambre.tarifs.nuit}}€</div>
+            <div mat-line>1 {{'nuit' | translate}} : {{chambre.tarifs.nuit}}€</div>
           </mat-list-item>
           <mat-list-item *ngIf="chambre.tarifs.plusNuits">
             <mat-icon mat-list-icon>nights_stay</mat-icon>
             <mat-icon mat-list-icon>add</mat-icon>
-            <div mat-line>A partir de {{chambre.tarifs.plusNuits.minimum}} nuits : {{chambre.tarifs.plusNuits.cout}}€ / nuit</div>
+            <div mat-line>
+              {{'à partir de' | translate}} {{chambre.tarifs.plusNuits.minimum}}
+              {{(chambre.tarifs.plusNuits.minimum > 1 ? 'nuits' : 'nuit') | translate}}
+              : {{chambre.tarifs.plusNuits.cout}}€ / {{'nuit' | translate}}
+            </div>
           </mat-list-item>
           <ng-container *ngIf="chambre.tarifs.plusPersonne">
             <mat-divider></mat-divider>
             <mat-list-item>
               <mat-icon mat-list-icon>person_add</mat-icon>
-              <div mat-line>Personne supplémentaire :</div>
+              <div mat-line>{{'personne supplémentaire' | translate}} :</div>
               <div mat-line *ngFor="let plus of chambre.tarifs.plusPersonne">{{plus.condition | translateSelf:translateService.currentLang:translateService.defaultLang}} : {{plus.cout}}€ / nuit
               </div>
             </mat-list-item>
           </ng-container>
         </mat-list>
       </div>
-      <button mat-stroked-button class="bordure reserver">Reserver</button>
+      <button mat-stroked-button class="bordure reserver">{{'réserver' | translate | titlecase}}</button>
     </div>
 
   </div>

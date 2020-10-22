@@ -20,8 +20,8 @@ export class NavigationComponent implements OnInit {
     {nom: "accueil", icone: "home", lien: ['/accueil']},
     {nom: "le chalet", icone: "house", lien: ['/chalet']},
     {nom: "les chambres", icone: "king_bed", lien: ['/chambres']},
-    {nom: "tarifs", icone: "table_chart", lien: ['/tarifs']},
-    {nom: "réserver", icone: "book_online", lien: ['/reserver']},
+    // {nom: "tarifs", icone: "table_chart", lien: ['/tarifs']},
+    // {nom: "réserver", icone: "book_online", lien: ['/reserver']},
     {nom: "contacter", icone: "contact_phone", lien: ['/contacter']},
   ]
 
