@@ -20,7 +20,7 @@
       <div class="description">
         <section>
           <p>
-            {{chalet.description | translateSelf:translateService.currentLang:translateService.defaultLang}}
+            {{chalet.description | translateSelf:translateService.currentLang}}
           </p>
         </section>
         <section class="details">
@@ -30,7 +30,7 @@
           <mat-list>
             <ng-container *ngFor="let prestation of chalet.prestations">
               <mat-list-item>
-                <div mat-line *ngFor="let prestationItem of (prestation | translateSelf:translateService.currentLang:translateService.defaultLang)">
+                <div mat-line *ngFor="let prestationItem of (prestation | translateSelf:translateService.currentLang)">
                   {{prestationItem}}
                 </div>
               </mat-list-item>
@@ -52,8 +52,7 @@
               <mat-list-item>
                 <mat-icon mat-list-icon>person_add</mat-icon>
                 <div mat-line>{{'personne supplémentaire' | translate}} :</div>
-                <div mat-line *ngFor="let plus of chalet.tarifs.plusPersonne">{{plus.condition | translateSelf:translateService.currentLang:translateService.defaultLang}} : {{plus.cout}}€ / nuit
-                </div>
+                <div mat-line *ngFor="let plus of chalet.tarifs.plusPersonne">{{plus.condition | translateSelf:translateService.currentLang}} : {{plus.cout}}€ / nuit</div>
               </mat-list-item>
             </ng-container>
           </mat-list>

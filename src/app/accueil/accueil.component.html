@@ -2,10 +2,10 @@
   <div class="haut"></div>
   <div class="milieu">
     <span class="accroche" [class.mobile]="isMobile">
-      <h1 [@flyInOut]="accroche.numero">{{accroche.accroches[accroche.numero].titre}}
+      <h1 [@flyInOut]="accroche.numero">{{accroche.accroches[accroche.numero].titre | translateSelf:translateService.currentLang}}
       </h1>
       <div class="trait" [style.max-width.rem]="10" [@ligneAccroche]="accroche.numero"></div>
-      <p [@flyInOut]="accroche.numero">{{accroche.accroches[accroche.numero].texte}}</p>
+      <p [@flyInOut]="accroche.numero">{{accroche.accroches[accroche.numero].texte | translateSelf:translateService.currentLang}}</p>
     </span>
   </div>
   <div class="bas">

@@ -28,5 +28,7 @@
   "base_(x)_personnes": "from {{x}} people",
   "à partir de": "from",
   "nuit": "night",
-  "nuits": "nights"
+  "nuits": "nights",
+  "animal": "pet",
+  "animaux": "pets"
 }
