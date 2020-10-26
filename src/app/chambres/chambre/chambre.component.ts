@@ -47,11 +47,11 @@ export class ChambreComponent implements OnInit, OnDestroy {
         if (this.chambre == null) {
           this.router.navigate(['../'], { relativeTo: this.route });
         }
-        this.fondService.images = this.chambre.images;
-        this.fondService.debut();
-
+        if (this.chambre.images.length > 0) {
+          this.fondService.images = this.chambre.images;
+          this.fondService.debut();
+        }
         this.diaporamaService.images = this.chambre.images;
-        this.diaporamaService.interval = 5000;
         this.diaporamaService.debut();
       }
     );

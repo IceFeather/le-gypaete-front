@@ -19,15 +19,22 @@
       <span class="texte">Chalet Le Gypaète</span>
     </div>
   </div>
-  <div class="navigation" *ngIf="!isMobile">
-    <ng-container *ngFor="let route of routes">
-      <button mat-button [routerLink]="route.lien" routerLinkActive="router-link-active" [routerLinkActive]="'active'" >{{route.nom | translate | titlecase}}</button>
-    </ng-container>
-    <button mat-button [matMenuTriggerFor]="langueMenu"><span class="flag-icon" [class]="'flag-icon-'+(translateService.currentLang === 'en' ? 'gb' : translateService.currentLang)"></span></button>
-    <mat-menu #langueMenu="matMenu" class="navigation-menu">
-      <button mat-menu-item class="choix-langue" (click)="translateService.use('fr')"><span class="flag-icon flag-icon-fr"></span>Français</button>
-      <button mat-menu-item class="choix-langue" (click)="translateService.use('en')"><span class="flag-icon flag-icon-gb"></span>English</button>
-      <!-- <button mat-menu-item class="choix-langue" (click)="translateService.use('de')"><span class="flag-icon flag-icon-de"></span>Deutsch</button> -->
-    </mat-menu>
-  </div>
+  <ng-container *ngIf="!isMobile">
+    <div class="navigation">
+      <ng-container *ngFor="let route of routes">
+        <button mat-button [routerLink]="route.lien" routerLinkActive="router-link-active" [routerLinkActive]="'active'" >{{route.nom | translate | titlecase}}</button>
+      </ng-container>
+    </div>
+    <div class="navigation droite">
+      <button mat-button [matMenuTriggerFor]="langueMenu"><span class="flag-icon" [class]="'flag-icon-'+(translateService.currentLang === 'en' ? 'gb' : translateService.currentLang)"></span></button>
+      <mat-menu #langueMenu="matMenu" class="navigation-menu">
+        <button mat-menu-item class="choix-langue" (click)="translateService.use('fr')"><span class="flag-icon flag-icon-fr"></span>Français</button>
+        <button mat-menu-item class="choix-langue" (click)="translateService.use('en')"><span class="flag-icon flag-icon-gb"></span>English</button>
+        <!-- <button mat-menu-item class="choix-langue" (click)="translateService.use('de')"><span class="flag-icon flag-icon-de"></span>Deutsch</button> -->
+      </mat-menu>
+      <button mat-button>
+        <mat-icon>person</mat-icon>
+      </button>
+    </div>
+  </ng-container>
 </div>

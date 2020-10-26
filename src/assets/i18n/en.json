@@ -1,5 +1,5 @@
 {
-  "accueil" : "home",
+  "accueil": "home",
   "le chalet" : "the chalet",
   "les chambres" : "the rooms",
   "tarifs" : "pricing",
@@ -30,5 +30,37 @@
   "nuit": "night",
   "nuits": "nights",
   "animal": "pet",
-  "animaux": "pets"
+  "animaux": "pets",
+  "tradpage": {
+    "accueil": {
+      "localisation": {
+        "titre": "In heart of Alps",
+        "paragraphe": "Located on the Grand-Bornand's village, at 1 hour from Geneva and 2h30 from Lyon",
+        "bouton": "Getting there"
+      },
+      "chalet": {
+        "titre": "The Chalet",
+        "paragraphe": {
+          "1": "The chalet offer to you a place of relaxation on its alpage with a view on the Grand-Bornand valley and the Avaris moutains chain.",
+          "2": "With its 5 cozy rooms with multiple amenities, you have the possibility to book the rooms per nights or the whole chalet."
+        },
+        "bouton": {
+          "chalet": "View the chalet",
+          "chambres": "View the rooms"
+        }
+      },
+      "le-grand-bornand": {
+        "titre": "The Grand-Bornand's village",
+        "paragraphe": {
+          "1": "Tourist resort and charming village, the Grand-Bornand lives all year round in its Alps setting, dominated by the Avaris chain",
+          "2": "Enjoy its ski resort in winter, its swimming center or its hiking and mountain biking routes in summer"
+        },
+        "bouton": "Discover the Grand-Bornand"
+      },
+      "gypaete-barbu": {
+        "titre": "The Gypaète Barbu",
+        "paragraphe": "With a bit of luck or a good eye, you should catch sight of the Gypaète Barbu in the sky, protected species whose the reintroduction on the Haut-Savoyard territory begin in 1987, with a first successful nesting in 1997 on the Bargy mountain chain, 20 minutes from the Grand-Bornand village."
+      }
+    }
+  }
 }

@@ -13,13 +13,20 @@
   <div class="corp">
 
     <div class="diaporama">
-      <ng-container *ngIf="isMobile;else imagesStack">
+      <ng-container *ngIf="isMobile; else imagesStack">
         <diaporama-visualiseur></diaporama-visualiseur>
       </ng-container>
-      <ng-template  #imagesStack>
-        <div *ngFor="let image of chambre.images" class="image">
-          <img [src]="image">
-        </div>
+      <ng-template #imagesStack>
+        <ng-container *ngIf="chambre.images.length > 0; else imageRemplacement;">
+          <div *ngFor="let image of chambre.images" class="image">
+            <img [src]="image">
+          </div>
+        </ng-container>
+        <ng-template #imageRemplacement>
+          <div class="image">
+            <img src="/assets/img/remplacement.png">
+          </div>
+        </ng-template>
       </ng-template>
     </div>
 

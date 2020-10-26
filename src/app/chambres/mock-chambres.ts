@@ -7,8 +7,8 @@ export const CHAMBRES: Chambre[] = [
     images: [],
     nombrePersonnesMax: 2,
     description: {
-      fr: "Description de la chambre, c'est une belle chambre...",
-      en: "Description of the room, that's a nice room..."
+      fr: 'À la nuitée, "bed & breakfast", base chambre double, hors vacances scolaires (Françaises)',
+      en: 'Per night, bed & breakfast, for 2 people, except school holidays (french)'
     },
     pmr: false,
     lits: [{classe: 'King Size', largeur: 180}],
@@ -35,8 +35,8 @@ export const CHAMBRES: Chambre[] = [
     images: [],
     nombrePersonnesMax: 2,
     description: {
-      fr: "Description de la chambre, c'est une belle chambre...",
-      en: "Description of the room, that's a nice room..."
+      fr: 'À la nuitée, "bed & breakfast", base chambre double, hors vacances scolaires (Françaises)',
+      en: 'Per night, bed & breakfast, for 2 people, except school holidays (french)'
     },
     pmr: true,
     lits: [{classe: 'Simple', largeur: 90}, {classe: 'Simple', largeur: 90}],
@@ -63,8 +63,8 @@ export const CHAMBRES: Chambre[] = [
     images: [],
     nombrePersonnesMax: 5,
     description: {
-      fr: "Description de la chambre, c'est une belle chambre...",
-      en: "Description of the room, that's a nice room..."
+      fr: 'À la nuitée, "bed & breakfast", base chambre double, hors vacances scolaires (Françaises)',
+      en: 'Per night, bed & breakfast, for 2 people, except school holidays (french)'
     },
     pmr: false,
     lits: [
@@ -100,8 +100,8 @@ export const CHAMBRES: Chambre[] = [
     images: [],
     nombrePersonnesMax: 5,
     description: {
-      fr: "Description de la chambre, c'est une belle chambre...",
-      en: "Description of the room, that's a nice room..."
+      fr: 'À la nuitée, "bed & breakfast", base chambre double, hors vacances scolaires (Françaises)',
+      en: 'Per night, bed & breakfast, for 2 people, except school holidays (french)'
     },
     pmr: false,
     lits: [
@@ -137,8 +137,8 @@ export const CHAMBRES: Chambre[] = [
     images: [],
     nombrePersonnesMax: 2,
     description: {
-      fr: "Description de la chambre, c'est une belle chambre...",
-      en: "Description of the room, that's a nice room..."
+      fr: 'À la nuitée, "bed & breakfast", base chambre double, hors vacances scolaires (Françaises)',
+      en: 'Per night, bed & breakfast, for 2 people, except school holidays (french)'
     },
     pmr: false,
     lits: [
