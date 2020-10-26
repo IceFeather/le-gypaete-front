@@ -8,7 +8,7 @@ export const CHAMBRES: Chambre[] = [
     nombrePersonnesMax: 2,
     description: {
       fr: 'À la nuitée, "bed & breakfast", base chambre double, hors vacances scolaires (Françaises)',
-      en: 'Per night, bed & breakfast, for 2 people, except school holidays (french)'
+      en: 'Per night, bed & breakfast, double room basis, except school holidays (french)'
     },
     pmr: false,
     lits: [{classe: 'King Size', largeur: 180}],
@@ -36,7 +36,7 @@ export const CHAMBRES: Chambre[] = [
     nombrePersonnesMax: 2,
     description: {
       fr: 'À la nuitée, "bed & breakfast", base chambre double, hors vacances scolaires (Françaises)',
-      en: 'Per night, bed & breakfast, for 2 people, except school holidays (french)'
+      en: 'Per night, bed & breakfast, double room basis, except school holidays (french)'
     },
     pmr: true,
     lits: [{classe: 'Simple', largeur: 90}, {classe: 'Simple', largeur: 90}],
@@ -64,7 +64,7 @@ export const CHAMBRES: Chambre[] = [
     nombrePersonnesMax: 5,
     description: {
       fr: 'À la nuitée, "bed & breakfast", base chambre double, hors vacances scolaires (Françaises)',
-      en: 'Per night, bed & breakfast, for 2 people, except school holidays (french)'
+      en: 'Per night, bed & breakfast, double room basis, except school holidays (french)'
     },
     pmr: false,
     lits: [
@@ -101,7 +101,7 @@ export const CHAMBRES: Chambre[] = [
     nombrePersonnesMax: 5,
     description: {
       fr: 'À la nuitée, "bed & breakfast", base chambre double, hors vacances scolaires (Françaises)',
-      en: 'Per night, bed & breakfast, for 2 people, except school holidays (french)'
+      en: 'Per night, bed & breakfast, double room basis, except school holidays (french)'
     },
     pmr: false,
     lits: [
@@ -138,7 +138,7 @@ export const CHAMBRES: Chambre[] = [
     nombrePersonnesMax: 2,
     description: {
       fr: 'À la nuitée, "bed & breakfast", base chambre double, hors vacances scolaires (Françaises)',
-      en: 'Per night, bed & breakfast, for 2 people, except school holidays (french)'
+      en: 'Per night, bed & breakfast, double room basis, except school holidays (french)'
     },
     pmr: false,
     lits: [

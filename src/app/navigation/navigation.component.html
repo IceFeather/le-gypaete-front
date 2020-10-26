@@ -3,7 +3,7 @@
     <button mat-icon-button [matMenuTriggerFor]="mobileNavigationMenu"><mat-icon class="icon">menu</mat-icon></button>
     <mat-menu #mobileNavigationMenu="matMenu" class="navigation-menu mobile">
       <ng-container *ngFor="let route of routes">
-        <button mat-menu-item [routerLink]="route.lien" routerLinkActive="router-link-active" [routerLinkActive]="'active'" ><mat-icon>{{route.icone}}</mat-icon>{{route.nom | translate | titlecase}}</button>
+        <button mat-menu-item [routerLink]="route.lien" routerLinkActive="router-link-active" [routerLinkActive]="'active'" [disabled]="route.inactive"><mat-icon>{{route.icone}}</mat-icon>{{route.nom | translate | titlecase}}</button>
       </ng-container>
       <button mat-menu-item [matMenuTriggerFor]="mobileLangueMenu" class="choix-langue"><mat-icon class="flag-icon" [class]="'flag-icon-'+(translateService.currentLang === 'en' ? 'gb' : translateService.currentLang)"></mat-icon><span>Langue</span></button>
       <mat-menu #mobileLangueMenu="matMenu" class="navigation-menu">
@@ -22,7 +22,7 @@
   <ng-container *ngIf="!isMobile">
     <div class="navigation">
       <ng-container *ngFor="let route of routes">
-        <button mat-button [routerLink]="route.lien" routerLinkActive="router-link-active" [routerLinkActive]="'active'" >{{route.nom | translate | titlecase}}</button>
+        <button mat-button [routerLink]="route.lien" routerLinkActive="router-link-active" [routerLinkActive]="'active'" [disabled]="route.inactive">{{route.nom | translate | titlecase}}</button>
       </ng-container>
     </div>
     <div class="navigation droite">
