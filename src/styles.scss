@@ -147,7 +147,15 @@ button, a {
 }
 
 .image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  &.ombre {
+    box-shadow: .0em .0em 2em .5em rgba(0, 0, 0, .7);
+  }
   * {
+    height: 100%;
+    width: 100%;
     box-shadow: .0em .0em 2em .5em rgba(0, 0, 0, .7);
   }
 }
