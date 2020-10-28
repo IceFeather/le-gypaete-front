@@ -32,6 +32,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   saison = 'hiver';
 
   isMobile: boolean;
+  isMedium: boolean;
   top: boolean;
   bottom: boolean;
 
@@ -44,9 +45,36 @@ export class AppComponent implements OnInit, AfterViewInit {
   ) {
     translateService.setDefaultLang('fr');
     translateService.use(translateService.getBrowserLang());
+
     breakpointObserver.observe([
-      Breakpoints.Handset, Breakpoints.Medium, Breakpoints.Small, Breakpoints.XSmall
-    ]).subscribe( bp => this.isMobile = bp.matches );
+      Breakpoints.Handset,
+      Breakpoints.Medium,
+      Breakpoints.Small,
+      Breakpoints.XSmall
+    ]).subscribe( bp => {
+      if (bp.matches) {
+        this.isMobile = true;
+        this.isMedium = false;
+      }
+    });
+
+    breakpointObserver.observe([
+      Breakpoints.Large
+    ]).subscribe( bp => {
+      if (bp.matches) {
+        this.isMobile = false;
+        this.isMedium = true;
+      }
+    });
+
+    breakpointObserver.observe([
+      Breakpoints.XLarge
+    ]).subscribe( bp => {
+      if (bp.matches) {
+        this.isMobile = false;
+        this.isMedium = false;
+      }
+    });
   }
 
   ngOnInit() {

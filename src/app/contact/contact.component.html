@@ -15,7 +15,7 @@
           <p *ngSwitchCase="'facebook'">Facebook</p>
           <p *ngSwitchCase="'twitter'">Twitter</p>
           <p *ngSwitchCase="'instagram'">Instagram</p>
-          <p *ngSwitchDefault>{{contact.valeur}}</p>
+          <p *ngSwitchDefault [innerHTML]="contact.valeur"></p>
         </div>
       </div>
     </section>

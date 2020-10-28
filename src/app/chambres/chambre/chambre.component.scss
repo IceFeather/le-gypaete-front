@@ -54,6 +54,16 @@
     * {
       color: white;
     }
+    mat-list-item {
+      .wrap {
+        text-overflow: unset;
+        white-space: unset;
+      }
+      &.grand {
+        height: auto;
+        padding: 0.5rem 0;
+      }
+    }
   }
 
   .reserver {

@@ -15,7 +15,7 @@ export class ContactComponent implements OnInit {
   contacts: Contact[] = [
     {
       type: 'adresse',
-      valeur: "880 Route de la Culaz, 77450 Le Grand-Bornand, France"
+      valeur: "880 Route de la Culaz,<br>77450 Le Grand-Bornand,<br>France"
     },
     {
       type: 'téléphone',

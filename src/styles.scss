@@ -60,8 +60,21 @@ h2 {
     line-height: 1.5rem !important;
   }
 }
+h3 {
+  font-size: 1.2rem !important;
+  line-height: 2rem !important;
+  // border-bottom: .2rem solid rgba(240, 212, 156);
+  // padding-bottom: .7rem;
+  hr, .trait {
+    max-width: 1.5rem;
+  }
+  .mobile & {
+    font-size: 1.0rem !important;
+    line-height: 1.2rem !important;
+  }
+}
 
-h1, h2 {
+h1, h2, h3 {
   color: rgb(220, 220, 220) !important;
   hr, .trait {
     margin-top: .5rem;

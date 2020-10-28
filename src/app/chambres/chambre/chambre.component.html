@@ -42,18 +42,18 @@
           <div class="trait" [style.max-width.rem]="2"></div>
         </div>
         <mat-list>
-          <mat-list-item>
+          <mat-list-item class="grand">
             <mat-icon mat-list-icon>person</mat-icon>
-            <div mat-line>{{'nombre de personnes maximum' | translate}} : {{chambre.nombrePersonnesMax}}</div>
+            <div mat-line class="wrap">{{'nombre de personnes maximum' | translate | premiereLettreMaj}} : {{chambre.nombrePersonnesMax}}</div>
           </mat-list-item>
-          <mat-list-item *ngIf="chambre.pmr">
+          <mat-list-item class="grand" *ngIf="chambre.pmr">
             <mat-icon mat-list-icon>accessible</mat-icon>
-            <div mat-line>{{'accessible aux personnes à mobilité réduite' | translate}} : {{'oui' | translate}}</div>
+            <div mat-line class="wrap">{{'accessible aux personnes à mobilité réduite' | translate | premiereLettreMaj}}</div>
           </mat-list-item>
         </mat-list>
         <mat-divider></mat-divider>
         <mat-list class="en-ligne">
-          <mat-list-item *ngFor="let lit of chambre.lits">
+          <mat-list-item class="grand" *ngFor="let lit of chambre.lits">
             <mat-icon mat-list-icon *ngIf="lit.classe === 'King Size'">king_bed</mat-icon>
             <mat-icon mat-list-icon *ngIf="lit.classe === 'King Size'">star</mat-icon>
             <mat-icon mat-list-icon *ngIf="lit.classe === 'Double'">king_bed</mat-icon>
@@ -66,7 +66,7 @@
         <mat-list>
           <mat-list-item *ngIf="chambre.salleDEau.nombre > 0">
             <mat-icon mat-list-icon>bathtub</mat-icon>
-            <div mat-line>{{"salle d'eau" | translate | titlecase}} : {{chambre.salleDEau.nombre}}</div>
+            <div mat-line>{{"salle d'eau" | translate | premiereLettreMaj}} : {{chambre.salleDEau.nombre}}</div>
             <div mat-line *ngFor="let plus of chambre.salleDEau.plus">{{plus | translateSelf:translateService.currentLang}}</div>
           </mat-list-item>
           <mat-list-item *ngIf="chambre.wc.nombre > 0">
@@ -79,20 +79,17 @@
         <mat-list>
           <mat-list-item *ngIf="chambre.terrasse">
             <mat-icon mat-list-icon>deck</mat-icon>
-            <div mat-line>{{'terrasse' | translate | titlecase}}</div>
+            <div mat-line>{{'terrasse' | translate | premiereLettreMaj}}</div>
           </mat-list-item>
           <mat-list-item *ngIf="chambre.balcon">
             <mat-icon mat-list-icon>deck</mat-icon>
-            <div mat-line>{{'balcon' | translate | titlecase}}</div>
+            <div mat-line>{{'balcon' | translate | premiereLettreMaj}}</div>
           </mat-list-item>
           <mat-list-item *ngIf="chambre.vues.length > 0">
             <mat-icon mat-list-icon>landscape</mat-icon>
-            <div mat-line>{{'vue' | translate | titlecase}}</div>
+            <div mat-line>{{'vue' | translate | premiereLettreMaj}}</div>
             <div mat-line *ngFor="let vue of chambre.vues">{{vue | translateSelf:translateService.currentLang}}</div>
           </mat-list-item>
-        </mat-list>
-        <mat-divider></mat-divider>
-        <mat-list>
           <mat-list-item *ngIf="chambre.tv">
             <mat-icon mat-list-icon>tv</mat-icon>
             <div mat-line>TV</div>
@@ -118,7 +115,7 @@
             <mat-icon mat-list-icon>nights_stay</mat-icon>
             <mat-icon mat-list-icon>add</mat-icon>
             <div mat-line>
-              {{'à partir de' | translate}} {{chambre.tarifs.plusNuits.minimum}}
+              {{'à partir de' | translate | premiereLettreMaj}} {{chambre.tarifs.plusNuits.minimum}}
               {{(chambre.tarifs.plusNuits.minimum > 1 ? 'nuits' : 'nuit') | translate}}
               : {{chambre.tarifs.plusNuits.cout}}€ / {{'nuit' | translate}}
             </div>
@@ -127,7 +124,7 @@
             <mat-divider></mat-divider>
             <mat-list-item>
               <mat-icon mat-list-icon>person_add</mat-icon>
-              <div mat-line>{{'personne supplémentaire' | translate}} :</div>
+              <div mat-line>{{'personne supplémentaire' | translate | premiereLettreMaj}} :</div>
               <div mat-line *ngFor="let plus of chambre.tarifs.plusPersonne">{{plus.condition | translateSelf:translateService.currentLang}} : {{plus.cout}}€ / {{'nuit' | translate}}
               </div>
             </mat-list-item>
@@ -136,7 +133,7 @@
             <mat-divider></mat-divider>
             <mat-list-item>
               <mat-icon mat-list-icon>pets</mat-icon>
-              <div mat-line>{{'animaux' | translate | titlecase}} :</div>
+              <div mat-line>{{'animaux' | translate | premiereLettreMaj}} :</div>
               <div mat-line *ngFor="let plus of chambre.tarifs.plusAnimal">{{plus.condition | translateSelf:translateService.currentLang}} : {{plus.cout}}€ / {{'nuit' | translate}}
               </div>
             </mat-list-item>

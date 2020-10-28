@@ -28,13 +28,13 @@
             <hr>
           </h2>
           <mat-list>
-            <ng-container *ngFor="let prestation of chalet.prestations">
-              <mat-list-item>
-                <div mat-line *ngFor="let prestationItem of (prestation | translateSelf:translateService.currentLang)">
+            <ng-container *ngFor="let prestation of chalet.prestations | keyvalue">
+              <mat-list-item class="grand">
+                <div mat-line class="wrap" *ngFor="let prestationItem of (prestation.value | translateSelf:translateService.currentLang)">
                   {{prestationItem}}
                 </div>
               </mat-list-item>
-              <mat-divider></mat-divider>
+              <mat-divider *ngIf="prestation.key != (chalet.prestations.length - 1)"></mat-divider>
             </ng-container>
           </mat-list>
         </section>
@@ -43,15 +43,15 @@
             <hr>
           </h2>
           <mat-list>
-            <div mat-subheader>{{'base' | translate }} {{chalet.tarifs.nombrePersonnesBase}} {{(chalet.tarifs.nombrePersonnesBase > 1 ? 'personnes': 'personne') | translate}}</div>
+            <div mat-subheader>{{'base' | translate | premiereLettreMaj}} {{chalet.tarifs.nombrePersonnesBase}} {{(chalet.tarifs.nombrePersonnesBase > 1 ? 'personnes': 'personne') | translate}}</div>
             <mat-list-item>
-              {{'à la semaine' | translate}}, {{'selon période' | translate}}
+              {{'à la semaine' | translate | premiereLettreMaj}}, {{'selon période' | translate}}
             </mat-list-item>
             <ng-container *ngIf="chalet.tarifs.plusPersonne">
               <mat-divider></mat-divider>
               <mat-list-item>
                 <mat-icon mat-list-icon>person_add</mat-icon>
-                <div mat-line>{{'personne supplémentaire' | translate}} :</div>
+                <div mat-line>{{'personne supplémentaire' | translate | premiereLettreMaj}} :</div>
                 <div mat-line *ngFor="let plus of chalet.tarifs.plusPersonne">{{plus.condition | translateSelf:translateService.currentLang}} : {{plus.cout}}€ / nuit</div>
               </mat-list-item>
             </ng-container>

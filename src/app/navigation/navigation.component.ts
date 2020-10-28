@@ -15,6 +15,7 @@ export class NavigationComponent implements OnInit {
   mobileQuery: MediaQueryList;
   private mobileQueryListener: () => void;
   isMobile: boolean;
+  isMedium: boolean;
 
   routes = [
     {nom: "accueil", icone: "home", lien: ['/accueil']},
@@ -38,7 +39,30 @@ export class NavigationComponent implements OnInit {
       Breakpoints.Medium,
       Breakpoints.Small,
       Breakpoints.XSmall
-    ]).subscribe( breakpoint => this.isMobile = breakpoint.matches )
+    ]).subscribe( bp => {
+      if (bp.matches) {
+        this.isMobile = true;
+        this.isMedium = false;
+      }
+    });
+
+    breakpointObserver.observe([
+      Breakpoints.Large
+    ]).subscribe( bp => {
+      if (bp.matches) {
+        this.isMobile = false;
+        this.isMedium = true;
+      }
+    });
+
+    breakpointObserver.observe([
+      Breakpoints.XLarge
+    ]).subscribe( bp => {
+      if (bp.matches) {
+        this.isMobile = false;
+        this.isMedium = false;
+      }
+    });
   }
 
   ngOnInit(): void {

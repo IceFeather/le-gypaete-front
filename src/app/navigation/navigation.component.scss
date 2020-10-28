@@ -20,7 +20,8 @@
       align-items: center;
       .image {
         flex: auto;
-        height: 4rem;
+        max-height: 4rem;
+        height: auto;
       }
       .texte {
         flex: auto;
@@ -40,16 +41,6 @@
           line-height: 1rem !important;
         }
       }
-    }
-  }
-  &.mobile {
-    padding: .5rem;
-    height: 4rem;
-    .brand {
-      flex: auto;
-      flex-grow: 1;
-      flex-direction: column;
-      align-items: center;
     }
   }
   .mobile-navigation {
@@ -74,7 +65,7 @@
       flex: auto 0;
       flex-wrap: wrap;
       font-size: 1.2rem;
-      padding: 1.5rem 1.5rem;
+      padding: 1.5rem;
       margin-left: 1rem;
       margin-right: 1rem;
       &.avec-icone mat-icon {
@@ -87,6 +78,33 @@
     }
     &.droite {
       margin-left: auto;
+    }
+  }
+
+  &.medium {
+    padding: 0.2rem 1rem;
+    .image {
+      height: 3rem !important;
+    }
+    .texte {
+      font-size: 1.5rem !important;
+      line-height: 1.2rem !important;
+    }
+    .navigation {
+      button {
+        font-size: 1.2rem;
+        padding: 1rem;
+      }
+    }
+  }
+  &.mobile {
+    padding: .5rem;
+    height: 4rem;
+    .brand {
+      flex: auto;
+      flex-grow: 1;
+      flex-direction: column;
+      align-items: center;
     }
   }
 

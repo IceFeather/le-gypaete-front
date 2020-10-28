@@ -55,7 +55,7 @@ import { LanguesModule } from './langues/langues.module';
     })
   ],
   exports: [
-    TranslateModule,
+    TranslateModule
   ],
   providers: [FondService],
   bootstrap: [AppComponent]

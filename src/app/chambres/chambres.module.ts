@@ -15,7 +15,6 @@ import { LanguesModule } from '../langues/langues.module';
 
 
 
-
 @NgModule({
   declarations: [
     MosaiqueComponent,
