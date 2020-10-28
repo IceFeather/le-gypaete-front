@@ -1,57 +1,60 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subscription, interval } from 'rxjs';
+import { startWith } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DiaporamaService {
 
-  defilement = new BehaviorSubject<boolean>(false);
-  interval = new BehaviorSubject<number>(10000);
-  images = new BehaviorSubject<string[]>([]);
-  numero = new BehaviorSubject<number>(0);
-  defilementSub: Subscription;
+  defilement = false;
+  interval = 10000;
+  images: string[] = [];
+  numero = 0;
+  progress = 0;
 
-  images$ = this.images.asObservable();
+  defilement$: Subscription;
 
   constructor() {}
 
   demarrerArreter() {
-    this.defilement.value ? this.arreter() : this.demarrer();
+    this.defilement ? this.arreter() : this.demarrer();
   }
 
   demarrer() {
-    if (this.defilementSub || this.defilement.value) {
+    if (this.defilement$ || this.defilement) {
       this.arreter();
     }
-    this.defilement.next(true);
-    this.defilementSub = interval(this.interval.value).subscribe( () => this.suivant() );
+    this.defilement = true;
+    this.defilement$ = interval(this.interval).subscribe( () => {
+      this.suivant();
+    });
   }
 
   arreter() {
-    this.defilement.next(false);
-    if (this.defilementSub) this.defilementSub.unsubscribe();
+    this.defilement = false;
+    if (this.defilement$) this.defilement$.unsubscribe();
   }
 
   debut() {
-    this.numero.next(0);
+    this.numero = 0;
   }
 
   fin() {
-    this.numero.next(this.images.value.length - 1);
+    this.numero = this.images.length - 1;
   }
 
   suivant() {
-    if (this.numero.getValue() < this.images.value.length - 1) {
-      this.numero.next(this.numero.value + 1);
+    if (this.numero < this.images.length - 1) {
+      this.numero = this.numero + 1;
     } else {
       this.debut();
     }
   }
 
   precedent() {
-    if (this.numero.value > 0) {
-      this.numero.next(this.numero.value - 1);
+    if (this.numero > 0) {
+      this.numero = this.numero - 1;
     } else {
       this.fin();
     }

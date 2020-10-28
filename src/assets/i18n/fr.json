@@ -1,8 +1,35 @@
 {
-  "accueil" : "accueil",
-  "le chalet" : "le chalet",
-  "les chambres" : "les chambres",
-  "tarifs & prestations" : "tarifs & prestations",
-  "réserver" : "réserver",
-  "contacter" : "contacter"
+  "base_(x)_personnes": "base {{x}} personnes",
+  "tradpage": {
+    "accueil": {
+      "localisation": {
+        "titre": "Au coeur des Alpes",
+        "paragraphe": "Situé sur la commune du Grand-Bornand, à 1 heure de Genève et 2h30 de Lyon",
+        "bouton": "S'y rendre"
+      },
+      "chalet": {
+        "titre": "Le chalet",
+        "paragraphe": {
+          "1": "Le chalet vous offre un endroit de détente sur son alpage avec vue sur la vallée du Grand-Bornand et la chaine des Avaris.",
+          "2": "Composé de 5 chambres confortables avec de nombreuses commodités, vous avez la possibilitée de réserver les chambres à la nuitée ou le chalet complet."
+        },
+        "bouton": {
+          "chalet": "Voir le chalet",
+          "chambres": "Voir les chambres"
+        }
+      },
+      "le-grand-bornand": {
+        "titre": "Le Grand-Bornand",
+        "paragraphe": {
+          "1": "Station touristique et village de charme, le Grand-Bornand vit toute l'année dans son écrin des Alpes, dominé par la chaine des Avaris",
+          "2": "Profitez de sa station de ski alpin en hiver, de son centre aquatique ou de ses itinéraires de randonnée et de VTT en été"
+        },
+        "bouton": "Découvrir le Grand-Bornand"
+      },
+      "gypaete-barbu": {
+        "titre": "Le Gypaète Barbu",
+        "paragraphe": "Avec de la chance ou un bon oeil, vous pourrez apercevoir dans le ciel le Gypaète Barbu, espèce protégée dont la réintroduction sur le territoire Haut-Savoyard débute en 1987, avec une première nidiﬁcation réussie en 1997 sur la chaîne du Bargy, à 20 minutes du Grand-Bornand."
+      }
+    }
+  }
 }

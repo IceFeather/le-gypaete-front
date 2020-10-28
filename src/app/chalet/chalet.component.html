@@ -1,0 +1,63 @@
+<div id="page" class="page" [class.mobile]="isMobile">
+  <div class="corp">
+
+    <div class="tete">
+      <h1>{{'le chalet' | translate | titlecase}}<hr></h1>
+    </div>
+
+    <div class="diaporama">
+      <ng-container *ngIf="isMobile;else imagesStack">
+        <diaporama-visualiseur></diaporama-visualiseur>
+      </ng-container>
+      <ng-template #imagesStack>
+        <div *ngFor="let image of chalet.images" class="image">
+          <img [src]="image">
+        </div>
+      </ng-template>
+    </div>
+
+    <div class="gauche">
+      <div class="description">
+        <section>
+          <p>
+            {{chalet.description | translateSelf:translateService.currentLang}}
+          </p>
+        </section>
+        <section class="details">
+          <h2>{{'prestations' | translate | titlecase}}
+            <hr>
+          </h2>
+          <mat-list>
+            <ng-container *ngFor="let prestation of chalet.prestations | keyvalue">
+              <mat-list-item class="grand">
+                <div mat-line class="wrap" *ngFor="let prestationItem of (prestation.value | translateSelf:translateService.currentLang)">
+                  {{prestationItem}}
+                </div>
+              </mat-list-item>
+              <mat-divider *ngIf="prestation.key != (chalet.prestations.length - 1)"></mat-divider>
+            </ng-container>
+          </mat-list>
+        </section>
+        <section class="tarifs">
+          <h2>{{'tarifs' | translate | titlecase}}
+            <hr>
+          </h2>
+          <mat-list>
+            <div mat-subheader>{{'base' | translate | premiereLettreMaj}} {{chalet.tarifs.nombrePersonnesBase}} {{(chalet.tarifs.nombrePersonnesBase > 1 ? 'personnes': 'personne') | translate}}</div>
+            <mat-list-item>
+              {{'à la semaine' | translate | premiereLettreMaj}}, {{'selon période' | translate}}
+            </mat-list-item>
+            <ng-container *ngIf="chalet.tarifs.plusPersonne">
+              <mat-divider></mat-divider>
+              <mat-list-item>
+                <mat-icon mat-list-icon>person_add</mat-icon>
+                <div mat-line>{{'personne supplémentaire' | translate | premiereLettreMaj}} :</div>
+                <div mat-line *ngFor="let plus of chalet.tarifs.plusPersonne">{{plus.condition | translateSelf:translateService.currentLang}} : {{plus.cout}}€ / nuit</div>
+              </mat-list-item>
+            </ng-container>
+          </mat-list>
+        </section>
+      </div>
+      <button mat-stroked-button class="bordure reserver">{{'réserver' | translate | titlecase}}</button>
+    </div>
+  </div>

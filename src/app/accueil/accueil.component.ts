@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { Subscription, interval } from 'rxjs';
+import { Subscription, interval, BehaviorSubject } from 'rxjs';
 import {
   trigger,
   state,
@@ -12,6 +12,7 @@ import {
 } from '@angular/animations';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { FondService } from '../fond/service/fond.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-accueil',
@@ -37,7 +38,15 @@ import { FondService } from '../fond/service/fond.service';
 })
 export class AccueilComponent implements OnInit, OnDestroy {
 
-  saison = 'hiver';
+  _saison: 'hiver' | 'été' = 'hiver';
+  saison$ = new BehaviorSubject(this._saison);
+  set saison(s) {
+    this._saison = s;
+    this.saison$.next(s);
+  }
+  get saison() {
+    return this._saison;
+  }
 
   isMobile: boolean;
 
@@ -56,12 +65,24 @@ export class AccueilComponent implements OnInit, OnDestroy {
   accroche = {
     accroches: [
       {
-        titre: "Le Gypaète vous ouvre ses portes toute l'année",
-        texte: "avec la particularité d'avoir la possibilité de louer la totalité du chalet ou à la nuitée suivant les périodes"
+        titre: {
+          fr: "Le Gypaète vous ouvre ses portes toute l'année",
+          en: 'The "Gypaète" opens its doors all year round'
+        },
+        texte: {
+          fr: "avec la particularité d'avoir la possibilité de louer la totalité du chalet à la semaine ou à la nuitée suivant les périodes",
+          en: "with the peculiarity to give the possibility to privatize the whole chalet by weeks or by the night depending on the period"
+        }
       },
       {
-        titre: "Profitez du confort du chalet et de ses prestations",
-        texte: "de la tranquillité des lieux, de la vue sur la Chaine des Aravis, pour une pause assurée."
+        titre: {
+          fr: "Profitez du confort du chalet et de ses prestations",
+          en: "Enjoy the comfort of the chalet and its prestations"
+        },
+        texte: {
+          fr: "de la tranquillité des lieux, de la vue sur la Chaine des Aravis, pour une pause assurée.",
+          en: "the tranquility of the place, the view on the mountain chain of the Aravis, for a break guaranted"
+        }
       }
     ],
     numero: 0,
@@ -94,9 +115,12 @@ export class AccueilComponent implements OnInit, OnDestroy {
   constructor(
     public fondService: FondService,
     private breakpointObserver: BreakpointObserver,
+    public translateService: TranslateService,
     public sanitizer: DomSanitizer,
   ) {
-    fondService.images.next(this.images[this.saison]);
+    this.saison$.subscribe((s) => {
+      fondService.images = this.images[s]
+    });
     breakpointObserver.observe([
       Breakpoints.Handset, Breakpoints.Small, Breakpoints.XSmall
     ]).subscribe( breakpoint => this.isMobile = breakpoint.matches );
@@ -114,13 +138,7 @@ export class AccueilComponent implements OnInit, OnDestroy {
 
   changerSaison(event) {
     this.fondService.debut();
-    if (this.saison === 'été') {
-      this.saison = 'hiver';
-      this.fondService.images.next(this.images.hiver);
-    } else {
-      this.saison = 'été';
-      this.fondService.images.next(this.images.été);
-    }
+    this.saison === 'été' ? this.saison = 'hiver' : this.saison = 'été';
   }
 
 }

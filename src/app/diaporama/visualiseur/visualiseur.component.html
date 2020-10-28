@@ -1,6 +1,6 @@
-<div class="visualiseur" *ngIf="diaporamaService.images.value.length > 0" [ngStyle]="{'height.px': height}">
-  <div class="images" [@diapo]="diaporamaService.numero.value" *ngFor="let item of diaporamaService.images.value | keyvalue">
-    <div class="image" *ngIf="diaporamaService.numero.value == item.key" [style.background-image]="'url('+item.value+')'"></div>
+<div class="visualiseur" *ngIf="diaporamaService.images.length > 0" [ngStyle]="{'height.px': height}">
+  <div class="images" [@diapo]="diaporamaService.numero" *ngFor="let item of diaporamaService.images | keyvalue">
+    <div class="image" *ngIf="diaporamaService.numero == item.key" [style.background-image]="'url('+item.value+')'"></div>
   </div>
   <button mat-button class="precedent" (click)="moins()">
     <mat-icon>keyboard_arrow_left</mat-icon>
