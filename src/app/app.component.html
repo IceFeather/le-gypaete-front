@@ -6,7 +6,15 @@
       <router-outlet></router-outlet>
     </section>
     <section #basDePage id="bas-de-page">
-      <button mat-button (click)="logTopBottom()">LOG</button>
+      <div class="colonne">
+        <div>Chalet le Gypaète | gypaete.fr © 2020</div>
+      </div>
+      <div class="colonne">
+        <div>▲ Version bêta, l'ensemble des fonctionalités du site ne sont pas encore disponible ▲</div>
+      </div>
+      <div class="colonne">
+        <div>Site réalisé par <a href="https://www.facebook.com/Lupogryph-108136754324483/">Lupogryph</a></div>
+      </div>
     </section>
   </div>
   <div *ngIf="top && !bottom" class="indice-vers-le-bas" @afficherMasquer>
