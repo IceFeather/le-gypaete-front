@@ -6,6 +6,8 @@ import { Router, NavigationEnd, Scroll } from '@angular/router';
 import { BrowserTransferStateModule } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 
+import { version } from '../../package.json';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -27,9 +29,13 @@ export class AppComponent implements OnInit, AfterViewInit {
   @ViewChild('contenu') contenu!: ElementRef;
   @ViewChild('basDePage') basDePage!: ElementRef;
 
+  public version: string = version;
+
   title = 'Chalet le Gypaete';
 
-  saison = 'hiver';
+  public date: Date = new Date();
+
+  public saison = this.getSaison(this.date);
 
   isMobile: boolean;
   isMedium: boolean;
@@ -41,7 +47,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   constructor(
     private breakpointObserver: BreakpointObserver,
     private router: Router,
-    private translateService: TranslateService,
+    public translateService: TranslateService,
   ) {
     translateService.setDefaultLang('fr');
     translateService.use(translateService.getBrowserLang());
@@ -137,6 +143,14 @@ export class AppComponent implements OnInit, AfterViewInit {
       this.bottom = false;
     }
     this.intersectionObserver.observe(this.basDePage.nativeElement);
+  }
+
+  getSaison(date: Date) {
+    if (date.getMonth() > 5 && date.getMonth() < 10) {
+      return 'ete';
+    } else {
+      return 'hiver';
+    }
   }
 
 }

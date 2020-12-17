@@ -5,15 +5,11 @@
     <section id="page">
       <router-outlet></router-outlet>
     </section>
-    <section #basDePage id="bas-de-page">
+    <section #basDePage id="bas-de-page" class="contenu">
       <div class="colonne">
-        <div>Chalet le Gypaète | gypaete.fr © 2020</div>
-      </div>
-      <div class="colonne">
-        <div>▲ Version bêta, l'ensemble des fonctionalités du site ne sont pas encore disponible ▲</div>
-      </div>
-      <div class="colonne">
-        <div>Site réalisé par <a href="https://www.facebook.com/Lupogryph-108136754324483/">Lupogryph</a></div>
+        <div>Chalet le Gypaète | gypaete.fr © {{ date | date: 'yyyy' }}</div>
+        <div>Version {{version}} <span *ngIf="version.endsWith('🚧')">, l'ensemble des fonctionalités du site ne sont pas encore disponible</span></div>
+        <div>{{'site réalisé par' | translate | premiereLettreMaj}} <a href="https://www.facebook.com/Lupogryph-108136754324483/">Lupogryph</a></div>
       </div>
     </section>
   </div>
