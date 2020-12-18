@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject, BehaviorSubject, Observable, Subscription, interval } from 'rxjs';
+import { Image } from '../../model/image';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ export class FondService {
 
   defilement = false;
   interval = 10000;
-  images: string[] = [];
+  images: Image[] = [];
   numero = 0;
   defilement$: Subscription;
 

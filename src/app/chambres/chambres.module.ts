@@ -12,6 +12,8 @@ import { ChambreComponent } from './chambre/chambre.component';
 import { DiaporamaModule } from '../diaporama/diaporama.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { LanguesModule } from '../langues/langues.module';
+import { ChambresApiService } from './chambres.api.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -31,6 +33,10 @@ import { LanguesModule } from '../langues/langues.module';
     ChambresRoutingModule,
     TranslateModule,
     LanguesModule,
+    HttpClientModule
+  ],
+  providers: [
+    ChambresApiService
   ]
 })
 export class ChambresModule { }

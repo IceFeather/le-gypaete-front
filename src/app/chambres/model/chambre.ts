@@ -1,11 +1,12 @@
 import { Langue } from 'src/app/langues/langue.type';
+import { Image } from '../../model/image';
 import { Lit } from './lit';
 import { Tarifs } from './tarifs';
 
 export interface Chambre {
   numero: number;
   nom: string;
-  images: string[];
+  images: Image[];
   nombrePersonnesMax: number;
   description: {[K in Langue]?: string};
   pmr: boolean;

@@ -4,6 +4,7 @@ import { Chambre } from '../model/chambre';
 import { Lit } from '../model/lit';
 import { stringify } from 'querystring';
 import { CHAMBRES } from '../mock-chambres';
+import { ChambresApiService } from '../chambres.api.service';
 
 
 @Component({
@@ -16,12 +17,14 @@ export class MosaiqueComponent implements OnInit {
   isMobile: boolean;
   columns: number;
 
-  chambres: Chambre[] = CHAMBRES;
+  chambres: Chambre[];
 
   debugBP: {bp: string, actif: boolean};
   debugBPs: [{bp: string, actif: boolean}];
 
-  constructor(private breakpointObserver: BreakpointObserver) {
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private chambresApiService: ChambresApiService) {
     // this.columns = this.columnsDefault;
 
     breakpointObserver.observe([
@@ -59,6 +62,13 @@ export class MosaiqueComponent implements OnInit {
         this.isMobile = false;
       }
     })
+
+    this.chambresApiService.recupererTout().subscribe(
+      (chambres: Chambre[]) => {
+        this.chambres = chambres;
+        this.chambresApiService.cache.chambres = chambres;
+      }
+    )
 
   }
 

@@ -25,7 +25,7 @@ import { version } from '../../package.json';
     ])
   ]
 })
-export class AppComponent implements OnInit, AfterViewInit {
+export class AppComponent implements OnInit, AfterViewChecked {
   @ViewChild('contenu') contenu!: ElementRef;
   @ViewChild('basDePage') basDePage!: ElementRef;
 
@@ -92,14 +92,13 @@ export class AppComponent implements OnInit, AfterViewInit {
     }, {threshold: [0]});
   }
 
-  ngAfterViewInit() {
-    console.log('AFTER VIEW INIT')
+  ngAfterViewChecked() {
     this.router.events.subscribe((evt) => {
       if (evt instanceof NavigationEnd) {
         this.contenu.nativeElement.scrollTo(0,0);
         this.top = true;
         this.bottom = false;
-        this.intersectionObserver.observe(this.basDePage.nativeElement);
+        setTimeout(() => this.intersectionObserver.observe(this.basDePage.nativeElement), 5000);
       }
     });
   }

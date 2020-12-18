@@ -1,9 +1,10 @@
+import { Image } from '../../model/image';
 import { Langue } from '../../langues/langue.type';
 
 export interface Chalet {
   nom: String;
   description: {[K in Langue]?: string};
-  images: string[];
+  images: Image[];
   prestations: {[K in Langue]?: [string, string?]}[];
   tarifs : {
     nombrePersonnesBase: number;

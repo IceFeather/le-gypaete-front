@@ -19,12 +19,12 @@
       <ng-template #imagesStack>
         <ng-container *ngIf="chambre.images.length > 0; else imageRemplacement;">
           <div *ngFor="let image of chambre.images" class="image">
-            <img [src]="image">
+            <img [src]="image.url" [alt]="image.nom">
           </div>
         </ng-container>
         <ng-template #imageRemplacement>
           <div class="image">
-            <img src="/assets/img/remplacement.png">
+            <img src="/assets/img/remplacement.png" alt="image à venir">
           </div>
         </ng-template>
       </ng-template>
@@ -120,7 +120,7 @@
               : {{chambre.tarifs.plusNuits.cout}}€ / {{'nuit' | translate}}
             </div>
           </mat-list-item>
-          <ng-container *ngIf="chambre.tarifs.plusPersonne">
+          <ng-container *ngIf="chambre.tarifs.plusPersonne.length > 0">
             <mat-divider></mat-divider>
             <mat-list-item>
               <mat-icon mat-list-icon>person_add</mat-icon>
@@ -129,7 +129,7 @@
               </div>
             </mat-list-item>
           </ng-container>
-          <ng-container *ngIf="chambre.tarifs.plusAnimal">
+          <ng-container *ngIf="chambre.tarifs.plusAnimal.length > 0">
             <mat-divider></mat-divider>
             <mat-list-item>
               <mat-icon mat-list-icon>pets</mat-icon>
@@ -140,7 +140,13 @@
           </ng-container>
         </mat-list>
       </div>
-      <button mat-stroked-button class="bordure reserver">{{'réserver' | translate | titlecase}}</button>
+      <button mat-stroked-button class="bordure reserver" (click)="ajouterImage()">{{'réserver' | translate | titlecase}}</button>
+      <div class="form-group">
+        <label for="file">Choose File</label>
+        <input type="file"
+               id="fichier"
+               (change)="handleFileInput($event.target.files)">
+      </div>
     </div>
 
   </div>

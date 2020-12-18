@@ -1,6 +1,9 @@
 {
   "name": "le-gypaete-front",
   "version": "0.0.0-🚧",
+  "api": {
+    "baseUrl": "http://localhost:1337"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

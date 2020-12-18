@@ -7,9 +7,18 @@ export const CHALET: Chalet = {
     en: "The chalet has 5 rooms of different capacity, all with private bathroom and separate wc, equiped with TV and DVD player"
   },
   images: [
-    '/assets/img/chalet/chalet-1.jpg',
-    '/assets/img/chalet/chalet-2.jpg',
-    '/assets/img/chalet/chalet-3.jpg'
+    {
+      nom: 'chalet-1',
+      url: '/assets/img/chalet/chalet-1.jpg'
+    },
+    {
+      nom: 'chalet-2',
+      url: '/assets/img/chalet/chalet-2.jpg'
+    },
+    {
+      nom: 'chalet-3',
+      url: '/assets/img/chalet/chalet-3.jpg'
+    }
   ],
   prestations: [
     {

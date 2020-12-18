@@ -9,7 +9,7 @@ export class DiaporamaService {
 
   defilement = false;
   interval = 10000;
-  images: string[] = [];
+  images = [];
   numero = 0;
   progress = 0;
 

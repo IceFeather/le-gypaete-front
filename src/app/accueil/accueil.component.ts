@@ -52,13 +52,13 @@ export class AccueilComponent implements OnInit, OnDestroy {
 
   images = {
     été: [
-      '/assets/img/village-ete-jour-hd.jpg',
-      '/assets/img/village-ete-jour-2-hd.jpg',
-      '/assets/img/col-annes-ete-jour-hd.jpg',
+      { url: '/assets/img/village-ete-jour-hd.jpg' },
+      { url: '/assets/img/village-ete-jour-2-hd.jpg' },
+      { url: '/assets/img/col-annes-ete-jour-hd.jpg' },
     ],
     hiver: [
-      '/assets/img/village-hiver-nuit-hd.jpg',
-      '/assets/img/vallee-hiver-jour-hd.jpg',
+      { url: '/assets/img/village-hiver-nuit-hd.jpg' },
+      { url: '/assets/img/vallee-hiver-jour-hd.jpg' },
     ]
   }
 
