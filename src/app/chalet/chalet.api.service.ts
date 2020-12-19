@@ -8,12 +8,12 @@ import { Chalet } from './model/chalet';
 @Injectable()
 export class ChaletApiService {
 
-  path = "/chalet";
+  path = environment.apiUrl + '/chalet';
 
   constructor(private http: HttpClient){}
 
   recupererTout() {
-    return this.http.get(environment.apiUrl + this.path);
+    return this.http.get(this.path);
   }
 
 }

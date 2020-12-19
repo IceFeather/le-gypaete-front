@@ -5,6 +5,7 @@ import { CHALET } from './mock-chalet';
 import { DiaporamaService } from '../diaporama/service/diaporama.service';
 import { FondService } from '../fond/service/fond.service';
 import { TranslateService } from '@ngx-translate/core';
+import { ChaletApiService } from './chalet.api.service';
 
 @Component({
   selector: 'app-chalet',
@@ -15,13 +16,14 @@ export class ChaletComponent implements OnInit, OnDestroy {
 
   isMobile: boolean;
 
-  chalet: Chalet = CHALET;
+  chalet: Chalet;
 
   constructor(
       private breakpointObserver: BreakpointObserver,
       private diaporamaService: DiaporamaService,
       private fondService: FondService,
       public translateService: TranslateService,
+      private chaletApiService: ChaletApiService
     ) {
     breakpointObserver.observe([
       Breakpoints.Handset,
@@ -29,6 +31,10 @@ export class ChaletComponent implements OnInit, OnDestroy {
       Breakpoints.Small,
       Breakpoints.XSmall
     ]).subscribe( breakpoint => this.isMobile = breakpoint.matches )
+
+    this.chaletApiService.recupererTout().subscribe(
+      chalets => this.chalet = chalets[0]
+    )
    }
 
   ngOnInit(): void {

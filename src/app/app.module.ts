@@ -5,6 +5,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import { LayoutModule } from '@angular/cdk/layout'
 import { DeviceDetectorModule } from 'ngx-device-detector';
 
@@ -22,6 +25,9 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { ChaletComponent } from './chalet/chalet.component';
 import { DiaporamaModule } from './diaporama/diaporama.module';
 import { LanguesModule } from './langues/langues.module';
+import { ChaletApiService } from './chalet/chalet.api.service';
+import { LoginComponent } from './login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,6 +36,7 @@ import { LanguesModule } from './langues/langues.module';
     AccueilComponent,
     ContactComponent,
     ChaletComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +48,10 @@ import { LanguesModule } from './langues/langues.module';
     MatMenuModule,
     MatIconModule,
     MatListModule,
+    MatDialogModule,
+    MatInputModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
     FondModule.forRoot(),
     DiaporamaModule,
     ChambresModule,
@@ -57,7 +68,10 @@ import { LanguesModule } from './langues/langues.module';
   exports: [
     TranslateModule
   ],
-  providers: [FondService],
+  providers: [
+    FondService,
+    ChaletApiService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

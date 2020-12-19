@@ -1,7 +1,7 @@
 <mat-grid-list [cols]="columns" rowHeight="2:1" [class.mobile]="isMobile">
   <ng-container *ngFor="let chambre of chambres" class="test">
     <mat-grid-tile matRipple class="tuile"
-      [style.background-image]="'url(' + (chambre.images[0].url ? chambre.images[0].url : '/assets/img/remplacement.png') + ')'"
+      [style.background-image]="'url(' + (chambre.images[0] && chambre.images[0].url ? chambre.images[0].url : '/assets/img/remplacement.png') + ')'"
       [routerLink]="['../chambre/',chambre.numero]" [state]="{chambre: chambre}">
       <mat-grid-tile-header>
         <div class="nom">

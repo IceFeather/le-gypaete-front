@@ -32,7 +32,7 @@
         <button mat-menu-item class="choix-langue" (click)="translateService.use('en')"><span class="flag-icon flag-icon-gb"></span>English</button>
         <!-- <button mat-menu-item class="choix-langue" (click)="translateService.use('de')"><span class="flag-icon flag-icon-de"></span>Deutsch</button> -->
       </mat-menu>
-      <button mat-button>
+      <button mat-button (click)="openLogin()">
         <mat-icon>person</mat-icon>
       </button>
     </div>

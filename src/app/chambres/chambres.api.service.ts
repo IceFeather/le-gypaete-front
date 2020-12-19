@@ -6,7 +6,7 @@ import { Chambre } from './model/chambre';
 @Injectable()
 export class ChambresApiService {
 
-  path = environment.apiUrl + "/chambre/";
+  path = environment.apiUrl + '/chambre/';
 
   cache = {
     chambres: null,
@@ -17,7 +17,7 @@ export class ChambresApiService {
   ajouterImage(numero, image) {
     const formData: FormData = new FormData();
     formData.append('fichier', image, image.name);
-    return this.http.put(this.path + numero + "/image/", formData);
+    return this.http.put(this.path + numero + '/image/', formData);
   }
 
   recupererTout() {

@@ -1,0 +1,9 @@
+.formulaire {
+  display: flex;
+  flex: auto;
+  flex-direction: column;
+  mat-form-field {
+    flex: auto;
+    margin-bottom: 1em;
+  }
+}

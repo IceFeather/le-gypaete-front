@@ -2,6 +2,8 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { MediaMatcher, BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { TranslateService } from '@ngx-translate/core';
+import { MatDialog } from '@angular/material/dialog';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-navigation',
@@ -33,6 +35,7 @@ export class NavigationComponent implements OnInit {
   constructor(
     private breakpointObserver: BreakpointObserver,
     public translateService: TranslateService,
+    public dialog: MatDialog
   ) {
     breakpointObserver.observe([
       Breakpoints.Handset,
@@ -70,6 +73,17 @@ export class NavigationComponent implements OnInit {
 
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this.mobileQueryListener);
+  }
+
+  openLogin(): void {
+    const dialogRef = this.dialog.open(LoginComponent, {
+      minWidth: "50%",
+      maxWidth: "90%"
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
 }

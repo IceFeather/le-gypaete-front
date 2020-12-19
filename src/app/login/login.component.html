@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>{{"s'identifier" | translate | premiereLettreMaj}}</h1>
+<div class="formulaire" mat-dialog-content>
+  <mat-form-field>
+    <mat-label>{{ 'email' | translate | premiereLettreMaj}}</mat-label>
+    <input matInput placeholder="pat@example.com" [formControl]="email" required>
+    <mat-error *ngIf="email.invalid">{{'invalide' | translate}}</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>{{ 'mot de passe' | translate | premiereLettreMaj}}</mat-label>
+    <input matInput [type]="hide ? 'password' : 'text'" [formControl]="motdepasse" required>
+    <mat-error *ngIf="motdepasse.invalid">{{'invalide' | translate}}</mat-error>
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onAnnuler()">{{ 'annuler' | translate | premiereLettreMaj }}</button>
+  <button mat-button [mat-dialog-close]="" cdkFocusInitial>Ok</button>
+</div>
