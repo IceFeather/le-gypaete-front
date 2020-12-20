@@ -67,5 +67,6 @@
     }
   },
   "site réalisé par": "website developed by",
-  "s'identifier": "login"
+  "s'identifier": "login",
+  "se déconnecter": "logout"
 }

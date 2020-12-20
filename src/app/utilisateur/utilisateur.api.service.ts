@@ -4,20 +4,17 @@ import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { Token } from './model/token';
 import { Utilisateur } from './model/utilisateur';
-import { UtilisateurService } from './utilisateur.service';
 
 @Injectable()
 export class UtilisateurApiService {
 
-  path = environment.apiUrl + '/utilisateur/';
+  path = environment.apiUrl + '/utilisateur';
 
-  cache = {
-    chambres: null,
-  };
+  utilisateur: Utilisateur;
+  token: Token;
 
   constructor(
     private http: HttpClient,
-    private utilisateurService: UtilisateurService
   ) {}
 
   inscrire(utilisateur: Utilisateur) {
@@ -27,16 +24,32 @@ export class UtilisateurApiService {
   recupererMoi(): Observable<Utilisateur> {
     return this.http.get<Utilisateur>(this.path + '/moi', {
       headers: {
-        "Utilisateur": this.utilisateurService.token.id,
-        "Authorization": 'Bearer ' + this.utilisateurService.token.token
+        "Utilisateur": this.token.id,
+        "Authorization": 'Bearer ' + this.token.token
       }
     });
   }
 
   connecter(email: string, motdepasse: string) {
-    this.http.post<Token>(this.path + '/connexion', {'email': email, 'motdepasse': motdepasse})
-    ;
+    return new Promise((resolve, rejects) => {
+      this.http.post<Token>(this.path + '/connexion', {'email': email, 'motdepasse': motdepasse}).subscribe(
+        token => {
+          this.token = token;
+          this.recupererMoi().subscribe(
+            utilisateur => {
+              this.utilisateur = utilisateur;
+              resolve(utilisateur);
+            },
+            error => rejects(error)
+        )},
+        error => rejects(error)
+      )
+    });
   }
 
+  deconnecter() {
+    delete this.token;
+    delete this.utilisateur;
+  }
 
 }

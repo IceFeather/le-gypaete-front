@@ -18,6 +18,7 @@ import { FondService } from './fond/service/fond.service';
 import { ChambresModule } from './chambres/chambres.module';
 import { FondModule } from './fond/fond.module';
 import { MatListModule } from '@angular/material/list';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ContactComponent } from './contact/contact.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
@@ -28,6 +29,7 @@ import { LanguesModule } from './langues/langues.module';
 import { ChaletApiService } from './chalet/chalet.api.service';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UtilisateurApiService } from './utilisateur/utilisateur.api.service';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatDialogModule,
     MatInputModule,
     MatFormFieldModule,
+    MatSnackBarModule,
     ReactiveFormsModule,
     FondModule.forRoot(),
     DiaporamaModule,
@@ -70,7 +73,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   providers: [
     FondService,
-    ChaletApiService
+    ChaletApiService,
+    UtilisateurApiService,
   ],
   bootstrap: [AppComponent]
 })

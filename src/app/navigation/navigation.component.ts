@@ -4,6 +4,7 @@ import { DeviceDetectorService } from 'ngx-device-detector';
 import { TranslateService } from '@ngx-translate/core';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
+import { UtilisateurApiService } from '../utilisateur/utilisateur.api.service';
 
 @Component({
   selector: 'app-navigation',
@@ -35,7 +36,8 @@ export class NavigationComponent implements OnInit {
   constructor(
     private breakpointObserver: BreakpointObserver,
     public translateService: TranslateService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public utilisateurApiService: UtilisateurApiService
   ) {
     breakpointObserver.observe([
       Breakpoints.Handset,
