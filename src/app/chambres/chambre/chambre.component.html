@@ -109,7 +109,7 @@
           <div mat-subheader>{{'base' | translate | titlecase}} {{chambre.tarifs.nombrePersonnesbase}} {{(chambre.tarifs.nombrePersonnesbase > 1 ? 'personnes': 'personne') | translate}}</div>
           <mat-list-item>
             <mat-icon mat-list-icon>nights_stay</mat-icon>
-            <div mat-line>1 {{'nuit' | translate}} : {{chambre.tarifs.nuit}}€</div>
+            <div mat-line>1 {{'nuit' | translate}} : {{chambre.tarifs.cout}}€</div>
           </mat-list-item>
           <mat-list-item *ngIf="chambre.tarifs.plusNuits">
             <mat-icon mat-list-icon>nights_stay</mat-icon>

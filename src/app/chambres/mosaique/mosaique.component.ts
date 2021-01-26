@@ -5,6 +5,7 @@ import { Lit } from '../model/lit';
 import { stringify } from 'querystring';
 import { CHAMBRES } from '../mock-chambres';
 import { ChambresApiService } from '../chambres.api.service';
+import { UtilisateurApiService } from 'src/app/utilisateur/utilisateur.api.service';
 
 
 @Component({
@@ -24,7 +25,8 @@ export class MosaiqueComponent implements OnInit {
 
   constructor(
     private breakpointObserver: BreakpointObserver,
-    private chambresApiService: ChambresApiService) {
+    private chambresApiService: ChambresApiService,
+    public utilisateurApiService: UtilisateurApiService) {
     // this.columns = this.columnsDefault;
 
     breakpointObserver.observe([

@@ -26,7 +26,7 @@ export interface Chambre {
   wifi: boolean;
   autres: {[K in Langue]?: string}[];
   tarifs: {
-    nuit: number;
+    cout: number;
     nombrePersonnesbase: number;
     plusNuits?: {minimum: number, cout: number};
     plusPersonne?: {condition: {[K in Langue]?: string}, cout: number}[];
