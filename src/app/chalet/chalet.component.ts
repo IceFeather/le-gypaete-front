@@ -32,16 +32,22 @@ export class ChaletComponent implements OnInit, OnDestroy {
       Breakpoints.XSmall
     ]).subscribe( breakpoint => this.isMobile = breakpoint.matches )
 
-    this.chaletApiService.recupererTout().subscribe(
-      chalets => this.chalet = chalets[0]
-    )
    }
 
   ngOnInit(): void {
+    this.chaletApiService.recupererTout().subscribe(chalets => {
+      this.chalet = chalets[0];
+      this.initFond();
+    })
+  }
+
+  initFond(): void {
+    if (this.chalet.images.length > 0) {
+      this.fondService.images = this.chalet.images;
+      this.fondService.debut();
+    }
     this.diaporamaService.images = this.chalet.images;
     this.diaporamaService.debut();
-    this.fondService.images = this.chalet.images;
-    this.fondService.debut();
   }
 
   ngOnDestroy(): void {

@@ -13,6 +13,7 @@ import {
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { FondService } from '../fond/service/fond.service';
 import { TranslateService } from '@ngx-translate/core';
+import { ChaletApiService } from '../chalet/chalet.api.service';
 
 @Component({
   selector: 'app-accueil',
@@ -106,7 +107,10 @@ export class AccueilComponent implements OnInit, OnDestroy {
     precedente: function(): void {
       this.numero > 0 ? this.numero-- : this.numero = this.accroches.length - 1;
     }
+
   }
+
+  imagesChalet = [];
 
   lat: number = 51.678418;
   lng: number = 7.809007;
@@ -117,6 +121,7 @@ export class AccueilComponent implements OnInit, OnDestroy {
     private breakpointObserver: BreakpointObserver,
     public translateService: TranslateService,
     public sanitizer: DomSanitizer,
+    private chaletApiService: ChaletApiService,
   ) {
     this.saison$.subscribe((s) => {
       fondService.images = this.images[s]
@@ -129,6 +134,11 @@ export class AccueilComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.fondService.demarrer();
     this.accroche.demarrer();
+
+    this.chaletApiService.recupererTout().subscribe(chalets => {
+      if (chalets[0].images > 0)
+        this.imagesChalet = chalets[0].images;
+    })
   }
 
   ngOnDestroy(): void {
