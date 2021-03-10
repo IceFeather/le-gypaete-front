@@ -68,7 +68,6 @@ export class MosaiqueComponent implements OnInit {
     this.chambresApiService.recupererTout().subscribe(
       (chambres: Chambre[]) => {
         this.chambres = chambres;
-        this.chambresApiService.cache.chambres = chambres;
       }
     )
 

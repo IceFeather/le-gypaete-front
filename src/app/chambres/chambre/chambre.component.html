@@ -51,7 +51,7 @@
             <div mat-line class="wrap">{{'accessible aux personnes à mobilité réduite' | translate | premiereLettreMaj}}</div>
           </mat-list-item>
         </mat-list>
-        <mat-divider></mat-divider>
+        <mat-divider *ngIf="chambre.lits.length > 0"></mat-divider>
         <mat-list class="en-ligne">
           <mat-list-item class="grand" *ngFor="let lit of chambre.lits">
             <mat-icon mat-list-icon *ngIf="lit.classe === 'King Size'">king_bed</mat-icon>
@@ -62,7 +62,7 @@
             <div mat-line>{{'largeur' | translate | titlecase}} : {{lit.largeur}} cm</div>
           </mat-list-item>
         </mat-list>
-        <mat-divider></mat-divider>
+        <mat-divider *ngIf="chambre.salleDEau.nombre > 0 && chambre.wc.nombre > 0"></mat-divider>
         <mat-list>
           <mat-list-item *ngIf="chambre.salleDEau.nombre > 0">
             <mat-icon mat-list-icon>bathtub</mat-icon>
@@ -75,7 +75,7 @@
             <div mat-line *ngFor="let plus of chambre.wc.plus">{{plus | translateSelf:translateService.currentLang}}</div>
           </mat-list-item>
         </mat-list>
-        <mat-divider></mat-divider>
+        <mat-divider *ngIf="chambre.terrasse || chambre.balcon || chambre.vues.length > 0 || chambre.tv || chambre.wifi"></mat-divider>
         <mat-list>
           <mat-list-item *ngIf="chambre.terrasse">
             <mat-icon mat-list-icon>deck</mat-icon>
@@ -141,12 +141,6 @@
         </mat-list>
       </div>
       <button mat-stroked-button class="bordure reserver">{{'réserver' | translate | titlecase}}</button>
-      <!-- <div class="form-group">
-        <label for="file">Choose File</label>
-        <input type="file"
-               id="fichier"
-               (change)="handleFileInput($event.target.files)">
-      </div> -->
     </div>
 
   </div>

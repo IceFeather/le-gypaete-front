@@ -57,23 +57,15 @@ export class ChambreComponent implements OnInit, OnDestroy {
       this.route.paramMap.subscribe(
         params => {
           let numero = Number(params.get('numero'));
-          if (this.chambresApiService.cache.chambres && this.chambresApiService.cache.chambres[numero - 1]) {
-            this.chambre = this.chambresApiService.cache.chambres[numero - 1];
-          } else {
-            this.chambresApiService.recupererAvecNumero(numero).subscribe(
-              chambre => this.chambre = chambre
-            )
-          }
+          this.chambresApiService.recupererAvecNumero(numero).subscribe(chambre => {
+            this.chambre = chambre;
+            this.initFond();
+          })
         }
       )
     }
 
-    if (this.chambre.images.length > 0) {
-      this.fondService.images = this.chambre.images;
-      this.fondService.debut();
-    }
-    this.diaporamaService.images = this.chambre.images;
-    this.diaporamaService.debut();
+    if (this.chambre) this.initFond();
 
 /*
     this.route.paramMap.subscribe(
@@ -96,21 +88,18 @@ export class ChambreComponent implements OnInit, OnDestroy {
 */
   }
 
+  initFond(): void {
+    if (this.chambre.images.length > 0) {
+      this.fondService.images = this.chambre.images;
+      this.fondService.debut();
+    }
+    this.diaporamaService.images = this.chambre.images;
+    this.diaporamaService.debut();
+  }
+
   ngOnDestroy(): void {
     this.diaporamaService.arreter();
     this.fondService.arreter();
-  }
-
-  handleFileInput(files: FileList) {
-    this.fileToUpload = files.item(0);
-  }
-
-  ajouterImage() {
-    this.chambresApiService.ajouterImage(this.chambre.numero, this.fileToUpload).subscribe(data => {
-      // do something, if upload success
-      }, error => {
-        console.log(error);
-      });
   }
 
 }

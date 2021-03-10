@@ -7,7 +7,7 @@ export const CHAMBRES: Chambre[] = [
     images: [],
     nombrePersonnesMax: 2,
     description: {
-      fr: 'À la nuitée, "bed & breakfast", base chambre double, hors vacances scolaires (Françaises)',
+      fr: 'À la coutée, "bed & breakfast", base chambre double, hors vacances scolaires (Françaises)',
       en: 'Per night, bed & breakfast, double room basis, except school holidays (french)'
     },
     pmr: false,
@@ -21,7 +21,7 @@ export const CHAMBRES: Chambre[] = [
     wifi: true,
     autres: [{fr: 'Lecteur DVD', en: 'DVD player'}],
     tarifs: {
-      nuit: 140,
+      cout: 140,
       nombrePersonnesbase: 2,
       plusNuits: {minimum: 2, cout: 130},
       plusAnimal: [
@@ -35,7 +35,7 @@ export const CHAMBRES: Chambre[] = [
     images: [],
     nombrePersonnesMax: 2,
     description: {
-      fr: 'À la nuitée, "bed & breakfast", base chambre double, hors vacances scolaires (Françaises)',
+      fr: 'À la coutée, "bed & breakfast", base chambre double, hors vacances scolaires (Françaises)',
       en: 'Per night, bed & breakfast, double room basis, except school holidays (french)'
     },
     pmr: true,
@@ -49,7 +49,7 @@ export const CHAMBRES: Chambre[] = [
     wifi: true,
     autres: [{fr: 'Lecteur DVD', en: 'DVD player'}],
     tarifs: {
-      nuit: 110,
+      cout: 110,
       nombrePersonnesbase: 2,
       plusNuits: {minimum: 2, cout: 100},
       plusAnimal: [
@@ -63,7 +63,7 @@ export const CHAMBRES: Chambre[] = [
     images: [],
     nombrePersonnesMax: 5,
     description: {
-      fr: 'À la nuitée, "bed & breakfast", base chambre double, hors vacances scolaires (Françaises)',
+      fr: 'À la coutée, "bed & breakfast", base chambre double, hors vacances scolaires (Françaises)',
       en: 'Per night, bed & breakfast, double room basis, except school holidays (french)'
     },
     pmr: false,
@@ -81,7 +81,7 @@ export const CHAMBRES: Chambre[] = [
     wifi: true,
     autres: [{fr: 'Lecteur DVD', en: 'DVD player'}],
     tarifs: {
-      nuit: 135,
+      cout: 135,
       nombrePersonnesbase: 2,
       plusNuits: {minimum: 2, cout: 125},
       plusPersonne: [
@@ -100,7 +100,7 @@ export const CHAMBRES: Chambre[] = [
     images: [],
     nombrePersonnesMax: 5,
     description: {
-      fr: 'À la nuitée, "bed & breakfast", base chambre double, hors vacances scolaires (Françaises)',
+      fr: 'À la coutée, "bed & breakfast", base chambre double, hors vacances scolaires (Françaises)',
       en: 'Per night, bed & breakfast, double room basis, except school holidays (french)'
     },
     pmr: false,
@@ -118,7 +118,7 @@ export const CHAMBRES: Chambre[] = [
     wifi: true,
     autres: [{fr: 'Lecteur DVD', en: 'DVD player'}],
     tarifs: {
-      nuit: 135,
+      cout: 135,
       nombrePersonnesbase: 2,
       plusNuits: {minimum: 2, cout: 125},
       plusPersonne: [
@@ -137,7 +137,7 @@ export const CHAMBRES: Chambre[] = [
     images: [],
     nombrePersonnesMax: 2,
     description: {
-      fr: 'À la nuitée, "bed & breakfast", base chambre double, hors vacances scolaires (Françaises)',
+      fr: 'À la coutée, "bed & breakfast", base chambre double, hors vacances scolaires (Françaises)',
       en: 'Per night, bed & breakfast, double room basis, except school holidays (french)'
     },
     pmr: false,
@@ -153,7 +153,7 @@ export const CHAMBRES: Chambre[] = [
     wifi: true,
     autres: [{fr: 'Lecteur DVD'}],
     tarifs: {
-      nuit: 90,
+      cout: 90,
       nombrePersonnesbase: 2,
       plusNuits: {minimum: 2, cout: 80},
       plusAnimal: [
