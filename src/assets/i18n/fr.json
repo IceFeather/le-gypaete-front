@@ -1,5 +1,6 @@
 {
   "base_(x)_personnes": "base {{x}} personnes",
+  "periode_du_(du)_au_(au)": "du {{du}} au {{au}}",
   "tradpage": {
     "accueil": {
       "localisation": {

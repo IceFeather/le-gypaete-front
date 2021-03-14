@@ -138,6 +138,15 @@
               </div>
             </mat-list-item>
           </ng-container>
+          <ng-container *ngIf="chambre.tarifs.prestationPayante.length > 0">
+            <mat-divider></mat-divider>
+            <mat-list-item>
+              <mat-icon mat-list-icon>monetization_on</mat-icon>
+              <div mat-line>{{'prestation payante' | translate | premiereLettreMaj}} :</div>
+              <div mat-line *ngFor="let prestation of chambre.tarifs.prestationPayante">{{prestation.condition | translateSelf:translateService.currentLang}} : {{prestation.cout}}€ / {{'nuit' | translate}}
+              </div>
+            </mat-list-item>
+          </ng-container>
         </mat-list>
       </div>
       <button mat-stroked-button class="bordure reserver">{{'réserver' | translate | titlecase}}</button>

@@ -12,7 +12,7 @@ export interface Chalet {
       dateDebutSejour: Date;
       dateFinSejour: Date;
       cout: number;
-    }
+    }[];
     plusPersonne?: {condition: {[K in Langue]?: string}, cout: number}[];
     plusAnimal?: {condition: {[K in Langue]?: string}, cout: number}[];
     prestationPayante?: {

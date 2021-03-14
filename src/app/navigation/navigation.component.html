@@ -32,19 +32,19 @@
         <button mat-menu-item class="choix-langue" (click)="translateService.use('en')"><span class="flag-icon flag-icon-gb"></span>English</button>
         <!-- <button mat-menu-item class="choix-langue" (click)="translateService.use('de')"><span class="flag-icon flag-icon-de"></span>Deutsch</button> -->
       </mat-menu>
-      <ng-container *ngIf="this.utilisateurApiService.utilisateur; else login">
+      <!-- <ng-container *ngIf="this.utilisateurApiService.utilisateur; else login">
         <button  mat-button [matMenuTriggerFor]="utilisateurMenu">
           <mat-icon>person</mat-icon> {{ this.utilisateurApiService.utilisateur.nom }} {{ this.utilisateurApiService.utilisateur.prenom }}
         </button>
         <mat-menu #utilisateurMenu="matMenu" class="navigation-menu">
           <button mat-menu-item (click)="this.utilisateurApiService.deconnecter()">{{'se déconnecter' | translate | premiereLettreMaj}}</button>
         </mat-menu>
-      </ng-container>
-      <ng-template #login>
+      </ng-container> -->
+      <!-- <ng-template #login>
         <button #login mat-button (click)="openLogin()">
           <mat-icon>person</mat-icon>
         </button>
-      </ng-template>
+      </ng-template> -->
     </div>
   </ng-container>
 </div>

@@ -47,12 +47,37 @@
             <mat-list-item>
               {{'à la semaine' | translate | premiereLettreMaj}}, {{'selon période' | translate}}
             </mat-list-item>
-            <ng-container *ngIf="chalet.tarifs.plusPersonne">
+            <ng-container *ngIf="this.chalet.tarifs.periode.length > 0">
+              <mat-list-item *ngFor="let periode of this.chalet.tarifs.periode">
+                <mat-icon mat-list-icon>date_range</mat-icon>
+                <div mat-line>{{'periode_du_(du)_au_(au)' | translate: {du: (periode.dateDebutSejour | date:'dd/MM/yyyy'), au: (periode.dateFinSejour | date:'dd/MM/yyyy')}| premiereLettreMaj}}</div>
+                <div mat-line>{{periode.cout}}€</div>
+              </mat-list-item>
+            </ng-container>
+            <ng-container *ngIf="chalet.tarifs.plusPersonne.length > 0">
               <mat-divider></mat-divider>
               <mat-list-item>
                 <mat-icon mat-list-icon>person_add</mat-icon>
                 <div mat-line>{{'personne supplémentaire' | translate | premiereLettreMaj}} :</div>
                 <div mat-line *ngFor="let plus of chalet.tarifs.plusPersonne">{{plus.condition | translateSelf:translateService.currentLang}} : {{plus.cout}}€ / nuit</div>
+              </mat-list-item>
+            </ng-container>
+            <ng-container *ngIf="chalet.tarifs.plusAnimal.length > 0">
+              <mat-divider></mat-divider>
+              <mat-list-item>
+                <mat-icon mat-list-icon>pets</mat-icon>
+                <div mat-line>{{'animaux' | translate | premiereLettreMaj}} :</div>
+                <div mat-line *ngFor="let plus of chalet.tarifs.plusAnimal">{{plus.condition | translateSelf:translateService.currentLang}} : {{plus.cout}}€ / {{'nuit' | translate}}
+                </div>
+              </mat-list-item>
+            </ng-container>
+            <ng-container *ngIf="chalet.tarifs.prestationPayante.length > 0">
+              <mat-divider></mat-divider>
+              <mat-list-item>
+                <mat-icon mat-list-icon>monetization_on</mat-icon>
+                <div mat-line>{{'prestation payante' | translate | premiereLettreMaj}} :</div>
+                <div mat-line *ngFor="let prestation of chalet.tarifs.prestationPayante">{{prestation.condition | translateSelf:translateService.currentLang}} : {{prestation.cout}}€ / {{'nuit' | translate}}
+                </div>
               </mat-list-item>
             </ng-container>
           </mat-list>

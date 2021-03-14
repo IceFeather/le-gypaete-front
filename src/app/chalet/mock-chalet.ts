@@ -64,11 +64,11 @@ export const CHALET: Chalet = {
   ],
   tarifs: {
     nombrePersonnesBase: 15,
-    periode: {
+    periode: [{
       dateDebutSejour: new Date(2020, 12, 20),
       dateFinSejour: new Date(2020, 12, 29),
       cout: 3000
-    },
+    }],
     plusAnimal: [
       {condition: {fr: 'Chien ou chat', en: 'Dog or cat'}, cout: 8},
     ],
