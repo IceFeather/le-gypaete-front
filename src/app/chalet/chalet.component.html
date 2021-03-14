@@ -1,4 +1,4 @@
-<div id="page" class="page" [class.mobile]="isMobile">
+<div id="page" class="page" [class.mobile]="isMobile" *ngIf="chaletLoaded | async">
   <div class="corp">
 
     <div class="tete">

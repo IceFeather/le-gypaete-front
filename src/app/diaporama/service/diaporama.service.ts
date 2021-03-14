@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subscription, interval } from 'rxjs';
 import { startWith } from 'rxjs/operators';
+import { Image } from '../../model/image';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class DiaporamaService {
 
   defilement = false;
   interval = 10000;
-  images = [];
+  images: Image[] = [];
   numero = 0;
   progress = 0;
 

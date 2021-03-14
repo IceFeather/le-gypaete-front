@@ -18,6 +18,8 @@ export class ChaletComponent implements OnInit, OnDestroy {
 
   chalet: Chalet;
 
+  chaletLoaded: Promise<boolean>;
+
   constructor(
       private breakpointObserver: BreakpointObserver,
       private diaporamaService: DiaporamaService,
@@ -36,8 +38,10 @@ export class ChaletComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.chaletApiService.recupererTout().subscribe(chalets => {
+      console.log(chalets);
       this.chalet = chalets[0];
       this.initFond();
+      this.chaletLoaded = Promise.resolve(true);
     })
   }
 

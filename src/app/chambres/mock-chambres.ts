@@ -22,7 +22,7 @@ export const CHAMBRES: Chambre[] = [
     autres: [{fr: 'Lecteur DVD', en: 'DVD player'}],
     tarifs: {
       cout: 140,
-      nombrePersonnesbase: 2,
+      nombrePersonnesBase: 2,
       plusNuits: {minimum: 2, cout: 130},
       plusAnimal: [
         {condition: {fr: 'Chien ou chat', en: 'Dog or cat'}, cout: 8},
@@ -50,7 +50,7 @@ export const CHAMBRES: Chambre[] = [
     autres: [{fr: 'Lecteur DVD', en: 'DVD player'}],
     tarifs: {
       cout: 110,
-      nombrePersonnesbase: 2,
+      nombrePersonnesBase: 2,
       plusNuits: {minimum: 2, cout: 100},
       plusAnimal: [
         {condition: {fr: 'Chien ou chat', en: 'Dog or cat'}, cout: 8},
@@ -82,7 +82,7 @@ export const CHAMBRES: Chambre[] = [
     autres: [{fr: 'Lecteur DVD', en: 'DVD player'}],
     tarifs: {
       cout: 135,
-      nombrePersonnesbase: 2,
+      nombrePersonnesBase: 2,
       plusNuits: {minimum: 2, cout: 125},
       plusPersonne: [
         {condition: {fr: 'Enfant de 2 à 5 ans', en: 'Child from 2 to 5 years old'}, cout: 15},
@@ -119,7 +119,7 @@ export const CHAMBRES: Chambre[] = [
     autres: [{fr: 'Lecteur DVD', en: 'DVD player'}],
     tarifs: {
       cout: 135,
-      nombrePersonnesbase: 2,
+      nombrePersonnesBase: 2,
       plusNuits: {minimum: 2, cout: 125},
       plusPersonne: [
         {condition: {fr: 'Enfant de 2 à 5 ans', en: 'Child from 2 to 5 years old'}, cout: 15},
@@ -154,7 +154,7 @@ export const CHAMBRES: Chambre[] = [
     autres: [{fr: 'Lecteur DVD'}],
     tarifs: {
       cout: 90,
-      nombrePersonnesbase: 2,
+      nombrePersonnesBase: 2,
       plusNuits: {minimum: 2, cout: 80},
       plusAnimal: [
         {condition: {fr: 'Chien ou chat', en: 'Dog or cat'}, cout: 8},
