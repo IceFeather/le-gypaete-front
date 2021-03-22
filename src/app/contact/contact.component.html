@@ -4,7 +4,7 @@
       <h2>{{'coordonnées' | translate | titlecase}}<hr></h2>
       <div class="contenu"  *ngFor="let contact of contacts">
         <div class="bouton" [ngSwitch]="contact.type">
-            <a mat-fab class="transparent-2" *ngSwitchCase="'adresse'"><mat-icon>mail</mat-icon></a>
+            <a mat-fab class="transparent-2 bordure" *ngSwitchCase="'adresse'"><mat-icon>mail</mat-icon></a>
             <a href="" mat-fab class="transparent-2" *ngSwitchCase="'gps'"><mat-icon>location</mat-icon></a>
             <a href="tel:{{contact.valeur}}" mat-fab class="transparent-2" *ngSwitchCase="'téléphone'"><mat-icon>phone</mat-icon></a>
             <a href="mailto:{{contact.valeur}}" mat-fab class="transparent-2" *ngSwitchCase="'email'"><mat-icon>alternate_email</mat-icon></a>

@@ -1,0 +1,36 @@
+<div id="reserver" class="contenu page" [class.mobile]="isMobile">
+  <span class="texte" [style.flex]="1">
+    <section id="telephone">
+      <h2>{{'réserver par téléphone' | translate | premiereLettreMaj}}<hr></h2>
+      <div class="contenu">
+        <div class="bouton">
+            <a href="tel:{{contact.valeur}}" mat-fab class="transparent-2"><mat-icon>phone</mat-icon></a>
+        </div>
+        <div>
+          <p [innerHTML]="contact.valeur"></p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2>{{'réserver sur Gîtes de France' | translate | premiereLettreMaj}}<hr></h2>
+      <!-- <a mat-stroked-button class="bordure" [href]="giteDeFrance.lien" target="_blank"> -->
+        <div class="contenu">
+          <div class="bouton">
+            <a [href]="giteDeFrance.lien" mat-fab class="bordure" [style.backgroundImage]="'url(' + giteDeFrance.image + ')'" target="_blank"></a>
+          </div>
+          <div>
+            <p>
+              <img class="epis" src="/assets/icons/epis-gite-de-france.png">
+              <img class="epis" src="/assets/icons/epis-gite-de-france.png">
+              <img class="epis" src="/assets/icons/epis-gite-de-france.png">
+              <img class="epis" src="/assets/icons/epis-gite-de-france.png">
+              Chalet le Gypaete
+              <br>
+              Référence : 136189
+            </p>
+          </div>
+        </div>
+      <!-- </a> -->
+    </section>
+  </span>
+</div>

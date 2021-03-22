@@ -1,6 +1,4 @@
 .page {
-  padding: 1rem 5rem;
-  color: white;
 
   .corp {
     display: inline-block;
@@ -9,7 +7,6 @@
       float: left;
       max-width: 49%;
       & > div {
-        margin-right: 2rem;
         margin-bottom: 2rem;
       }
     }
@@ -84,7 +81,6 @@
 
 
   &.mobile {
-    padding: .5rem;
     .corp {
       div {
         max-width: 100%;

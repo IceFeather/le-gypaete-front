@@ -122,34 +122,34 @@
           </mat-list-item>
           <ng-container *ngIf="chambre.tarifs.plusPersonne.length > 0">
             <mat-divider></mat-divider>
-            <mat-list-item>
+            <div mat-subheader>{{'personne supplémentaire' | translate | premiereLettreMaj}}</div>
+            <mat-list-item *ngFor="let plus of chambre.tarifs.plusPersonne">
               <mat-icon mat-list-icon>person_add</mat-icon>
-              <div mat-line>{{'personne supplémentaire' | translate | premiereLettreMaj}} :</div>
-              <div mat-line *ngFor="let plus of chambre.tarifs.plusPersonne">{{plus.condition | translateSelf:translateService.currentLang}} : {{plus.cout}}€ / {{'nuit' | translate}}
-              </div>
+              <div mat-line>{{plus.condition | translateSelf:translateService.currentLang}}</div>
+              <div mat-line>{{plus.cout}}€ / {{'nuit' | translate}}</div>
             </mat-list-item>
           </ng-container>
           <ng-container *ngIf="chambre.tarifs.plusAnimal.length > 0">
             <mat-divider></mat-divider>
-            <mat-list-item>
+            <div mat-subheader>{{'animaux' | translate | premiereLettreMaj}}</div>
+            <mat-list-item *ngFor="let plus of chambre.tarifs.plusAnimal">
               <mat-icon mat-list-icon>pets</mat-icon>
-              <div mat-line>{{'animaux' | translate | premiereLettreMaj}} :</div>
-              <div mat-line *ngFor="let plus of chambre.tarifs.plusAnimal">{{plus.condition | translateSelf:translateService.currentLang}} : {{plus.cout}}€ / {{'nuit' | translate}}
-              </div>
+              <div mat-line>{{plus.condition | translateSelf:translateService.currentLang}}</div>
+              <div mat-line>{{plus.cout}}€ / {{'nuit' | translate}}</div>
             </mat-list-item>
           </ng-container>
           <ng-container *ngIf="chambre.tarifs.prestationPayante.length > 0">
             <mat-divider></mat-divider>
-            <mat-list-item>
+            <div mat-subheader>{{'prestation payante' | translate | premiereLettreMaj}}</div>
+            <mat-list-item *ngFor="let prestation of chambre.tarifs.prestationPayante">
               <mat-icon mat-list-icon>monetization_on</mat-icon>
-              <div mat-line>{{'prestation payante' | translate | premiereLettreMaj}} :</div>
-              <div mat-line *ngFor="let prestation of chambre.tarifs.prestationPayante">{{prestation.condition | translateSelf:translateService.currentLang}} : {{prestation.cout}}€ / {{'nuit' | translate}}
-              </div>
+              <div mat-line>{{prestation.condition | translateSelf:translateService.currentLang}}</div>
+              <div mat-line>{{prestation.cout}}€ / {{'nuit' | translate}}</div>
             </mat-list-item>
           </ng-container>
         </mat-list>
       </div>
-      <button mat-stroked-button class="bordure reserver">{{'réserver' | translate | titlecase}}</button>
+      <button [routerLink]="['/reserver']" mat-stroked-button class="bordure reserver">{{'réserver' | translate | titlecase}}</button>
     </div>
 
   </div>
