@@ -34,8 +34,12 @@
   "à partir de": "from",
   "nuit": "night",
   "nuits": "nights",
+  "semaine": "week",
+  "semaines": "weeks",
   "animal": "pet",
   "animaux": "pets",
+  "réserver par téléphone": "book by phone call",
+  "réserver sur Gîtes de France": "book on Gîtes de France",
   "tradpage": {
     "accueil": {
       "localisation": {

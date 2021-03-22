@@ -1,94 +1,98 @@
-<section id="accueil" class="contenu" [class.mobile]="isMobile">
-  <div class="haut"></div>
-  <div class="milieu">
-    <span class="accroche" [class.mobile]="isMobile">
-      <h1 [@flyInOut]="accroche.numero">{{accroche.accroches[accroche.numero].titre | translateSelf:translateService.currentLang}}
-      </h1>
-      <div class="trait" [style.max-width.rem]="10" [@ligneAccroche]="accroche.numero"></div>
-      <p [@flyInOut]="accroche.numero">{{accroche.accroches[accroche.numero].texte | translateSelf:translateService.currentLang}}</p>
-    </span>
-  </div>
-  <div class="bas">
-    <a mat-stroked-button href="https://www.facebook.com/Chalet-Le-Gypa%C3%A8te-102370268098440/" target="_blank" class="bordure avec-icone social">
-      <svg class="social-logo" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-        viewBox="0 0 172 172">
-        <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"
-          stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
-          font-size="none" text-anchor="none" style="mix-blend-mode: normal">
-          <path d="M0,172v-172h172v172z" fill="none"></path>
-          <g class="social-logo-draw" fill="#ffffff">
-            <path
-              d="M136.16667,21.5h-100.33333c-7.91917,0 -14.33333,6.41417 -14.33333,14.33333v100.33333c0,7.91917 6.41417,14.33333 14.33333,14.33333h54.61717v-49.88717h-16.7915v-19.52917h16.7915v-14.36917c0,-16.65533 10.18383,-25.7355 25.0475,-25.7355c5.0095,-0.01433 10.01183,0.24367 14.99267,0.7525v17.415h-10.234c-8.09833,0 -9.675,3.827 -9.675,9.47433v12.43417h19.35l-2.5155,19.52917h-16.94917v49.91583h25.69967c7.91917,0 14.33333,-6.41417 14.33333,-14.33333v-100.33333c0,-7.91917 -6.41417,-14.33333 -14.33333,-14.33333z">
-            </path>
+<div class="page" [class.mobile]="isMobile">
+
+  <section id="accueil" class="contenu" [class.mobile]="isMobile">
+    <div class="haut"></div>
+    <div class="milieu">
+      <span class="accroche" [class.mobile]="isMobile">
+        <h1 [@flyInOut]="accroche.numero">{{accroche.accroches[accroche.numero].titre | translateSelf:translateService.currentLang}}
+        </h1>
+        <div class="trait" [style.max-width.rem]="10" [@ligneAccroche]="accroche.numero"></div>
+        <p [@flyInOut]="accroche.numero">{{accroche.accroches[accroche.numero].texte | translateSelf:translateService.currentLang}}</p>
+      </span>
+    </div>
+    <div class="bas">
+      <a mat-stroked-button href="https://www.facebook.com/Chalet-Le-Gypa%C3%A8te-102370268098440/" target="_blank" class="bordure avec-icone social">
+        <svg class="social-logo" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+          viewBox="0 0 172 172">
+          <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"
+            stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+            font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+            <path d="M0,172v-172h172v172z" fill="none"></path>
+            <g class="social-logo-draw" fill="#ffffff">
+              <path
+                d="M136.16667,21.5h-100.33333c-7.91917,0 -14.33333,6.41417 -14.33333,14.33333v100.33333c0,7.91917 6.41417,14.33333 14.33333,14.33333h54.61717v-49.88717h-16.7915v-19.52917h16.7915v-14.36917c0,-16.65533 10.18383,-25.7355 25.0475,-25.7355c5.0095,-0.01433 10.01183,0.24367 14.99267,0.7525v17.415h-10.234c-8.09833,0 -9.675,3.827 -9.675,9.47433v12.43417h19.35l-2.5155,19.52917h-16.94917v49.91583h25.69967c7.91917,0 14.33333,-6.41417 14.33333,-14.33333v-100.33333c0,-7.91917 -6.41417,-14.33333 -14.33333,-14.33333z">
+              </path>
+            </g>
           </g>
-        </g>
-      </svg>
-      <span>Facebook</span>
-    </a>
-  </div>
-</section>
+        </svg>
+        <span>Facebook</span>
+      </a>
+    </div>
+  </section>
 
-<section id="localisation" class="contenu" [class.mobile]="isMobile">
-  <span class="texte">
-    <h1>{{'tradpage.accueil.localisation.titre' | translate}}
-      <div class="trait"></div>
-    </h1>
-    <p>{{'tradpage.accueil.localisation.paragraphe' | translate}}</p>
-    <a mat-stroked-button href="https://www.google.com/maps/dir//45.9657242,6.4348856/@45.965724,6.434886,15z" target="_blank" class="bordure avec-icone">
-      <mat-icon>directions</mat-icon>{{'tradpage.accueil.localisation.bouton' | translate}}
-    </a>
-  </span>
-  <span class="image">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d709955.1789534858!2d5.866811247217143!3d45.96601797911014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478bf6c4ac66a88f%3A0xe84d9e4b0cc192d4!2s880%20Route%20de%20la%20Culaz%2C%2074450%20Le%20Grand-Bornand!5e0!3m2!1sfr!2sfr!4v1595863704648!5m2!1sfr!2sfr" width="100%" [height]="isMobile ? 300 : 400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-  </span>
-</section>
+  <section id="localisation" class="contenu" [class.mobile]="isMobile">
+    <span class="texte">
+      <h1>{{'tradpage.accueil.localisation.titre' | translate}}
+        <div class="trait"></div>
+      </h1>
+      <p>{{'tradpage.accueil.localisation.paragraphe' | translate}}</p>
+      <a mat-stroked-button href="https://www.google.com/maps/dir//45.9657242,6.4348856/@45.965724,6.434886,15z" target="_blank" class="bordure avec-icone">
+        <mat-icon>directions</mat-icon>{{'tradpage.accueil.localisation.bouton' | translate}}
+      </a>
+    </span>
+    <span class="image">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d709955.1789534858!2d5.866811247217143!3d45.96601797911014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478bf6c4ac66a88f%3A0xe84d9e4b0cc192d4!2s880%20Route%20de%20la%20Culaz%2C%2074450%20Le%20Grand-Bornand!5e0!3m2!1sfr!2sfr!4v1595863704648!5m2!1sfr!2sfr" width="100%" [height]="isMobile ? 300 : 400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    </span>
+  </section>
 
-<section id="chalet" class="contenu inverse" [class.mobile]="isMobile">
-  <span class="texte">
-    <h1>{{'tradpage.accueil.chalet.titre' | translate}}
-      <div class="trait"></div>
-    </h1>
-    <p>{{'tradpage.accueil.chalet.paragraphe.1' | translate}}</p>
-    <p>{{'tradpage.accueil.chalet.paragraphe.2' | translate}}</p>
-    <a mat-stroked-button routerLink="/chalet" class="bordure avec-icone">
-      <mat-icon>house</mat-icon>{{'tradpage.accueil.chalet.bouton.chalet' | translate}}
-    </a>
-    <a mat-stroked-button routerLink="/chambres" [style.margin-left.em]="isMobile ? 0 : 1" class="bordure avec-icone">
-      <mat-icon>king_bed</mat-icon>{{'tradpage.accueil.chalet.bouton.chambres' | translate}}
-    </a>
-  </span>
-  <span *ngIf="imagesChalet.length > 0" class="image ombre" [style.background-position]="'top'" [style.background-image]="'url('+imagesChalet[0].url+')'">
-    <!-- <img src="/assets/img/chalet/chalet-1.jpg" alt="Le chalet"> -->
-  </span>
-</section>
+  <section id="chalet" class="contenu inverse" [class.mobile]="isMobile">
+    <span class="texte">
+      <h1>{{'tradpage.accueil.chalet.titre' | translate}}
+        <div class="trait"></div>
+      </h1>
+      <p>{{'tradpage.accueil.chalet.paragraphe.1' | translate}}</p>
+      <p>{{'tradpage.accueil.chalet.paragraphe.2' | translate}}</p>
+      <a mat-stroked-button routerLink="/chalet" class="bordure avec-icone">
+        <mat-icon>house</mat-icon>{{'tradpage.accueil.chalet.bouton.chalet' | translate}}
+      </a>
+      <a mat-stroked-button routerLink="/chambres" [style.margin-left.em]="isMobile ? 0 : 1" class="bordure avec-icone">
+        <mat-icon>king_bed</mat-icon>{{'tradpage.accueil.chalet.bouton.chambres' | translate}}
+      </a>
+    </span>
+    <span *ngIf="imagesChalet.length > 0" class="image ombre" [style.background-position]="'top'" [style.background-image]="'url('+imagesChalet[0].url+')'">
+      <!-- <img src="/assets/img/chalet/chalet-1.jpg" alt="Le chalet"> -->
+    </span>
+  </section>
 
-<section id="le-grand-bornand" class="contenu" [class.mobile]="isMobile">
-  <span class="texte">
-    <h1>{{'tradpage.accueil.le-grand-bornand.titre' | translate}}
-      <div class="trait"></div>
-    </h1>
-    <p>{{'tradpage.accueil.le-grand-bornand.paragraphe.1' | translate}}</p>
-    <p>{{'tradpage.accueil.le-grand-bornand.paragraphe.2' | translate}}</p>
-    <a mat-stroked-button href="https://www.legrandbornand.com/" target="_blank" class="bordure avec-icone">
-      <mat-icon>image</mat-icon>{{'tradpage.accueil.le-grand-bornand.bouton' | translate}}
-    </a>
-  </span>
-  <span class="image ombre" [style.background-image]="'url(/assets/img/village-hiver-nuit-hd.jpg)'">
-    <!-- <img src="/assets/img/village-hiver-nuit-hd.jpg" alt="Le Grand Bornand en Hiver"> -->
-  </span>
-</section>
+  <section id="le-grand-bornand" class="contenu" [class.mobile]="isMobile">
+    <span class="texte">
+      <h1>{{'tradpage.accueil.le-grand-bornand.titre' | translate}}
+        <div class="trait"></div>
+      </h1>
+      <p>{{'tradpage.accueil.le-grand-bornand.paragraphe.1' | translate}}</p>
+      <p>{{'tradpage.accueil.le-grand-bornand.paragraphe.2' | translate}}</p>
+      <a mat-stroked-button href="https://www.legrandbornand.com/" target="_blank" class="bordure avec-icone">
+        <mat-icon>image</mat-icon>{{'tradpage.accueil.le-grand-bornand.bouton' | translate}}
+      </a>
+    </span>
+    <span class="image ombre" [style.background-image]="'url(/assets/img/village-hiver-nuit-hd.jpg)'">
+      <!-- <img src="/assets/img/village-hiver-nuit-hd.jpg" alt="Le Grand Bornand en Hiver"> -->
+    </span>
+  </section>
 
-<section id="gypaete-barbu" class="contenu inverse" [class.mobile]="isMobile">
-  <span class="texte">
-    <h1>{{'tradpage.accueil.gypaete-barbu.titre' | translate}}
-      <div class="trait"></div>
-    </h1>
-    <p>{{'tradpage.accueil.gypaete-barbu.paragraphe' | translate}}</p>
-  </span>
-  <span class="image ombre" [style.background-image]="'url(../../assets/img/gypaete-barbu.jpg)'">
-    <!-- <img src="../../assets/img/gypaete-barbu.jpg" alt="Gypaète Barbu"> -->
-  </span>
-</section>
+  <section id="gypaete-barbu" class="contenu inverse" [class.mobile]="isMobile">
+    <span class="texte">
+      <h1>{{'tradpage.accueil.gypaete-barbu.titre' | translate}}
+        <div class="trait"></div>
+      </h1>
+      <p>{{'tradpage.accueil.gypaete-barbu.paragraphe' | translate}}</p>
+    </span>
+    <span class="image ombre" [style.background-image]="'url(../../assets/img/gypaete-barbu.jpg)'">
+      <!-- <img src="../../assets/img/gypaete-barbu.jpg" alt="Gypaète Barbu"> -->
+    </span>
+  </section>
+
+</div>
 
 <button class="saison" mat-mini-fab (click)="changerSaison($event)">
   <mat-icon *ngIf="saison == 'été'">ac_unit</mat-icon>

@@ -30,6 +30,7 @@ import { ChaletApiService } from './chalet/chalet.api.service';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UtilisateurApiService } from './utilisateur/utilisateur.api.service';
+import { ReserverComponent } from './reserver/reserver.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { UtilisateurApiService } from './utilisateur/utilisateur.api.service';
     ContactComponent,
     ChaletComponent,
     LoginComponent,
+    ReserverComponent,
   ],
   imports: [
     BrowserModule,
