@@ -4,7 +4,7 @@
       <h2>{{'coordonnées' | translate | titlecase}}<hr></h2>
       <div class="contenu"  *ngFor="let contact of contacts">
         <div class="bouton" [ngSwitch]="contact.type">
-            <a mat-fab class="transparent-2 bordure" *ngSwitchCase="'adresse'"><mat-icon>mail</mat-icon></a>
+            <a mat-fab class="transparent-2" *ngSwitchCase="'adresse'"><mat-icon>mail</mat-icon></a>
             <a href="" mat-fab class="transparent-2" *ngSwitchCase="'gps'"><mat-icon>location</mat-icon></a>
             <a href="tel:{{contact.valeur}}" mat-fab class="transparent-2" *ngSwitchCase="'téléphone'"><mat-icon>phone</mat-icon></a>
             <a href="mailto:{{contact.valeur}}" mat-fab class="transparent-2" *ngSwitchCase="'email'"><mat-icon>alternate_email</mat-icon></a>
@@ -33,7 +33,7 @@
     </div>
     </section>
   </span>
-  <span class="image" [style.flex]="2">
+  <span class="image" [style.flex]="2" [style.minHeight.px]="500">
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d709955.1789534858!2d5.866811247217143!3d45.96601797911014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478bf6c4ac66a88f%3A0xe84d9e4b0cc192d4!2s880%20Route%20de%20la%20Culaz%2C%2074450%20Le%20Grand-Bornand!5e0!3m2!1sfr!2sfr!4v1595863704648!5m2!1sfr!2sfr" width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
   </span>
 </div>

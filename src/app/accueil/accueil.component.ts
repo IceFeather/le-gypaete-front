@@ -136,8 +136,9 @@ export class AccueilComponent implements OnInit, OnDestroy {
     this.accroche.demarrer();
 
     this.chaletApiService.recupererTout().subscribe(chalets => {
-      if (chalets[0].images > 0)
+      if (chalets[0].images.length > 0) {
         this.imagesChalet = chalets[0].images;
+      }
     })
   }
 

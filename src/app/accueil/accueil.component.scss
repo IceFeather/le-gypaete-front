@@ -12,6 +12,10 @@
     // margin-left: 1rem;
     // margin-right: 1rem;
     max-width: 100%;
+    .image {
+      min-height: 15rem;
+      max-height: 25rem;
+    }
     a {
       display: block;
       &:not(:first-of-type) {

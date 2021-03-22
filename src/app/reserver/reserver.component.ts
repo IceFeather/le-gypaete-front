@@ -1,3 +1,4 @@
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { Contact } from '../contact/model/contact.model';
 
@@ -15,9 +16,16 @@ export class ReserverComponent implements OnInit {
     image: '/assets/img/gites-de-france.png'
   }
 
-  isMobile: boolean = false;
+  isMobile: boolean;
 
-  constructor() { }
+  constructor(private breakpointObserver: BreakpointObserver) {
+    breakpointObserver.observe([
+      Breakpoints.Handset,
+      Breakpoints.Medium,
+      Breakpoints.Small,
+      Breakpoints.XSmall
+    ]).subscribe( breakpoint => this.isMobile = breakpoint.matches )
+  }
 
   ngOnInit(): void {
   }
