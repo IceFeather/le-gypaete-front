@@ -77,7 +77,7 @@
               <mat-list-item *ngFor="let prestation of chalet.tarifs.prestationPayante">
                 <mat-icon mat-list-icon>monetization_on</mat-icon>
                 <div mat-line>{{prestation.condition | translateSelf:translateService.currentLang}}</div>
-                <div mat-line>{{prestation.cout}}€ / {{'nuit' | translate}}</div>
+                <div mat-line>{{prestation.cout}}€</div>
               </mat-list-item>
             </ng-container>
           </mat-list>
