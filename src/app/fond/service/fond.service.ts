@@ -11,7 +11,7 @@ export class FondService {
   interval = 10000;
   images: Image[] = [];
   numero = 0;
-  defilement$: Subscription;
+  _defilement: Subscription;
 
   constructor() {}
 
@@ -20,16 +20,16 @@ export class FondService {
   }
 
   demarrer() {
-    if (this.defilement$ || this.defilement) {
+    if (this._defilement || this.defilement) {
       this.arreter();
     }
     this.defilement = true;
-    this.defilement$ = interval(this.interval).subscribe( () => this.suivant() );
+    this._defilement = interval(this.interval).subscribe( () => this.suivant() );
   }
 
   arreter() {
     this.defilement = false;
-    if (this.defilement$) this.defilement$.unsubscribe();
+    if (this._defilement) this._defilement.unsubscribe();
   }
 
   debut() {

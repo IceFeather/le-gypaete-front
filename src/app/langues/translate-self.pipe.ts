@@ -10,12 +10,14 @@ export class TranslateSelfPipe implements PipeTransform {
 
   constructor(private translateService: TranslateService) {}
 
-  transform(value: {[K in Langue]?: any}, lang = this.translateService.currentLang, defaultLang = this.translateService.defaultLang): any {
-    let translated = value[lang];
-    if (!translated || 0 === translated.length) {
-      return value[defaultLang];
-    } else {
-      return translated;
+  transform(value?: {[K in Langue]?: any}, lang = this.translateService.currentLang, defaultLang = this.translateService.defaultLang): any {
+    if (value) {
+      let translated = value[lang];
+      if (!translated || 0 === translated.length) {
+        return value[defaultLang];
+      } else {
+        return translated;
+      }
     }
   }
 

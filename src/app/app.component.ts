@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, AfterContentInit, AfterViewChecked, AfterContentChecked } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, AfterContentInit, AfterViewChecked, AfterContentChecked, OnDestroy } from '@angular/core';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { trigger, transition, style, animate } from '@angular/animations';
@@ -7,6 +7,7 @@ import { BrowserTransferStateModule } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 
 import { version } from '../../package.json';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -25,7 +26,7 @@ import { version } from '../../package.json';
     ])
   ]
 })
-export class AppComponent implements OnInit, AfterViewChecked {
+export class AppComponent implements OnInit, OnDestroy, AfterViewChecked {
   @ViewChild('contenu') contenu!: ElementRef;
   @ViewChild('basDePage') basDePage!: ElementRef;
 
@@ -37,12 +38,13 @@ export class AppComponent implements OnInit, AfterViewChecked {
 
   public saison = this.getSaison(this.date);
 
+  private _breakpointSubscription: Subscription[] = [];
   isMobile: boolean;
   isMedium: boolean;
-  top: boolean;
-  bottom: boolean;
 
   intersectionObserver: IntersectionObserver;
+  top: boolean;
+  bottom: boolean;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
@@ -51,36 +53,6 @@ export class AppComponent implements OnInit, AfterViewChecked {
   ) {
     translateService.setDefaultLang('fr');
     translateService.use(translateService.getBrowserLang());
-
-    breakpointObserver.observe([
-      Breakpoints.Handset,
-      Breakpoints.Medium,
-      Breakpoints.Small,
-      Breakpoints.XSmall
-    ]).subscribe( bp => {
-      if (bp.matches) {
-        this.isMobile = true;
-        this.isMedium = false;
-      }
-    });
-
-    breakpointObserver.observe([
-      Breakpoints.Large
-    ]).subscribe( bp => {
-      if (bp.matches) {
-        this.isMobile = false;
-        this.isMedium = true;
-      }
-    });
-
-    breakpointObserver.observe([
-      Breakpoints.XLarge
-    ]).subscribe( bp => {
-      if (bp.matches) {
-        this.isMobile = false;
-        this.isMedium = false;
-      }
-    });
   }
 
   ngOnInit() {
@@ -90,17 +62,55 @@ export class AppComponent implements OnInit, AfterViewChecked {
         observer.unobserve(entries[0].target);
       }
     }, {threshold: [0]});
+
+    this._breakpointSubscription.push(this.breakpointObserver.observe([
+      Breakpoints.Handset,
+      Breakpoints.Medium,
+      Breakpoints.Small,
+      Breakpoints.XSmall
+    ]).subscribe( bp => {
+      if (bp.matches) {
+        this.isMobile = true;
+        this.isMedium = false;
+      }
+    }));
+
+    this._breakpointSubscription.push(this.breakpointObserver.observe([
+      Breakpoints.Large
+    ]).subscribe( bp => {
+      if (bp.matches) {
+        this.isMobile = false;
+        this.isMedium = true;
+      }
+    }));
+
+    this._breakpointSubscription.push(this.breakpointObserver.observe([
+      Breakpoints.XLarge
+    ]).subscribe( bp => {
+      if (bp.matches) {
+        this.isMobile = false;
+        this.isMedium = false;
+      }
+    }));
+
+  }
+
+  ngOnDestroy(): void {
+    this._breakpointSubscription.forEach((s) => s.unsubscribe());
+    this.intersectionObserver.disconnect();
+    console.log("top/bottom check disconnected");
   }
 
   ngAfterViewChecked() {
-    this.router.events.subscribe((evt) => {
-      if (evt instanceof NavigationEnd) {
-        this.contenu.nativeElement.scrollTo(0,0);
-        this.top = true;
-        this.bottom = false;
-        setTimeout(() => this.intersectionObserver.observe(this.basDePage.nativeElement), 5000);
-      }
-    });
+    // this.router.events.subscribe((evt) => {
+    //   if (evt instanceof NavigationEnd) {
+    //     console.log("scrollto 0/0");
+    //     this.contenu.nativeElement.scrollTo(0,0);
+    //     this.top = true;
+    //     this.bottom = false;
+    //     setTimeout(() => this.intersectionObserver.observe(this.basDePage.nativeElement), 50);
+    //   }
+    // });
   }
 
   logTopBottom() {
@@ -123,6 +133,7 @@ export class AppComponent implements OnInit, AfterViewChecked {
   checkTopAndBottom(scrollTop: number, scrollHeight: number, offsetHeight: number) {
     this.checkTop(scrollTop);
     this.checkBottom(scrollTop, scrollHeight, offsetHeight);
+    this.logTopBottom();
   }
 
 

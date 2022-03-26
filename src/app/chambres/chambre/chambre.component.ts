@@ -1,16 +1,13 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
-import { Lit } from '../model/lit';
 import { Chambre } from '../model/chambre';
 import { FondService } from 'src/app/fond/service/fond.service';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { DiaporamaService } from 'src/app/diaporama/service/diaporama.service';
-import { MosaiqueComponent } from '../mosaique/mosaique.component';
 import { CHAMBRES } from '../mock-chambres';
 import { TranslateService } from '@ngx-translate/core';
 import { ChambresApiService } from '../chambres.api.service';
-import { map } from 'rxjs/operators';
+import { Observable, of, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-chambre',
@@ -21,11 +18,12 @@ export class ChambreComponent implements OnInit, OnDestroy {
 
   numero = 0;
 
-  chambre: Chambre;
+  chambre$: Observable<Chambre>;
 
   isMobile: boolean;
 
-  fileToUpload: File = null;
+  private _breakpointSubscription: Subscription;
+
 
   constructor(
     private route: ActivatedRoute,
@@ -37,35 +35,30 @@ export class ChambreComponent implements OnInit, OnDestroy {
     private chambresApiService: ChambresApiService
   ) {
 
-    breakpointObserver.observe([
-      Breakpoints.Handset, Breakpoints.Small
-    ]).subscribe(
-      bp => this.isMobile = bp.matches
-    );
-
   }
 
 
 
   ngOnInit(): void {
 
-    if (!this.chambre) {
-      this.chambre = history.state.chambre;
-    }
+    this._breakpointSubscription = this.breakpointObserver.observe([
+      Breakpoints.Handset, Breakpoints.Small
+    ]).subscribe(
+      bp => this.isMobile = bp.matches
+    );
 
-    if (!this.chambre) {
+    if (history.state.chambre != null) {
+      this.chambre$ = of(history.state.chambre);
+    } else {
       this.route.paramMap.subscribe(
         params => {
           let numero = Number(params.get('numero'));
-          this.chambresApiService.recupererAvecNumero(numero).subscribe(chambre => {
-            this.chambre = chambre;
-            this.initFond();
-          })
+          this.chambre$ = this.chambresApiService.recupererAvecNumero(numero);
         }
-      )
+      ).unsubscribe();
     }
 
-    if (this.chambre) this.initFond();
+    this.initFond();
 
 /*
     this.route.paramMap.subscribe(
@@ -89,17 +82,22 @@ export class ChambreComponent implements OnInit, OnDestroy {
   }
 
   initFond(): void {
-    if (this.chambre.images.length > 0) {
-      this.fondService.images = this.chambre.images;
-      this.fondService.debut();
-    }
-    this.diaporamaService.images = this.chambre.images;
-    this.diaporamaService.debut();
+    this.chambre$.subscribe(
+      chambre => {
+        if (chambre.images.length > 0) {
+          this.fondService.images = chambre.images;
+          this.fondService.debut();
+        }
+        this.diaporamaService.images = chambre.images;
+        this.diaporamaService.debut();
+      }
+    );
   }
 
   ngOnDestroy(): void {
     this.diaporamaService.arreter();
     this.fondService.arreter();
+    this._breakpointSubscription.unsubscribe();
   }
 
 }

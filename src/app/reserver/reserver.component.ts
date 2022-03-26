@@ -1,5 +1,6 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Contact } from '../contact/model/contact.model';
 
 @Component({
@@ -7,7 +8,7 @@ import { Contact } from '../contact/model/contact.model';
   templateUrl: './reserver.component.html',
   styleUrls: ['./reserver.component.scss']
 })
-export class ReserverComponent implements OnInit {
+export class ReserverComponent implements OnInit, OnDestroy {
 
   contact: Contact = {type: 'téléphone', valeur: "+33 6 32 21 84 02"};
 
@@ -16,10 +17,11 @@ export class ReserverComponent implements OnInit {
     image: '/assets/img/gites-de-france.png'
   }
 
+  private _breakpointSubscription: Subscription;
   isMobile: boolean;
 
   constructor(private breakpointObserver: BreakpointObserver) {
-    breakpointObserver.observe([
+    this._breakpointSubscription = breakpointObserver.observe([
       Breakpoints.Handset,
       Breakpoints.Medium,
       Breakpoints.Small,
@@ -28,6 +30,10 @@ export class ReserverComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  ngOnDestroy(): void {
+      this._breakpointSubscription.unsubscribe();
   }
 
 }

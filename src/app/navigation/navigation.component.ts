@@ -5,6 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
 import { UtilisateurApiService } from '../utilisateur/utilisateur.api.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-navigation',
@@ -15,8 +16,7 @@ export class NavigationComponent implements OnInit {
 
   langue = 'fr';
 
-  mobileQuery: MediaQueryList;
-  private mobileQueryListener: () => void;
+  private _breakpointSubscription: Subscription[] = [];
   isMobile: boolean;
   isMedium: boolean;
 
@@ -39,7 +39,11 @@ export class NavigationComponent implements OnInit {
     public dialog: MatDialog,
     public utilisateurApiService: UtilisateurApiService
   ) {
-    breakpointObserver.observe([
+
+  }
+
+  ngOnInit(): void {
+    this._breakpointSubscription.push(this.breakpointObserver.observe([
       Breakpoints.Handset,
       Breakpoints.Medium,
       Breakpoints.Small,
@@ -49,32 +53,29 @@ export class NavigationComponent implements OnInit {
         this.isMobile = true;
         this.isMedium = false;
       }
-    });
+    }));
 
-    breakpointObserver.observe([
+    this._breakpointSubscription.push(this.breakpointObserver.observe([
       Breakpoints.Large
     ]).subscribe( bp => {
       if (bp.matches) {
         this.isMobile = false;
         this.isMedium = true;
       }
-    });
+    }));
 
-    breakpointObserver.observe([
+    this._breakpointSubscription.push(this.breakpointObserver.observe([
       Breakpoints.XLarge
     ]).subscribe( bp => {
       if (bp.matches) {
         this.isMobile = false;
         this.isMedium = false;
       }
-    });
-  }
-
-  ngOnInit(): void {
+    }));
   }
 
   ngOnDestroy(): void {
-    this.mobileQuery.removeListener(this.mobileQueryListener);
+    this._breakpointSubscription.forEach((s) => s.unsubscribe());
   }
 
   openLogin(): void {

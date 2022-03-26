@@ -15,7 +15,7 @@ import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { FondService } from './fond/service/fond.service';
-import { ChambresModule } from './chambres/chambres.module';
+// import { ChambresModule } from './chambres/chambres.module';
 import { FondModule } from './fond/fond.module';
 import { MatListModule } from '@angular/material/list';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -31,6 +31,11 @@ import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UtilisateurApiService } from './utilisateur/utilisateur.api.service';
 import { ReserverComponent } from './reserver/reserver.component';
+import { ChambreComponent } from './chambres/chambre/chambre.component';
+import { MosaiqueComponent } from './chambres/mosaique/mosaique.component';
+import { MatRippleModule } from '@angular/material/core';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { ChambresApiService } from './chambres/chambres.api.service';
 
 @NgModule({
   declarations: [
@@ -41,6 +46,8 @@ import { ReserverComponent } from './reserver/reserver.component';
     ChaletComponent,
     LoginComponent,
     ReserverComponent,
+    MosaiqueComponent,
+    ChambreComponent
   ],
   imports: [
     BrowserModule,
@@ -56,10 +63,11 @@ import { ReserverComponent } from './reserver/reserver.component';
     MatInputModule,
     MatFormFieldModule,
     MatSnackBarModule,
+    MatGridListModule,
+    MatRippleModule,
     ReactiveFormsModule,
     FondModule.forRoot(),
     DiaporamaModule,
-    ChambresModule,
     LanguesModule,
     HttpClientModule,
     TranslateModule.forRoot({
@@ -76,6 +84,7 @@ import { ReserverComponent } from './reserver/reserver.component';
   providers: [
     FondService,
     ChaletApiService,
+    ChambresApiService,
     UtilisateurApiService,
   ],
   bootstrap: [AppComponent]

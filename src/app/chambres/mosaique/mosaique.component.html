@@ -1,8 +1,8 @@
 <mat-grid-list [cols]="columns" rowHeight="2:1" [class.mobile]="isMobile">
-  <ng-container *ngFor="let chambre of chambres" class="test">
+  <ng-container *ngFor="let chambre of chambres$ | async" class="test">
     <mat-grid-tile matRipple class="tuile"
       [style.background-image]="'url(' + (chambre.images[0] && chambre.images[0].url ? chambre.images[0].url : '/assets/img/remplacement.png') + ')'"
-      [routerLink]="['../chambre/',chambre.numero]" [state]="{chambre: chambre}">
+      [routerLink]="['/chambre', chambre.numero]" [state]="{chambre: chambre}">
       <mat-grid-tile-header>
         <div class="nom">
           <h2 [style.margin-bottom]="0" [style.margin-top.em]=".5">{{chambre.nom}}
@@ -20,7 +20,7 @@
         </div>
       </mat-grid-tile-header>
       <div class="sur"></div>
-      <button mat-button mat-stroked-button color="white" class="voir bordure" [routerLink]="['../chambre/',chambre.numero]">Détails<mat-icon>keyboard_arrow_right</mat-icon></button>
+      <button mat-button mat-stroked-button color="white" class="voir bordure" [routerLink]="['chambre',chambre.numero]">Détails<mat-icon>keyboard_arrow_right</mat-icon></button>
     </mat-grid-tile>
   </ng-container>
 </mat-grid-list>

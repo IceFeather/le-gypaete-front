@@ -115,6 +115,8 @@ export class AccueilComponent implements OnInit, OnDestroy {
   lat: number = 51.678418;
   lng: number = 7.809007;
 
+  private _breakpointSubscription: Subscription;
+
 
   constructor(
     public fondService: FondService,
@@ -126,12 +128,13 @@ export class AccueilComponent implements OnInit, OnDestroy {
     this.saison$.subscribe((s) => {
       fondService.images = this.images[s]
     });
-    breakpointObserver.observe([
-      Breakpoints.Handset, Breakpoints.Small, Breakpoints.XSmall
-    ]).subscribe( breakpoint => this.isMobile = breakpoint.matches );
   }
 
   ngOnInit(): void {
+    this._breakpointSubscription = this.breakpointObserver.observe([
+      Breakpoints.Handset, Breakpoints.Small, Breakpoints.XSmall
+    ]).subscribe( breakpoint => this.isMobile = breakpoint.matches );
+
     this.fondService.demarrer();
     this.accroche.demarrer();
 
@@ -145,6 +148,7 @@ export class AccueilComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.fondService.arreter();
     this.accroche.arreter();
+    this._breakpointSubscription.unsubscribe();
   }
 
   changerSaison(event) {
