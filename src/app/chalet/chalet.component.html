@@ -1,4 +1,4 @@
-<div id="page" class="page" [class.mobile]="isMobile" *ngIf="chaletLoaded | async">
+<div id="page" class="page" [class.mobile]="isMobile" *ngIf="chalet$ | async as chalet">
   <div class="corp">
 
     <div class="tete">
@@ -47,8 +47,8 @@
             <div mat-subheader>
               {{'à la semaine' | translate | premiereLettreMaj}}, {{'selon période' | translate}}
             </div>
-            <ng-container *ngIf="this.chalet.tarifs.periode.length > 0">
-              <mat-list-item *ngFor="let periode of this.chalet.tarifs.periode">
+            <ng-container *ngIf="chalet.tarifs.periode.length > 0">
+              <mat-list-item *ngFor="let periode of chalet.tarifs.periode">
                 <mat-icon mat-list-icon>date_range</mat-icon>
                 <div mat-line>{{'periode_du_(du)_au_(au)' | translate: {du: (periode.dateDebutSejour | date:'dd/MM/yyyy'), au: (periode.dateFinSejour | date:'dd/MM/yyyy')}| premiereLettreMaj}}</div>
                 <div mat-line>{{periode.cout}}€ / {{'semaine' | translate}}</div>

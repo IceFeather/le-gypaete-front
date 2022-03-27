@@ -8,12 +8,16 @@ import { Chalet } from './model/chalet';
 @Injectable()
 export class ChaletApiService {
 
-  path = environment.apiUrl + '/chalet';
+  path = environment.apiUrl + '/chalet/';
 
   constructor(private http: HttpClient){}
 
   recupererTout() {
-    return this.http.get(this.path);
+    return this.http.get<Chalet[]>(this.path);
+  }
+
+  recupererAvecNom(nom) {
+    return this.http.get<Chalet>(this.path + nom);
   }
 
 }

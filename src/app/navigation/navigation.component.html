@@ -1,4 +1,4 @@
-<div class="bandeau" [class.mobile]="isMobile" [class.medium]="isMedium">
+<div class="bandeau" [class.mobile]="isMobile">
   <div class="mobile-navigation" *ngIf="isMobile">
     <button mat-icon-button [matMenuTriggerFor]="mobileNavigationMenu"><mat-icon class="icon">menu</mat-icon></button>
     <mat-menu #mobileNavigationMenu="matMenu" class="navigation-menu mobile">

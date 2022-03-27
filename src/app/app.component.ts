@@ -93,6 +93,12 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewChecked {
       }
     }));
 
+    this.router.events.subscribe((e) => {
+      if (e instanceof NavigationEnd) {
+        this.contenu.nativeElement.scrollTo(0,0);
+      }
+    })
+
   }
 
   ngOnDestroy(): void {

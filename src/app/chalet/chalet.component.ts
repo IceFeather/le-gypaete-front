@@ -6,7 +6,7 @@ import { DiaporamaService } from '../diaporama/service/diaporama.service';
 import { FondService } from '../fond/service/fond.service';
 import { TranslateService } from '@ngx-translate/core';
 import { ChaletApiService } from './chalet.api.service';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-chalet',
@@ -17,7 +17,7 @@ export class ChaletComponent implements OnInit, OnDestroy {
 
   isMobile: boolean;
 
-  chalet: Chalet;
+  chalet$: Observable<Chalet>;
 
   chaletLoaded: Promise<boolean>;
 
@@ -41,21 +41,19 @@ export class ChaletComponent implements OnInit, OnDestroy {
       Breakpoints.XSmall
     ]).subscribe( breakpoint => this.isMobile = breakpoint.matches );
 
-    this.chaletApiService.recupererTout().subscribe(chalets => {
-      console.log(chalets);
-      this.chalet = chalets[0];
-      this.initFond();
-      this.chaletLoaded = Promise.resolve(true);
-    });
+    this.chalet$ = this.chaletApiService.recupererAvecNom('Le Gypaête');
+    this.initFond();
   }
 
   initFond(): void {
-    if (this.chalet.images.length > 0) {
-      this.fondService.images = this.chalet.images;
-      this.fondService.debut();
-    }
-    this.diaporamaService.images = this.chalet.images;
-    this.diaporamaService.debut();
+    this.chalet$.subscribe(chalet => {
+      if (chalet.images.length > 0) {
+        this.fondService.images = chalet.images;
+        this.fondService.debut();
+      }
+      this.diaporamaService.images = chalet.images;
+      this.diaporamaService.debut();
+    })
   }
 
   ngOnDestroy(): void {
