@@ -1,8 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Contact } from './model/contact.model';
 import { ReseauSocial } from './model/reseaux-sociaux.model';
-import { Subscription } from 'rxjs';
+import { BreakpointService } from '../breakpoint.service';
 
 @Component({
   selector: 'app-contact',
@@ -10,9 +9,6 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit, OnDestroy {
-
-  private _breakpointSubscription: Subscription;
-  isMobile: boolean;
 
   contacts: Contact[] = [
     {
@@ -36,21 +32,14 @@ export class ContactComponent implements OnInit, OnDestroy {
     }
   ]
 
-  constructor(private breakpointObserver: BreakpointObserver) {
+  constructor(public breakpointService: BreakpointService) {
 
   }
 
   ngOnInit(): void {
-    this._breakpointSubscription = this.breakpointObserver.observe([
-      Breakpoints.Handset,
-      Breakpoints.Medium,
-      Breakpoints.Small,
-      Breakpoints.XSmall
-    ]).subscribe( breakpoint => this.isMobile = breakpoint.matches )
   }
 
   ngOnDestroy(): void {
-    this._breakpointSubscription.unsubscribe();
   }
 
 }

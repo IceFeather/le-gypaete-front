@@ -1,13 +1,10 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, AfterContentInit, AfterViewChecked, AfterContentChecked, OnDestroy } from '@angular/core';
-import { DeviceDetectorService } from 'ngx-device-detector';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewChecked, OnDestroy } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
-import { Router, NavigationEnd, Scroll } from '@angular/router';
-import { BrowserTransferStateModule } from '@angular/platform-browser';
+import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
 import { version } from '../../package.json';
-import { Subscription } from 'rxjs';
+import { BreakpointService } from './breakpoint.service';
 
 @Component({
   selector: 'app-root',
@@ -38,16 +35,12 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewChecked {
 
   public saison = this.getSaison(this.date);
 
-  private _breakpointSubscription: Subscription[] = [];
-  isMobile: boolean;
-  isMedium: boolean;
-
   intersectionObserver: IntersectionObserver;
   top: boolean;
   bottom: boolean;
 
   constructor(
-    private breakpointObserver: BreakpointObserver,
+    public breakpointService: BreakpointService,
     private router: Router,
     public translateService: TranslateService,
   ) {
@@ -63,36 +56,6 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewChecked {
       }
     }, {threshold: [0]});
 
-    this._breakpointSubscription.push(this.breakpointObserver.observe([
-      Breakpoints.Handset,
-      Breakpoints.Medium,
-      Breakpoints.Small,
-      Breakpoints.XSmall
-    ]).subscribe( bp => {
-      if (bp.matches) {
-        this.isMobile = true;
-        this.isMedium = false;
-      }
-    }));
-
-    this._breakpointSubscription.push(this.breakpointObserver.observe([
-      Breakpoints.Large
-    ]).subscribe( bp => {
-      if (bp.matches) {
-        this.isMobile = false;
-        this.isMedium = true;
-      }
-    }));
-
-    this._breakpointSubscription.push(this.breakpointObserver.observe([
-      Breakpoints.XLarge
-    ]).subscribe( bp => {
-      if (bp.matches) {
-        this.isMobile = false;
-        this.isMedium = false;
-      }
-    }));
-
     this.router.events.subscribe((e) => {
       if (e instanceof NavigationEnd) {
         this.contenu.nativeElement.scrollTo(0,0);
@@ -102,7 +65,6 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewChecked {
   }
 
   ngOnDestroy(): void {
-    this._breakpointSubscription.forEach((s) => s.unsubscribe());
     this.intersectionObserver.disconnect();
     console.log("top/bottom check disconnected");
   }

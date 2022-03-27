@@ -8,6 +8,7 @@ import { CHAMBRES } from '../mock-chambres';
 import { TranslateService } from '@ngx-translate/core';
 import { ChambresApiService } from '../chambres.api.service';
 import { Observable, of, Subscription } from 'rxjs';
+import { BreakpointService } from 'src/app/breakpoint.service';
 
 @Component({
   selector: 'app-chambre',
@@ -20,15 +21,9 @@ export class ChambreComponent implements OnInit, OnDestroy {
 
   chambre$: Observable<Chambre>;
 
-  isMobile: boolean;
-
-  private _breakpointSubscription: Subscription;
-
-
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
-    private breakpointObserver: BreakpointObserver,
+    public breakpointService: BreakpointService,
     public fondService: FondService,
     public diaporamaService: DiaporamaService,
     public translateService: TranslateService,
@@ -40,12 +35,6 @@ export class ChambreComponent implements OnInit, OnDestroy {
 
 
   ngOnInit(): void {
-
-    this._breakpointSubscription = this.breakpointObserver.observe([
-      Breakpoints.Handset, Breakpoints.Small
-    ]).subscribe(
-      bp => this.isMobile = bp.matches
-    );
 
     if (history.state.chambre != null) {
       this.chambre$ = of(history.state.chambre);
@@ -97,7 +86,6 @@ export class ChambreComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.diaporamaService.arreter();
     this.fondService.arreter();
-    this._breakpointSubscription.unsubscribe();
   }
 
 }

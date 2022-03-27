@@ -1,9 +1,9 @@
-<div class="page" [class.mobile]="isMobile">
+<div class="page" [class.mobile]="breakpointService.isMobile">
 
-  <section id="accueil" class="contenu" [class.mobile]="isMobile">
+  <section id="accueil" class="contenu" [class.mobile]="breakpointService.isMobile">
     <div class="haut"></div>
     <div class="milieu">
-      <span class="accroche" [class.mobile]="isMobile">
+      <span class="accroche" [class.mobile]="breakpointService.isMobile">
         <h1 [@flyInOut]="accroche.numero">{{accroche.accroches[accroche.numero].titre | translateSelf:translateService.currentLang}}
         </h1>
         <div class="trait" [style.max-width.rem]="10" [@ligneAccroche]="accroche.numero"></div>
@@ -30,7 +30,7 @@
     </div>
   </section>
 
-  <section id="localisation" class="contenu" [class.mobile]="isMobile">
+  <section id="localisation" class="contenu" [class.mobile]="breakpointService.isMobile">
     <span class="texte">
       <h1>{{'tradpage.accueil.localisation.titre' | translate}}
         <div class="trait"></div>
@@ -41,11 +41,11 @@
       </a>
     </span>
     <span class="image">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d709955.1789534858!2d5.866811247217143!3d45.96601797911014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478bf6c4ac66a88f%3A0xe84d9e4b0cc192d4!2s880%20Route%20de%20la%20Culaz%2C%2074450%20Le%20Grand-Bornand!5e0!3m2!1sfr!2sfr!4v1595863704648!5m2!1sfr!2sfr" width="100%" [height]="isMobile ? 300 : 400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d709955.1789534858!2d5.866811247217143!3d45.96601797911014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478bf6c4ac66a88f%3A0xe84d9e4b0cc192d4!2s880%20Route%20de%20la%20Culaz%2C%2074450%20Le%20Grand-Bornand!5e0!3m2!1sfr!2sfr!4v1595863704648!5m2!1sfr!2sfr" width="100%" [height]="breakpointService.isMobile ? 300 : 400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
     </span>
   </section>
 
-  <section id="chalet" class="contenu inverse" [class.mobile]="isMobile">
+  <section id="chalet" class="contenu inverse" [class.mobile]="breakpointService.isMobile">
     <span class="texte">
       <h1>{{'tradpage.accueil.chalet.titre' | translate}}
         <div class="trait"></div>
@@ -55,7 +55,7 @@
       <a mat-stroked-button routerLink="/chalet" class="bordure avec-icone">
         <mat-icon>house</mat-icon>{{'tradpage.accueil.chalet.bouton.chalet' | translate}}
       </a>
-      <a mat-stroked-button routerLink="/chambres" [style.margin-left.em]="isMobile ? 0 : 1" class="bordure avec-icone">
+      <a mat-stroked-button routerLink="/chambres" [style.margin-left.em]="breakpointService.isMobile ? 0 : 1" class="bordure avec-icone">
         <mat-icon>king_bed</mat-icon>{{'tradpage.accueil.chalet.bouton.chambres' | translate}}
       </a>
     </span>
@@ -64,7 +64,7 @@
     </span>
   </section>
 
-  <section id="le-grand-bornand" class="contenu" [class.mobile]="isMobile">
+  <section id="le-grand-bornand" class="contenu" [class.mobile]="breakpointService.isMobile">
     <span class="texte">
       <h1>{{'tradpage.accueil.le-grand-bornand.titre' | translate}}
         <div class="trait"></div>
@@ -80,7 +80,7 @@
     </span>
   </section>
 
-  <section id="gypaete-barbu" class="contenu inverse" [class.mobile]="isMobile">
+  <section id="gypaete-barbu" class="contenu inverse" [class.mobile]="breakpointService.isMobile">
     <span class="texte">
       <h1>{{'tradpage.accueil.gypaete-barbu.titre' | translate}}
         <div class="trait"></div>

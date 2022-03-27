@@ -7,6 +7,7 @@ import { FondService } from '../fond/service/fond.service';
 import { TranslateService } from '@ngx-translate/core';
 import { ChaletApiService } from './chalet.api.service';
 import { Observable, Subscription } from 'rxjs';
+import { BreakpointService } from '../breakpoint.service';
 
 @Component({
   selector: 'app-chalet',
@@ -15,16 +16,12 @@ import { Observable, Subscription } from 'rxjs';
 })
 export class ChaletComponent implements OnInit, OnDestroy {
 
-  isMobile: boolean;
-
   chalet$: Observable<Chalet>;
 
   chaletLoaded: Promise<boolean>;
 
-  private _breakpointSubscription: Subscription;
-
   constructor(
-      private breakpointObserver: BreakpointObserver,
+      public breakpointService: BreakpointService,
       private diaporamaService: DiaporamaService,
       private fondService: FondService,
       public translateService: TranslateService,
@@ -34,13 +31,6 @@ export class ChaletComponent implements OnInit, OnDestroy {
    }
 
   ngOnInit(): void {
-    this._breakpointSubscription = this.breakpointObserver.observe([
-      Breakpoints.Handset,
-      Breakpoints.Medium,
-      Breakpoints.Small,
-      Breakpoints.XSmall
-    ]).subscribe( breakpoint => this.isMobile = breakpoint.matches );
-
     this.chalet$ = this.chaletApiService.recupererAvecNom('Le Gypaête');
     this.initFond();
   }
@@ -59,7 +49,6 @@ export class ChaletComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.diaporamaService.arreter();
     this.fondService.arreter();
-    this._breakpointSubscription.unsubscribe();
   }
 
 }

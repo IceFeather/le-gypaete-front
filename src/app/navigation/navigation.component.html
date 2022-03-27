@@ -1,5 +1,5 @@
-<div class="bandeau" [class.mobile]="isMobile">
-  <div class="mobile-navigation" *ngIf="isMobile">
+<div class="bandeau" [class.mobile]="breakpointService.isMobile">
+  <div class="mobile-navigation" *ngIf="breakpointService.isMobile">
     <button mat-icon-button [matMenuTriggerFor]="mobileNavigationMenu"><mat-icon class="icon">menu</mat-icon></button>
     <mat-menu #mobileNavigationMenu="matMenu" class="navigation-menu mobile">
       <ng-container *ngFor="let route of routes">
@@ -14,12 +14,12 @@
     </mat-menu>
   </div>
   <div class="brand">
-    <div class="titre" [class.mobile]="isMobile">
+    <div class="titre" [class.mobile]="breakpointService.isMobile">
       <img class="image" src="assets/img/gypaete-draw-sd.png" alt="gypaete">
       <span class="texte">Chalet Le Gypaète</span>
     </div>
   </div>
-  <ng-container *ngIf="!isMobile">
+  <ng-container *ngIf="!breakpointService.isMobile">
     <div class="navigation">
       <ng-container *ngFor="let route of routes">
         <button mat-button [routerLink]="route.lien" routerLinkActive="router-link-active" [routerLinkActive]="'active'" [disabled]="route.inactive">{{route.nom | translate | titlecase}}</button>

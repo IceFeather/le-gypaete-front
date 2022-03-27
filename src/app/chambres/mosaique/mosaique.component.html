@@ -1,4 +1,4 @@
-<mat-grid-list [cols]="columns" rowHeight="2:1" [class.mobile]="isMobile">
+<mat-grid-list [cols]="breakpointService.columns" rowHeight="2:1" [class.mobile]="breakpointService.isMobile">
   <ng-container *ngFor="let chambre of chambres$ | async" class="test">
     <mat-grid-tile matRipple class="tuile"
       [style.background-image]="'url(' + (chambre.images[0] && chambre.images[0].url ? chambre.images[0].url : '/assets/img/remplacement.png') + ')'"

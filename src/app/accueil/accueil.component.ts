@@ -14,6 +14,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { FondService } from '../fond/service/fond.service';
 import { TranslateService } from '@ngx-translate/core';
 import { ChaletApiService } from '../chalet/chalet.api.service';
+import { BreakpointService } from '../breakpoint.service';
 
 @Component({
   selector: 'app-accueil',
@@ -48,8 +49,6 @@ export class AccueilComponent implements OnInit, OnDestroy {
   get saison() {
     return this._saison;
   }
-
-  isMobile: boolean;
 
   images = {
     été: [
@@ -115,12 +114,10 @@ export class AccueilComponent implements OnInit, OnDestroy {
   lat: number = 51.678418;
   lng: number = 7.809007;
 
-  private _breakpointSubscription: Subscription;
-
 
   constructor(
     public fondService: FondService,
-    private breakpointObserver: BreakpointObserver,
+    public breakpointService: BreakpointService,
     public translateService: TranslateService,
     public sanitizer: DomSanitizer,
     private chaletApiService: ChaletApiService,
@@ -131,10 +128,6 @@ export class AccueilComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this._breakpointSubscription = this.breakpointObserver.observe([
-      Breakpoints.Handset, Breakpoints.Small, Breakpoints.XSmall
-    ]).subscribe( breakpoint => this.isMobile = breakpoint.matches );
-
     this.fondService.demarrer();
     this.accroche.demarrer();
 
@@ -148,7 +141,6 @@ export class AccueilComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.fondService.arreter();
     this.accroche.arreter();
-    this._breakpointSubscription.unsubscribe();
   }
 
   changerSaison(event) {

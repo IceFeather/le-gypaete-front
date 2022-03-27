@@ -1,11 +1,9 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { MediaMatcher, BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { DeviceDetectorService } from 'ngx-device-detector';
 import { TranslateService } from '@ngx-translate/core';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
 import { UtilisateurApiService } from '../utilisateur/utilisateur.api.service';
-import { Subscription } from 'rxjs';
+import { BreakpointService } from '../breakpoint.service';
 
 @Component({
   selector: 'app-navigation',
@@ -16,9 +14,7 @@ export class NavigationComponent implements OnInit {
 
   langue = 'fr';
 
-  private _breakpointSubscription: Subscription[] = [];
-  isMobile: boolean;
-  isMedium: boolean;
+  isMobile: boolean = this.breakpointService.isMobile;
 
   routes = [
     {nom: "accueil", icone: "home", lien: ['/accueil']},
@@ -34,48 +30,18 @@ export class NavigationComponent implements OnInit {
   ]
 
   constructor(
-    private breakpointObserver: BreakpointObserver,
     public translateService: TranslateService,
     public dialog: MatDialog,
-    public utilisateurApiService: UtilisateurApiService
+    public utilisateurApiService: UtilisateurApiService,
+    public breakpointService: BreakpointService
   ) {
 
   }
 
   ngOnInit(): void {
-    this._breakpointSubscription.push(this.breakpointObserver.observe([
-      Breakpoints.Handset,
-      Breakpoints.Medium,
-      Breakpoints.Small,
-      Breakpoints.XSmall
-    ]).subscribe( bp => {
-      if (bp.matches) {
-        this.isMobile = true;
-        this.isMedium = false;
-      }
-    }));
-
-    this._breakpointSubscription.push(this.breakpointObserver.observe([
-      Breakpoints.Large
-    ]).subscribe( bp => {
-      if (bp.matches) {
-        this.isMobile = false;
-        this.isMedium = true;
-      }
-    }));
-
-    this._breakpointSubscription.push(this.breakpointObserver.observe([
-      Breakpoints.XLarge
-    ]).subscribe( bp => {
-      if (bp.matches) {
-        this.isMobile = false;
-        this.isMedium = false;
-      }
-    }));
   }
 
   ngOnDestroy(): void {
-    this._breakpointSubscription.forEach((s) => s.unsubscribe());
   }
 
   openLogin(): void {

@@ -1,4 +1,4 @@
-<div class="page" [class.mobile]="isMobile" *ngIf="chambre$ | async as chambre">
+<div class="page" [class.mobile]="breakpointService.isMobile" *ngIf="chambre$ | async as chambre">
   <div class="tete">
     <button mat-fab class="transparent-2" [routerLink]="['/chambres']" routerLinkActive="router-link-active">
       <mat-icon>keyboard_arrow_left</mat-icon>
@@ -13,7 +13,7 @@
   <div class="corp">
 
     <div class="diaporama">
-      <ng-container *ngIf="isMobile; else imagesStack">
+      <ng-container *ngIf="breakpointService.isMobile; else imagesStack">
         <diaporama-visualiseur></diaporama-visualiseur>
       </ng-container>
       <ng-template #imagesStack>

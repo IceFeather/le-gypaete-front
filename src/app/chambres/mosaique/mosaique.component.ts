@@ -7,6 +7,7 @@ import { CHAMBRES } from '../mock-chambres';
 import { ChambresApiService } from '../chambres.api.service';
 import { UtilisateurApiService } from 'src/app/utilisateur/utilisateur.api.service';
 import { Observable, Subscription } from 'rxjs';
+import { BreakpointService } from 'src/app/breakpoint.service';
 
 
 @Component({
@@ -16,15 +17,10 @@ import { Observable, Subscription } from 'rxjs';
 })
 export class MosaiqueComponent implements OnInit, OnDestroy {
 
-  isMobile: boolean;
-  columns: number;
-
   chambres$: Observable<Chambre[]>;
 
-  private _breakpointSubscription: Subscription[] = [];
-
   constructor(
-    private breakpointObserver: BreakpointObserver,
+    public breakpointService: BreakpointService,
     private chambresApiService: ChambresApiService,
     public utilisateurApiService: UtilisateurApiService) {
     // this.columns = this.columnsDefault;
@@ -34,45 +30,9 @@ export class MosaiqueComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this._breakpointSubscription.push(this.breakpointObserver.observe([
-      Breakpoints.HandsetPortrait, Breakpoints.XSmall
-    ]).subscribe( bp => {
-      if (bp.matches) {
-        this.columns = 1;
-        this.isMobile = true;
-      }
-    }));
-
-    this._breakpointSubscription.push(this.breakpointObserver.observe([
-      Breakpoints.HandsetLandscape
-    ]).subscribe( bp => {
-      if (bp.matches) {
-        this.columns = 2;
-        this.isMobile = true;
-      }
-    }));
-
-    this._breakpointSubscription.push(this.breakpointObserver.observe([
-      Breakpoints.Tablet, Breakpoints.Medium, Breakpoints.Large
-    ]).subscribe( bp => {
-      if (bp.matches) {
-        this.columns = 2;
-        this.isMobile = false;
-      }
-    }));
-
-    this._breakpointSubscription.push(this.breakpointObserver.observe([
-      Breakpoints.XLarge
-    ]).subscribe( bp => {
-      if (bp.matches) {
-        this.columns = 3;
-        this.isMobile = false;
-      }
-    }));
   }
 
   ngOnDestroy(): void {
-    this._breakpointSubscription.forEach((s) => s.unsubscribe());
   }
 
 }

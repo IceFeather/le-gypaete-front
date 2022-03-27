@@ -36,6 +36,7 @@ import { MosaiqueComponent } from './chambres/mosaique/mosaique.component';
 import { MatRippleModule } from '@angular/material/core';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { ChambresApiService } from './chambres/chambres.api.service';
+import { BreakpointService } from './breakpoint.service';
 
 @NgModule({
   declarations: [
@@ -86,6 +87,7 @@ import { ChambresApiService } from './chambres/chambres.api.service';
     ChaletApiService,
     ChambresApiService,
     UtilisateurApiService,
+    BreakpointService
   ],
   bootstrap: [AppComponent]
 })

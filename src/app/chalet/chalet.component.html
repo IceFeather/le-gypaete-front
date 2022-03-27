@@ -1,4 +1,4 @@
-<div id="page" class="page" [class.mobile]="isMobile" *ngIf="chalet$ | async as chalet">
+<div id="page" class="page" [class.mobile]="breakpointService.isMobile" *ngIf="chalet$ | async as chalet">
   <div class="corp">
 
     <div class="tete">
@@ -6,7 +6,7 @@
     </div>
 
     <div class="diaporama">
-      <ng-container *ngIf="isMobile;else imagesStack">
+      <ng-container *ngIf="breakpointService.isMobile; else imagesStack">
         <diaporama-visualiseur></diaporama-visualiseur>
       </ng-container>
       <ng-template #imagesStack>
