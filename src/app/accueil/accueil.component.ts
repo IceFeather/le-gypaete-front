@@ -40,7 +40,12 @@ import { BreakpointService } from '../breakpoint.service';
 })
 export class AccueilComponent implements OnInit, OnDestroy {
 
-  _saison: 'hiver' | 'été' = 'hiver';
+  saisonSelonDate() {
+    let month = new Date().getMonth() + 1;
+    return (month > 4 && month < 10) ? 'été' : 'hiver';
+  }
+
+  _saison: 'hiver' | 'été' = this.saisonSelonDate();
   saison$ = new BehaviorSubject(this._saison);
   set saison(s) {
     this._saison = s;
