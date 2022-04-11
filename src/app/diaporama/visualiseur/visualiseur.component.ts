@@ -1,13 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {
   trigger,
-  state,
   style,
   animate,
   transition,
   query,
-  group,
-  stagger,
   // ...
 } from '@angular/animations';
 import { DiaporamaService } from '../service/diaporama.service';
@@ -43,20 +40,18 @@ export class VisualiseurComponent implements OnInit {
 
   @Input() height: number = 300;
 
-  public count: number = 0;
+  @Input() diaporamaService: DiaporamaService;
 
-  constructor(public diaporamaService: DiaporamaService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
 
   plus() {
-    this.count++;
     this.diaporamaService.suivant();
   }
 
   moins() {
-    this.count--;
     this.diaporamaService.precedent();
   }
 

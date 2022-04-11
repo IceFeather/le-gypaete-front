@@ -2,18 +2,18 @@
   <div class="corp">
 
     <div class="tete">
-      <h1>{{'le chalet' | translate | titlecase}}<hr></h1>
+      <h1>{{'le chalet' | translate | titlecase}}
+        <hr>
+      </h1>
     </div>
 
     <div class="diaporama">
-      <ng-container *ngIf="breakpointService.isMobile; else imagesStack">
-        <diaporama-visualiseur></diaporama-visualiseur>
-      </ng-container>
-      <ng-template #imagesStack>
-        <div *ngFor="let image of chalet.images" class="image">
-          <img [src]="image.url" [alt]="image.nom">
-        </div>
-      </ng-template>
+      <div>
+        <diaporama-visualiseur [diaporamaService]="diaporamaService" [height]="breakpointService.isMobile ? 400 : 500"></diaporama-visualiseur>
+      </div>
+      <div>
+        <diaporama-miniatures [diaporamaService]="diaporamaService" [cols]="4"></diaporama-miniatures>
+      </div>
     </div>
 
     <div class="gauche">

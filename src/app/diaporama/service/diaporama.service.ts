@@ -11,7 +11,7 @@ export class DiaporamaService {
   defilement = false;
   interval = 10000;
   images: Image[] = [];
-  numero = 0;
+  numero: number = 0;
   progress = 0;
 
   _defilement: Subscription;
@@ -47,7 +47,7 @@ export class DiaporamaService {
 
   suivant() {
     if (this.numero < this.images.length - 1) {
-      this.numero = this.numero + 1;
+      this.numero++;
     } else {
       this.debut();
     }
@@ -55,10 +55,14 @@ export class DiaporamaService {
 
   precedent() {
     if (this.numero > 0) {
-      this.numero = this.numero - 1;
+      this.numero--;
     } else {
       this.fin();
     }
+  }
+
+  aller(numero :number) {
+    this.numero = numero;
   }
 
 }

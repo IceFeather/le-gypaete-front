@@ -22,7 +22,7 @@ export class ChaletComponent implements OnInit, OnDestroy {
 
   constructor(
       public breakpointService: BreakpointService,
-      private diaporamaService: DiaporamaService,
+      public diaporamaService: DiaporamaService,
       private fondService: FondService,
       public translateService: TranslateService,
       private chaletApiService: ChaletApiService

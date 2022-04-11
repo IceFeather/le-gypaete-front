@@ -10,7 +10,7 @@
     width: 100%;
     .gauche {
       float: left;
-      max-width: 49%;
+      max-width: 48%;
     }
   }
 
@@ -24,10 +24,10 @@
     float: right;
     top: 7rem;
     max-width: 50%;
-    width: 700px;
+    width: 900px;
     margin-bottom: 2rem;
-    .image {
-      margin: 1em;
+    & > div {
+      margin-bottom: 2rem;
     }
   }
 

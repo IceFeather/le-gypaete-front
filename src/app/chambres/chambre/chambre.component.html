@@ -5,7 +5,7 @@
     </button>
     <div>
       <h1>{{chambre.nom}}
-        <div class="trait" [style.max-width.rem]="5"></div>
+        <hr>
       </h1>
     </div>
   </div>
@@ -13,10 +13,15 @@
   <div class="corp">
 
     <div class="diaporama">
-      <ng-container *ngIf="breakpointService.isMobile; else imagesStack">
-        <diaporama-visualiseur></diaporama-visualiseur>
-      </ng-container>
-      <ng-template #imagesStack>
+      <!-- <ng-container *ngIf="breakpointService.isMobile; else imagesStack"> -->
+        <div>
+          <diaporama-visualiseur [diaporamaService]="diaporamaService" [height]="breakpointService.isMobile ? 300 : 500"></diaporama-visualiseur>
+        </div>
+        <div>
+          <diaporama-miniatures [diaporamaService]="diaporamaService" [cols]="4"></diaporama-miniatures>
+        </div>
+      <!-- </ng-container> -->
+      <!-- <ng-template #imagesStack>
         <ng-container *ngIf="chambre.images.length > 0; else imageRemplacement;">
           <div *ngFor="let image of chambre.images" class="image">
             <img [src]="image.url" [alt]="image.nom">
@@ -27,7 +32,7 @@
             <img src="/assets/img/remplacement.png" alt="image à venir">
           </div>
         </ng-template>
-      </ng-template>
+      </ng-template> -->
     </div>
 
     <div class="gauche">
@@ -38,8 +43,9 @@
       </div>
       <div class="details">
         <div class="titre">
-          <h2>{{'détails' | translate | titlecase}}</h2>
-          <div class="trait" [style.max-width.rem]="2"></div>
+          <h2>{{'détails' | translate | titlecase}}
+            <hr>
+          </h2>
         </div>
         <mat-list>
           <mat-list-item class="grand">
@@ -102,8 +108,9 @@
       </div>
       <div class="tarifs">
         <div class="titre">
-          <h2>{{'tarifs' | translate | titlecase}}</h2>
-          <div class="trait" [style.max-width.rem]="2"></div>
+          <h2>{{'tarifs' | translate | titlecase}}
+            <hr>
+          </h2>
         </div>
         <mat-list>
           <div mat-subheader>{{'base' | translate | titlecase}} {{chambre.tarifs.nombrePersonnesBase}} {{(chambre.tarifs.nombrePersonnesBase > 1 ? 'personnes': 'personne') | translate}}</div>

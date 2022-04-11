@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Chambre } from '../model/chambre';
 import { FondService } from 'src/app/fond/service/fond.service';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
@@ -9,6 +9,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { ChambresApiService } from '../chambres.api.service';
 import { Observable, of, Subscription } from 'rxjs';
 import { BreakpointService } from 'src/app/breakpoint.service';
+import { map, switchMap, switchMapTo } from 'rxjs/operators';
 
 @Component({
   selector: 'app-chambre',
@@ -39,15 +40,12 @@ export class ChambreComponent implements OnInit, OnDestroy {
     if (history.state.chambre != null) {
       this.chambre$ = of(history.state.chambre);
     } else {
-      this.route.paramMap.subscribe(
-        params => {
-          let numero = Number(params.get('numero'));
-          this.chambre$ = this.chambresApiService.recupererAvecNumero(numero);
-        }
-      ).unsubscribe();
+      this.chambre$ = this.route.paramMap.pipe(
+        map( (p : ParamMap) => Number(p.get('numero')!)),
+        switchMap( n => this.chambresApiService.recupererAvecNumero(n))
+      );
     }
-
-    this.initFond();
+    this.initFondEtDiaporama();
 
 /*
     this.route.paramMap.subscribe(
@@ -70,7 +68,7 @@ export class ChambreComponent implements OnInit, OnDestroy {
 */
   }
 
-  initFond(): void {
+  initFondEtDiaporama(): void {
     this.chambre$.subscribe(
       chambre => {
         if (chambre.images.length > 0) {
