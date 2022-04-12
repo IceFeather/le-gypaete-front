@@ -38,7 +38,7 @@ import { DiaporamaService } from '../service/diaporama.service';
 })
 export class VisualiseurComponent implements OnInit {
 
-  @Input() height: number = 300;
+  @Input() height = '40vh';
 
   @Input() diaporamaService: DiaporamaService;
 

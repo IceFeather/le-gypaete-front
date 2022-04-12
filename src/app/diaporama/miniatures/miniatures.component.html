@@ -1,8 +1,8 @@
 <mat-grid-list [cols]="cols" rowHeight="2:1">
-  <ng-container *ngFor="let image of diaporamaService.images | keyvalue">
-    <mat-grid-tile matRipple class="tuile" [style.background-image]="'url(' + image.value.url + ')'" (click)="choix(image.key)">
+  <ng-container *ngFor="let image of diaporamaService.images; let i = index">
+    <mat-grid-tile matRipple class="tuile" [style.background-image]="'url(' + image.url + ')'" (click)="choix(i)">
       <div class="sur"></div>
-      <div class="trait" [@selectionne]="image.key == diaporamaService.numero ? 'oui' : 'non'"></div>
+      <div class="trait" [@selectionne]="i == diaporamaService.numero ? 'oui' : 'non'"></div>
     </mat-grid-tile>
   </ng-container>
 </mat-grid-list>

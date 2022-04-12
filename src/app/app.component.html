@@ -2,7 +2,7 @@
 <div class="gradiant">
   <app-navigation></app-navigation>
   <!-- <div #contenu class="content" [class.mobile]="isMobile" [class.medium]="isMedium" (scroll)="scroll($event)"> -->
-  <div #contenu class="content" [class.mobile]="breakpointService.isMobile">
+  <div #contenu class="content" [class.mobile]="breakpointService.isMobile || breakpointService.isTablet">
     <section id="page">
       <router-outlet></router-outlet>
     </section>

@@ -1,18 +1,18 @@
 <div id="page" class="page" [class.mobile]="breakpointService.isMobile" *ngIf="chalet$ | async as chalet">
-  <div class="corp">
+  <div class="tete">
+    <h1>{{'le chalet' | translate | titlecase}}
+      <hr>
+    </h1>
+  </div>
 
-    <div class="tete">
-      <h1>{{'le chalet' | translate | titlecase}}
-        <hr>
-      </h1>
-    </div>
+  <div class="corp">
 
     <div class="diaporama">
       <div>
-        <diaporama-visualiseur [diaporamaService]="diaporamaService" [height]="breakpointService.isMobile ? 400 : 500"></diaporama-visualiseur>
+        <diaporama-visualiseur [diaporamaService]="diaporamaService"></diaporama-visualiseur>
       </div>
       <div>
-        <diaporama-miniatures [diaporamaService]="diaporamaService" [cols]="4"></diaporama-miniatures>
+        <diaporama-miniatures [diaporamaService]="diaporamaService" [cols]="breakpointService.littleColumns"></diaporama-miniatures>
       </div>
     </div>
 

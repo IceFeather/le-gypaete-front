@@ -32,11 +32,9 @@ export class MiniaturesComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    of(this.diaporamaService.numero).subscribe(n => console.log('image : ' + n));
   }
 
   choix(numero) {
-    console.log('choix : ' + numero);
     this.diaporamaService.aller(numero);
   }
 
